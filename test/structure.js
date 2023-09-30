@@ -197,9 +197,6 @@ let mGameRendrer = (data = {}, mDOM) => {
 
 
 
-
-
-
                             };
                             mSet(mScr);
 
@@ -332,7 +329,7 @@ let mGameRendrer = (data = {}, mDOM) => {
 
         //scr_2..
         let scr_2 = () => {
-            mDta_main.screens.set(scr_2, {
+            mDta_main.screens.set("scr_2", {
                 "e": mE, //Html-Element
                 "value": {
                     //here you can assign your variable based on your requirements..

@@ -11,16 +11,21 @@ body {
 /* Screen 1 */
 /* //--------------------// */
 .s1 {
-    background-image: url("../assets/bg_images/particles.svg");
+    background-image: url("../assets/bg_images/first_scr_bg.svg");
     background-repeat: no-repeat;
     background-position: center;
     /* background-size: cover; */
     width: 100vw;
     height: 100vh;
-    /* height: 100%;
-    width: 100%; */
     position: relative;
 }
+
+/* .s1>.img-cont {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: -1;
+} */
 
 .s1-frame1 {
     flex-shrink: 0;
@@ -50,23 +55,20 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* position: absolute;
-    top: 0%;
-    left: 35%; */
 
 }
 
 
-
+/* 
 .s1-img-leaf {
     width: 172px;
     height: 141px;
     flex-shrink: 0;
     position: relative;
-}
+} */
 
 
-.dark-circle{
+/* .dark-circle{
     width: 62px;
     height: 60px;
     flex-shrink: 0;
@@ -77,13 +79,13 @@ body {
     top: 25%;
     left: 45%;
     z-index: 100;
-}
+} */
 
 .s1-heading {
     color: #000;
     font-size: 48px;
     font-weight: 400;
-    margin-bottom: 100px;
+    margin-block: 100px;
 }
 
 .s1-btn {
@@ -102,4 +104,68 @@ body {
 
 .s1-btn:hover {
     background-color: #dededefe;
+}
+
+
+/* Screen - 2  */
+
+.overlay-Loading {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    border-radius: 60px;
+    border: 5px solid #8D8282;
+    background: #FFF;
+    width: 336px;
+    height: 80px;
+    flex-shrink: 0;
+    /* display: none; */
+    opacity: 1;
+}
+
+.loading-spans {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    position: relative;
+}
+
+.loading-ball {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    border-radius: 87px;
+    background-color: #8D8282;
+    transition: width 2s ease-in-out;
+}
+
+.loading-text {
+    color: #FFF;
+    font-size: 42px;
+    font-weight: 700;
+    position: absolute;
+    left: 30%;
+    z-index: 1;
+}
+
+@keyframes zoomInLoading {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomOutLoading {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }

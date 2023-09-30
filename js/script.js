@@ -84,34 +84,74 @@ let mGameRenderer = (data = {}, mDOM) => {
                             let mSet = (mE = document.body) => {
                                 mE.innerHTML = `
                                     <div class="s1">
+                                       <!-- <div class="img-cont">
+                                            <img src="../assets/bg_images/first_scr_bg.svg" alt="bg"/>
+                                        </div> --!>
                                         <div class="s1-frame1"></div>
                                         <div class="s1-frame2"></div>
                                         <div class="s1-data">
                                             <div class="s1-img-con">
-                                                <img class="s1-img-leaf" src="../assets/leaf_ellipse.svg" alt="leaf" />
+                                                <!-- <img class="s1-img-leaf" src="../assets/leaf_ellipse.svg" alt="leaf" /> 
                                                 <div class="dark-circle"></div>
-                                                <div class="white-circle"></div>
+                                                <div class="white-circle"></div> --!>
                                             </div>
                                             <h1 class="s1-heading">Word Velocity</h1>
-                                            <button onclick="console.log('Hello')" class="s1-btn">New Game</button>
+
+                                            <!-- <button onclick="console.log('Btn Clicked')" class="s1-btn">New Game</button> --!>
+
+                                            <button class="s1-btn">New Game</button>
+
+                                            <div class="overlay-Loading">
+                                                <div class="loading-spans">
+                                                    <span class="loading-ball"></span>
+                                                    <span class="loading-text">Loading</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     
                                 `;
 
-                                setTimeout(() => {
-                                    const screenElement = mE.querySelector('.s1');
-                                    if (screenElement) {
-                                        screenElement.style.opacity = 1;
+                                const screenElement = mE.querySelector('.scr2');
+                                if (screenElement) {
+                                    const s1Btn = screenElement.querySelector(".s1-btn");
 
-                                        // screenElement.;
-                                        // screenElement.height = "100vh";
+                                    s1Btn.addEventListener('click', function(){
+                                        console.log('hello')
+                                    });
+                                    
+
+                                    // Overlay Loading:-
+                                    let s1Loading = () => {
+                                        s1Btn.style.display = "none";
+                                        const overlayLoading = screenElement.querySelector('.overlay-Loading');
+                                        const loadingBall = screenElement.querySelector('.loading-ball');
+
+                                        if (overlayLoading) {
+                                            overlayLoading.style.animation = 'zoomInLoading 1s 3s both';
+
+                                            setTimeout(() => {
+                                                loadingBall.style.width = '100%';
+                                                zoomOutLoading();
+                                            }, 3000);
+
+                                            // zoomOutLoading
+                                            const zoomOutLoading = () => {
+                                                overlayLoading.style.animation = 'zoomOutLoading 1s 3s both';
+                                            }
+                                        }
                                     }
-                                }, 0);
+
+                                }
+
+
+
+
+
 
                                 //set..[Svg]..
                                 mUtils.svg_loader({
-                                    "0": "assets/svgTest/game/game 8.1.svg",  //svg file name --OR-- <svg></svg>   --OR-- "my_folder/my_file.svg"
+                                    "0": "/assets/bg_images/first_scr_bg.svg",  //svg file name --OR-- <svg></svg>   --OR-- "my_folder/my_file.svg"
                                     //"1": "YOUR_UNIQUE_ID",
                                     "2": "100%", //2vh
                                     "3": "100%", //2vh
@@ -165,6 +205,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                 //set..[Btn]..
                                 let mBtn_hldr0 = document.createElement("div");
                                 mE.appendChild(mBtn_hldr0);
+
                                 let mBtn0_evnt = mUtils.btn_loader({
                                     "e1": mBtn_hldr0,  //HTMLElement
                                     "w": "8vw",
@@ -197,11 +238,10 @@ let mGameRenderer = (data = {}, mDOM) => {
                                     //variant..
                                     "vari": 0
                                 });
-                                //set-position [Temporary-Solution]  [-Start-]
+                                //set-position [Temporary-Solution] [-Start-]
                                 mBtn_hldr0.style.position = 'absolute';
                                 mBtn_hldr0.style.top = '45vh';
                                 mBtn_hldr0.style.left = '45%';
-                                //set-position [Temporary-Solution]  [-End-]
 
                             };
                             mSet(mScr);
@@ -236,8 +276,8 @@ let mGameRenderer = (data = {}, mDOM) => {
                                     }
                                 }, 0);
 
-                                 //set..[Svg]..
-                                 mUtils.svg_loader({
+                                //set..[Svg]..
+                                mUtils.svg_loader({
                                     "0": "assets/svgTest/game/game 8.1.svg",  //svg file name --OR-- <svg></svg>   --OR-- "my_folder/my_file.svg"
                                     //"1": "YOUR_UNIQUE_ID",
                                     "2": "100%", //2vh
@@ -698,19 +738,28 @@ let mGameRenderer = (data = {}, mDOM) => {
             "el": mE,
             "value": {
                 //here you can assign your variable based on your requirements..
+                "cb": {
+                    "on_new_btn_clc": (p = {}) => {
+                        scr_2();
+                    },
 
+
+                }
             }
         });
 
-        // setTimeout(() => {
-        //     mDta_main.screens.set("scr_2", {
-        //         "el": mE,
-        //         "value": {
-        //             //here you can assign your variable based on your requirements..
 
-        //         }
-        //     });
-        // }, 2000);
+        let scr_2 = () => {
+            mDta_main.screens.set("scr_2", {
+                "el": mE,
+                "value": {
+                    //here you can assign your variable based on your requirements..
+                    //callback..
+
+
+                }
+            });
+        }
 
         // setTimeout(() => {
         //     mDta_main.screens.set("scr_3", {
@@ -751,16 +800,6 @@ let mGameRenderer = (data = {}, mDOM) => {
         //         }
         //     });
         // }, 30000);
-
-        // setTimeout(() => {
-        //     mDta_main.screens.set("scr_7", {
-        //         "el": mE,
-        //         "value": {
-        //             //here you can assign your variable based on your requirements..
-
-        //         }
-        //     });
-        // }, 57000);
 
 
 

@@ -1,0 +1,107 @@
+body {
+    padding: 70px;
+}
+
+.border {
+    border: 6px solid #8d8282; 
+    width: 99%; 
+    min-height: 80vh;
+    position: relative;
+    display: flex;
+}
+
+.border1 {
+    margin-bottom: -3px;
+}
+
+.border2 {
+    border: 6px solid #8d8282;
+    width: 99%;
+    min-height: 80vh;
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.about {
+    color: #000;
+    font-family: Baskervville;
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .carousel-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .carousel-slider {
+    display: flex;
+    overflow: hidden;
+  }
+  
+  .carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: none;
+  }
+  
+  .carousel-item.active-item {
+    display: block;
+    color: #000;
+    font-family: Baskervville;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 60px;
+    line-height: normal;
+  }
+  
+  .carousel-item img {
+    max-width: 100%;
+  }
+  
+  .carousel-dots {
+    text-align: center;
+  }
+  
+  .dot1, .dot2, .dot3 {
+    height: 30px;
+    width: 30px;
+    margin: 0 5px;
+    margin-top: 180px;
+    background-color: white;
+    border: 2px solid #8D8282;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .active-dot {
+    background-color: #8D8282;
+  }
+  
+  .btn {
+    text-align: right;
+    padding-right: 60px;
+    margin: 1px;
+    color: #000;
+    font-family: Baskervville;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+  }
+
+

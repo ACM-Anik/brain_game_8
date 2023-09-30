@@ -1,3 +1,5 @@
+// import core_1mn from '../1mn/core_1mn.js';
+
 let mGameRenderer = (data = {}, mDOM) => {
     //create element..    
     let mDiv = document.createElement("div");
@@ -21,31 +23,31 @@ let mGameRenderer = (data = {}, mDOM) => {
             return mCard;
         },
 
-        //svg_loader..
-        "svg_loader": (p = {}) => {
-            core_1mn['mSvg'].set(p);
-        },
+        // //svg_loader..
+        // "svg_loader": (p = {}) => {
+        //     core_1mn['mSvg'].set(p);
+        // },
 
-        //txt_loader..
-        "txt_loader": (p = {}, cb = {}) => {
-            let mEvents =
-                core_1mn.mTxt.set(p,
-                    cb,
-                );
-            return mEvents;
-        },
+        // //txt_loader..
+        // "txt_loader": (p = {}, cb = {}) => {
+        //     let mEvents =
+        //         core_1mn.mTxt.set(p,
+        //             cb,
+        //         );
+        //     return mEvents;
+        // },
 
-        //btn_loader..
-        "btn_loader": (p = {}) => {
-            let mBtn = core_1mn['btn']['1'].set(p);
-            //mBtn['btn']['hide'] ();
-            //mBtn['btn']['show'] ();
-            //mBtn['btn']['disable'] ();
-            //mBtn['btn']['enable'] ();
-            //mBtn['btn']['pbShow'] ("red");
-            //mBtn['btn']['pbHide'] (); 
-            return mBtn;
-        }
+        // //btn_loader..
+        // "btn_loader": (p = {}) => {
+        //     let mBtn = core_1mn['btn']['1'].set(p);
+        //     //mBtn['btn']['hide'] ();
+        //     //mBtn['btn']['show'] ();
+        //     //mBtn['btn']['disable'] ();
+        //     //mBtn['btn']['enable'] ();
+        //     //mBtn['btn']['pbShow'] ("red");
+        //     //mBtn['btn']['pbHide'] (); 
+        //     return mBtn;
+        // }
 
 
     };
@@ -84,20 +86,17 @@ let mGameRenderer = (data = {}, mDOM) => {
                             let mSet = (mE = document.body) => {
                                 mE.innerHTML = `
                                     <div class="s1">
-                                       <!-- <div class="img-cont">
-                                            <img src="../assets/bg_images/first_scr_bg.svg" alt="bg"/>
-                                        </div> --!>
                                         <div class="s1-frame1"></div>
                                         <div class="s1-frame2"></div>
                                         <div class="s1-data">
-                                            <div class="s1-img-con">
-                                                <!-- <img class="s1-img-leaf" src="../assets/leaf_ellipse.svg" alt="leaf" /> 
+                                            <!-- <div class="s1-img-con">
+                                                <img class="s1-img-leaf" src="../assets/leaf_ellipse.svg" alt="leaf" /> 
                                                 <div class="dark-circle"></div>
-                                                <div class="white-circle"></div> --!>
-                                            </div>
+                                                <div class="white-circle"></div>
+                                            </div> -->
                                             <h1 class="s1-heading">Word Velocity</h1>
 
-                                            <!-- <button onclick="console.log('Btn Clicked')" class="s1-btn">New Game</button> --!>
+                                            <!-- <button onclick="console.log('Btn Clicked')" class="s1-btn">New Game</button> -->
 
                                             <button class="s1-btn">New Game</button>
 
@@ -109,139 +108,131 @@ let mGameRenderer = (data = {}, mDOM) => {
                                             </div>
                                         </div>
                                     </div>
-                                    
                                 `;
 
-                                const screenElement = mE.querySelector('.scr2');
+                                const screenElement = mE.querySelector('.s1');
                                 if (screenElement) {
-                                    const s1Btn = screenElement.querySelector(".s1-btn");
 
+                                    let s1Btn = screenElement.querySelector(".s1-btn");
                                     s1Btn.addEventListener('click', function(){
-                                        console.log('hello')
-                                    });
-                                    
+                                        s1Btn.style.opacity = 0;
 
-                                    // Overlay Loading:-
-                                    let s1Loading = () => {
-                                        s1Btn.style.display = "none";
+                                        // Overlay Loading:-
                                         const overlayLoading = screenElement.querySelector('.overlay-Loading');
                                         const loadingBall = screenElement.querySelector('.loading-ball');
-
+                                        
                                         if (overlayLoading) {
-                                            overlayLoading.style.animation = 'zoomInLoading 1s 3s both';
+
+                                            overlayLoading.style.animation = 'zoomInLoading 1s 1s both';
 
                                             setTimeout(() => {
                                                 loadingBall.style.width = '100%';
                                                 zoomOutLoading();
-                                            }, 3000);
+                                            }, 2000);
 
                                             // zoomOutLoading
                                             const zoomOutLoading = () => {
                                                 overlayLoading.style.animation = 'zoomOutLoading 1s 3s both';
                                             }
                                         }
-                                    }
-
+                                    });
                                 }
 
 
 
 
+                                // //set..[Svg]..
+                                // mUtils.svg_loader({
+                                //     "0": "../assets/bg_images/first_scr_bg.svg",  //svg file name --OR-- <svg></svg>   --OR-- "my_folder/my_file.svg"
+                                //     //"1": "YOUR_UNIQUE_ID",
+                                //     "2": "100%", //2vh
+                                //     "3": "100%", //2vh
+                                //     "4": "", //"" => no-color --OR-- undefined => "auto-color-applied" --OR-- "rgba(my color)"
+                                //     "5": mE,  //HTML-ELEMENT
+                                //     //you can set and (reload) FIELD by (assigning) this func..
+                                //     //"reload": () => {},
+                                //     "cb": {
+                                //         "onLoad": (mCurrItem) => {
+                                //             //use (svg)
+                                //             //alert("onLoad");
+                                //         },
+                                //         "onInit": (mCurrItem) => {
+                                //             //This will trigger immediately..
+                                //         },
+                                //         "onError": () => {
+                                //             //alert("onError");
+                                //         },
+                                //         "onClick": (mCurrItem) => {
+                                //             //alert("onClick");
+                                //         }
+                                //     }
+                                // });
 
 
-                                //set..[Svg]..
-                                mUtils.svg_loader({
-                                    "0": "/assets/bg_images/first_scr_bg.svg",  //svg file name --OR-- <svg></svg>   --OR-- "my_folder/my_file.svg"
-                                    //"1": "YOUR_UNIQUE_ID",
-                                    "2": "100%", //2vh
-                                    "3": "100%", //2vh
-                                    "4": "", //"" => no-color --OR-- undefined => "auto-color-applied" --OR-- "rgba(my color)"
-                                    "5": mE,  //HTML-ELEMENT
-                                    //you can set and (reload) FIELD by (assigning) this func..
-                                    //"reload": () => {},
-                                    "cb": {
-                                        "onLoad": (mCurrItem) => {
-                                            //use (svg)
-                                            //alert("onLoad");
-                                        },
-                                        "onInit": (mCurrItem) => {
-                                            //This will trigger immediately..
-                                        },
-                                        "onError": () => {
-                                            //alert("onError");
-                                        },
-                                        "onClick": (mCurrItem) => {
-                                            //alert("onClick");
-                                        }
-                                    }
-                                });
-
-
-                                //set..[Text]..
-                                let mT0_evnt = mUtils.txt_loader({
-                                    "0": mE,  //HTMLElement
-                                    "1": 'Word Velocity',  //txt
-                                    "2": "2.9vh",  //fontSize
-                                    "3": "#000",  //color
-                                    "4": 0,  //pos hori [left, center, right]
-                                    "5": 0,   //[".innerHTML", ".innerText"]
-                                    //"6": grey, //onHoverColor
-                                    "7": ``, //padding
-                                },
-                                    {
-                                        "onClc": () => { },
-                                        "onmouseover": () => { },
-                                        "onmouseout": () => { },
-                                    });
-                                //set-position [Temporary-Solution]  [-Start-]
-                                mT0_evnt["e"].style.position = 'absolute';
-                                mT0_evnt["e"].style.top = '35vh';
-                                mT0_evnt["e"].style.left = ' 43%';
-                                //set-position [Temporary-Solution]  [-End-]
-
+                                // //set..[Text]..
+                                // let mT0_evnt = mUtils.txt_loader({
+                                //     "0": mE,  //HTMLElement
+                                //     "1": 'Word Velocity',  //txt
+                                //     "2": "2.9vh",  //fontSize
+                                //     "3": "#000",  //color
+                                //     "4": 0,  //pos hori [left, center, right]
+                                //     "5": 0,   //[".innerHTML", ".innerText"]
+                                //     //"6": grey, //onHoverColor
+                                //     "7": ``, //padding
+                                // },
+                                //     {
+                                //         "onClc": () => { },
+                                //         "onmouseover": () => { },
+                                //         "onmouseout": () => { },
+                                //     });
+                                // //set-position [Temporary-Solution]  [-Start-]
+                                // mT0_evnt["e"].style.position = 'absolute';
+                                // mT0_evnt["e"].style.top = '35vh';
+                                // mT0_evnt["e"].style.left = ' 43%';
+                                // //set-position [Temporary-Solution]  [-End-]
 
 
 
-                                //set..[Btn]..
-                                let mBtn_hldr0 = document.createElement("div");
-                                mE.appendChild(mBtn_hldr0);
+                                // //set..[Btn]..
+                                // let mBtn_hldr0 = document.createElement("div");
+                                // mE.appendChild(mBtn_hldr0);
 
-                                let mBtn0_evnt = mUtils.btn_loader({
-                                    "e1": mBtn_hldr0,  //HTMLElement
-                                    "w": "8vw",
-                                    "posH": 1,
-                                    "h": "4.2vh",
-                                    "txt": {
-                                        "0": "New Game",
-                                        "1": "1.3vh"
-                                    },
-                                    //"ico": {"0": "sample.svg", "1": "1.3vh", "2": "1.3vh", "3": "rgba(255,255,255, 1.0)" },
-                                    "cb": {
-                                        "onLoad": function (data) {
-                                            //let mBtn = data['btn'];
-                                            //console.log(mBtn);
-                                        },
-                                        "onClick": function (data) {
-                                            //alert(JSON.stringify(data));
-                                            //console.log(data);
-                                            //set..
-                                            mSendCB(on_new_btn_clc, {});
-                                        },
-                                        "onClickD": function (data) {
-                                            //alert(JSON.stringify(data));
-                                            //console.log(data);
+                                // let mBtn0_evnt = mUtils.btn_loader({
+                                //     "e1": mBtn_hldr0,  //HTMLElement
+                                //     "w": "8vw",
+                                //     "posH": 1,
+                                //     "h": "4.2vh",
+                                //     "txt": {
+                                //         "0": "New Game",
+                                //         "1": "1.3vh"
+                                //     },
+                                //     //"ico": {"0": "sample.svg", "1": "1.3vh", "2": "1.3vh", "3": "rgba(255,255,255, 1.0)" },
+                                //     "cb": {
+                                //         "onLoad": function (data) {
+                                //             //let mBtn = data['btn'];
+                                //             //console.log(mBtn);
+                                //         },
+                                //         "onClick": function (data) {
+                                //             //alert(JSON.stringify(data));
+                                //             //console.log(data);
+                                //             //set..
+                                //             mSendCB(on_new_btn_clc, {});
+                                //         },
+                                //         "onClickD": function (data) {
+                                //             //alert(JSON.stringify(data));
+                                //             //console.log(data);
 
-                                        }
-                                    },
-                                    //typ..
-                                    "typ": 0,
-                                    //variant..
-                                    "vari": 0
-                                });
-                                //set-position [Temporary-Solution] [-Start-]
-                                mBtn_hldr0.style.position = 'absolute';
-                                mBtn_hldr0.style.top = '45vh';
-                                mBtn_hldr0.style.left = '45%';
+                                //         }
+                                //     },
+                                //     //typ..
+                                //     "typ": 0,
+                                //     //variant..
+                                //     "vari": 0
+                                // });
+                                // //set-position [Temporary-Solution] [-Start-]
+                                // mBtn_hldr0.style.position = 'absolute';
+                                // mBtn_hldr0.style.top = '45vh';
+                                // mBtn_hldr0.style.left = '45%';
 
                             };
                             mSet(mScr);
@@ -276,55 +267,55 @@ let mGameRenderer = (data = {}, mDOM) => {
                                     }
                                 }, 0);
 
-                                //set..[Svg]..
-                                mUtils.svg_loader({
-                                    "0": "assets/svgTest/game/game 8.1.svg",  //svg file name --OR-- <svg></svg>   --OR-- "my_folder/my_file.svg"
-                                    //"1": "YOUR_UNIQUE_ID",
-                                    "2": "100%", //2vh
-                                    "3": "100%", //2vh
-                                    "4": "", //"" => no-color --OR-- undefined => "auto-color-applied" --OR-- "rgba(my color)"
-                                    "5": mE,  //HTML-ELEMENT
-                                    //you can set and (reload) FIELD by (assigning) this func..
-                                    //"reload": () => {},
-                                    "cb": {
-                                        "onLoad": (mCurrItem) => {
-                                            //use (svg)
-                                            //alert("onLoad");
-                                        },
-                                        "onInit": (mCurrItem) => {
-                                            //This will trigger immediately..
-                                        },
-                                        "onError": () => {
-                                            //alert("onError");
-                                        },
-                                        "onClick": (mCurrItem) => {
-                                            //alert("onClick");
-                                        }
-                                    }
-                                });
+                                // //set..[Svg]..
+                                // mUtils.svg_loader({
+                                //     "0": "assets/svgTest/game/game 8.1.svg",  //svg file name --OR-- <svg></svg>   --OR-- "my_folder/my_file.svg"
+                                //     //"1": "YOUR_UNIQUE_ID",
+                                //     "2": "100%", //2vh
+                                //     "3": "100%", //2vh
+                                //     "4": "", //"" => no-color --OR-- undefined => "auto-color-applied" --OR-- "rgba(my color)"
+                                //     "5": mE,  //HTML-ELEMENT
+                                //     //you can set and (reload) FIELD by (assigning) this func..
+                                //     //"reload": () => {},
+                                //     "cb": {
+                                //         "onLoad": (mCurrItem) => {
+                                //             //use (svg)
+                                //             //alert("onLoad");
+                                //         },
+                                //         "onInit": (mCurrItem) => {
+                                //             //This will trigger immediately..
+                                //         },
+                                //         "onError": () => {
+                                //             //alert("onError");
+                                //         },
+                                //         "onClick": (mCurrItem) => {
+                                //             //alert("onClick");
+                                //         }
+                                //     }
+                                // });
 
 
-                                //set..[Text]..
-                                let mT0_evnt = mUtils.txt_loader({
-                                    "0": mE,  //HTMLElement
-                                    "1": 'Word Velocity',  //txt
-                                    "2": "2.9vh",  //fontSize
-                                    "3": "#000",  //color
-                                    "4": 0,  //pos hori [left, center, right]
-                                    "5": 0,   //[".innerHTML", ".innerText"]
-                                    //"6": grey, //onHoverColor
-                                    "7": ``, //padding
-                                },
-                                    {
-                                        "onClc": () => { },
-                                        "onmouseover": () => { },
-                                        "onmouseout": () => { },
-                                    });
-                                //set-position [Temporary-Solution]  [-Start-]
-                                mT0_evnt["e"].style.position = 'absolute';
-                                mT0_evnt["e"].style.top = '35vh';
-                                mT0_evnt["e"].style.left = '43%';
-                                //set-position [Temporary-Solution]  [-End-]
+                                // //set..[Text]..
+                                // let mT0_evnt = mUtils.txt_loader({
+                                //     "0": mE,  //HTMLElement
+                                //     "1": 'Word Velocity',  //txt
+                                //     "2": "2.9vh",  //fontSize
+                                //     "3": "#000",  //color
+                                //     "4": 0,  //pos hori [left, center, right]
+                                //     "5": 0,   //[".innerHTML", ".innerText"]
+                                //     //"6": grey, //onHoverColor
+                                //     "7": ``, //padding
+                                // },
+                                //     {
+                                //         "onClc": () => { },
+                                //         "onmouseover": () => { },
+                                //         "onmouseout": () => { },
+                                //     });
+                                // //set-position [Temporary-Solution]  [-Start-]
+                                // mT0_evnt["e"].style.position = 'absolute';
+                                // mT0_evnt["e"].style.top = '35vh';
+                                // mT0_evnt["e"].style.left = '43%';
+                                // //set-position [Temporary-Solution]  [-End-]
 
                             };
                             mSet(mScr);
@@ -743,7 +734,6 @@ let mGameRenderer = (data = {}, mDOM) => {
                         scr_2();
                     },
 
-
                 }
             }
         });
@@ -755,7 +745,6 @@ let mGameRenderer = (data = {}, mDOM) => {
                 "value": {
                     //here you can assign your variable based on your requirements..
                     //callback..
-
 
                 }
             });

@@ -14,18 +14,15 @@ body {
     background-image: url("../assets/bg_images/first_scr_bg.svg");
     background-repeat: no-repeat;
     background-position: center;
-    /* background-size: cover; */
+    background-size: cover;
     width: 100vw;
     height: 100vh;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
 }
 
-/* .s1>.img-cont {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    z-index: -1;
-} */
 
 .s1-frame1 {
     flex-shrink: 0;
@@ -55,7 +52,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    position: relative;
 }
 
 
@@ -65,10 +62,9 @@ body {
     height: 141px;
     flex-shrink: 0;
     position: relative;
-} */
+}
 
-
-/* .dark-circle{
+.dark-circle{
     width: 62px;
     height: 60px;
     flex-shrink: 0;
@@ -100,6 +96,8 @@ body {
     background: #FFF;
     box-shadow: 0px 15px 4px 2px #8D8282;
     cursor: pointer;
+    opacity: 1;
+    transition: .5s all;
 }
 
 .s1-btn:hover {
@@ -108,21 +106,21 @@ body {
 
 
 /* Screen - 2  */
+/* ------------------- */
 
 .overlay-Loading {
     position: absolute;
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 100;
     border-radius: 60px;
     border: 5px solid #8D8282;
     background: #FFF;
-    width: 336px;
-    height: 80px;
+    width: 500px;
+    height: 84px;
     flex-shrink: 0;
-    /* display: none; */
-    opacity: 1;
+    z-index: -1;
+    opacity: 0;
 }
 
 .loading-spans {
@@ -130,11 +128,13 @@ body {
     justify-content: left;
     align-items: center;
     position: relative;
+    padding-top: 10px;
+    padding-inline: 10px;
 }
 
 .loading-ball {
-    width: 80px;
-    height: 80px;
+    height: 60px;
+    width: 75px;
     flex-shrink: 0;
     border-radius: 87px;
     background-color: #8D8282;
@@ -142,12 +142,12 @@ body {
 }
 
 .loading-text {
-    color: #FFF;
+    color: #000;
     font-size: 42px;
     font-weight: 700;
     position: absolute;
-    left: 30%;
-    z-index: 1;
+    left: 35%;
+    bottom: -150%;
 }
 
 @keyframes zoomInLoading {

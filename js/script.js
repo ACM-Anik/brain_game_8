@@ -141,8 +141,6 @@ let mGameRenderer = (data = {}, mDOM) => {
 
                                                 mSendCB("on_new_btn_clc", {});
 
-                                                console.log()
-
                                             }, 5000);
                                         }
                                     });
@@ -280,7 +278,36 @@ let mGameRenderer = (data = {}, mDOM) => {
                             let mSet = (mE = document.body) => {
                                 mE.innerHTML = `
                                 <div class="s2">
-                                    <img class="s2-img" src="../assets/word_with_leaf.svg" alt="Leaf & Text">
+                                    <div className="part1">
+                                        <img class="s2-img" src="../assets/word_with_leaf.svg" alt="Leaf & Text">
+                                    </div>
+
+                                    <div class="part2">
+                                        <div class="border border1">
+                                            <div class="border border2">
+                                                <p class="s2-about-title">About</p>
+                                                <div class="s2-carousel-cont">
+                                                    <div class="s2-carousel-slider">
+                                                        <div class="s2-carousel-item active-item">
+                                                            <p>Choose your speed and difficulty levels.</p>
+                                                        </div>
+                                                        <div class="s2-carousel-item">
+                                                            <p>Focus and track the word.</p>
+                                                        </div>
+                                                        <div class="s2-carousel-item">
+                                                            <p>Answer the questions.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="s2-carousel-dots">
+                                                        <span class="dot1"></span>
+                                                        <span class="dot2"></span>
+                                                        <span class="dot3"></span>
+                                                    </div>
+                                                    <p class="s2-btn">Skip</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 
                                 `;
@@ -294,12 +321,52 @@ let mGameRenderer = (data = {}, mDOM) => {
 
                                     setTimeout(() => {
                                         s2Img.style.animation = "s2-zoomOut 1s 1s both";
+    
                                     }, 2000);
 
-                                    setInterval(() => {
-                                        screenElement.style.opacity = 0;
-                                        mSendCB("on_new_btn_clc", {});
+
+                                    setTimeout(() => {
+                                        const Part2About = screenElement.querySelector(".part2");
+                                        Part2About.style.opacity = 1;
+
+                                        const dots = screenElement.querySelectorAll(".s2-carousel-dots span");
+                                        const itemImg = screenElement.querySelectorAll(".s2-carousel-item");
+
+                                        let dotClicked = false;
+                                        let currentIndex = 0;
+
+                                        dots.forEach((dot, index) => {
+                                            dot.addEventListener("click", function () {
+                                                dots.forEach(dot => dot.classList.remove("active-dot"));
+                                                itemImg.forEach(image => image.classList.remove("active-item"));
+
+                                                dot.classList.add("active-dot");
+                                                itemImg[index].classList.add("active-item");
+
+                                                dotClicked = true;
+                                                currentIndex = index;
+                                            });
+                                        });
+
+                                        const skipButton = screenElement.querySelector(".s2-btn");
+                                        skipButton.addEventListener("click", function () {
+                                            // if (dotClicked) {
+                                            itemImg[currentIndex].classList.remove("active-item");
+                                            currentIndex = (currentIndex + 1) % itemImg.length;
+                                            itemImg[currentIndex].classList.add("active-item");
+                                            dots.forEach(dot => dot.classList.remove("active-dot"));
+                                            dots[currentIndex].classList.add("active-dot");
+                                            // }
+                                        });
+
                                     }, 4000);
+
+
+                                    // setInterval(() => {
+                                    //     screenElement.style.opacity = 0;
+                                    //     mSendCB("on_new_btn_clc", {});
+                                    // }, 4000);
+
                                 }
 
 
@@ -400,11 +467,11 @@ let mGameRenderer = (data = {}, mDOM) => {
                     //                             <img class="circle" src="../assets/line_4.svg" alt="">
                     //                         </div>
                     //                     </div>
-                                        
+
                     //                     <button class="s3-btn">Let;s play</button>
                     //                 </div>
                     //             </div>
-                                
+
                     //             `;
 
                     //             setTimeout(() => {
@@ -465,7 +532,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                     //                 <div class="img-container">
                     //                     <img class="scr4-img1" src="../assets/rotate_90.svg" alt="img">
                     //                 </div>
-                                    
+
                     //                 <div class="scr4-data scr4-data2-dis">
                     //                     <h1 class="scr4-h1">Game Explanation</h1>
                     //                     <div>
@@ -473,10 +540,10 @@ let mGameRenderer = (data = {}, mDOM) => {
                     //                         <img class="scr4-img2" src="../assets/answer_list.svg" alt="list">
                     //                     </div>
                     //                     <button onclick="next" class="scr4-skip-btn">Skip</button>
-                                        
+
                     //                 </div>
                     //             </div>
-                                
+
                     //             `;
 
                     //             setTimeout(() => {
@@ -522,168 +589,168 @@ let mGameRenderer = (data = {}, mDOM) => {
                     //     }
                     // },
                     // Screen-5 
-                    {
-                        "name": "Screen 5",
-                        "key": "scr_5",
-                        "set": (k, v, thisItem) => {
-                            console.log(thisItem);
-                            //--reset--// [START]
-                            v["el"].innerHTML = ``; //reset
+                    // {
+                    //     "name": "Screen 5",
+                    //     "key": "scr_5",
+                    //     "set": (k, v, thisItem) => {
+                    //         console.log(thisItem);
+                    //         //--reset--// [START]
+                    //         v["el"].innerHTML = ``; //reset
 
-                            //set..
-                            let mScr = document.createElement("div");
-                            mScr.classList.add('mScr');
-                            v["el"].appendChild(mScr);
-
-
-                            //set..
-                            let mSet = (mE = document.body) => {
-                                mE.innerHTML = `
-                                <div class="s5">
-
-                                </div>
-                                
-                                `;
-                                //<!-- --!>
-                                setTimeout(() => {
-                                    const screenElement = mE.querySelector('.scr5');
-                                    if (screenElement) {
-                                        screenElement.style.opacity = 1;
+                    //         //set..
+                    //         let mScr = document.createElement("div");
+                    //         mScr.classList.add('mScr');
+                    //         v["el"].appendChild(mScr);
 
 
-                                    }
-                                }, 0);
+                    //         //set..
+                    //         let mSet = (mE = document.body) => {
+                    //             mE.innerHTML = `
+                    //             <div class="s5">
 
-                            };
-                            mSet(mScr);
-                        }
-                    },
-                    // Screen-6
-                    {
-                        "name": "Screen 6",
-                        "key": "scr_6",
-                        "set": (k, v, thisItem) => {
-                            console.log(thisItem);
-                            //--reset--// [START]
-                            v["el"].innerHTML = ``; //reset
+                    //             </div>
 
-                            //set..
-                            let mScr = document.createElement("div");
-                            mScr.classList.add('mScr');
-                            v["el"].appendChild(mScr);
+                    //             `;
+                    //             //<!-- --!>
+                    //             setTimeout(() => {
+                    //                 const screenElement = mE.querySelector('.scr5');
+                    //                 if (screenElement) {
+                    //                     screenElement.style.opacity = 1;
 
 
-                            //set..
-                            let mSet = (mE = document.body) => {
-                                mE.innerHTML = `
-                                <div class="scr6 scr-transition scr6-bg-img">
-                                    
-                                    <img class="scr6-img1" src="../assets/rotate_90.svg" alt="rotational">
+                    //                 }
+                    //             }, 0);
 
-                                    
+                    //         };
+                    //         mSet(mScr);
+                    //     }
+                    // },
+                    // // Screen-6
+                    // {
+                    //     "name": "Screen 6",
+                    //     "key": "scr_6",
+                    //     "set": (k, v, thisItem) => {
+                    //         console.log(thisItem);
+                    //         //--reset--// [START]
+                    //         v["el"].innerHTML = ``; //reset
+
+                    //         //set..
+                    //         let mScr = document.createElement("div");
+                    //         mScr.classList.add('mScr');
+                    //         v["el"].appendChild(mScr);
 
 
-                                    <!-- Countdown --!>
-                                        <div class="scr6-count scr6-count-ready">
-                                            <img class="scr6-data-imgs" src="../assets/count/ready.svg" alt="ready">                 
-                                        </div>
-                                        <div class="scr6-count scr6-count-1">
-                                            <img class="scr6-data-imgs" src="../assets/count/count_1.svg" alt="1">
-                                        </div>
-                                        <div class="scr6-count scr6-count-2">
-                                            <img class="scr6-data-imgs" src="../assets/count/count_2.svg" alt="2"> 
-                                        </div>
-                                        <div class="scr6-count scr6-count-3">
-                                            <img class="scr6-data-imgs" src="../assets/count/count_3.svg" alt="3">
-                                        </div>
-                                        
-                                        
-                                        <!-- Question--!>
+                    //         //set..
+                    //         let mSet = (mE = document.body) => {
+                    //             mE.innerHTML = `
+                    //             <div class="scr6 scr-transition scr6-bg-img">
 
-                                        <div class="stats">
-                                            <p>Level: 5</p>
-                                            <p>Round: 1</p>
-                                        </div>   
-
-                                </div>
-                                
-                                `;
-
-                                setTimeout(() => {
-                                    const screenElement = mE.querySelector('.scr6');
-                                    if (screenElement) {
-                                        screenElement.style.opacity = 1;
+                    //                 <img class="scr6-img1" src="../assets/rotate_90.svg" alt="rotational">
 
 
 
-                                    }
-                                }, 0);
 
-                            };
-                            mSet(mScr);
-                        }
-                    },
-                    // Screen-7
-                    {
-                        "name": "Screen 7",
-                        "key": "scr_7",
-                        "set": (k, v, thisItem) => {
-                            console.log(thisItem);
-                            //--reset--// [START]
-                            v["el"].innerHTML = ``; //reset
-
-                            //set..
-                            let mScr = document.createElement("div");
-                            mScr.classList.add('mScr');
-                            v["el"].appendChild(mScr);
+                    //                 <!-- Countdown --!>
+                    //                     <div class="scr6-count scr6-count-ready">
+                    //                         <img class="scr6-data-imgs" src="../assets/count/ready.svg" alt="ready">                 
+                    //                     </div>
+                    //                     <div class="scr6-count scr6-count-1">
+                    //                         <img class="scr6-data-imgs" src="../assets/count/count_1.svg" alt="1">
+                    //                     </div>
+                    //                     <div class="scr6-count scr6-count-2">
+                    //                         <img class="scr6-data-imgs" src="../assets/count/count_2.svg" alt="2"> 
+                    //                     </div>
+                    //                     <div class="scr6-count scr6-count-3">
+                    //                         <img class="scr6-data-imgs" src="../assets/count/count_3.svg" alt="3">
+                    //                     </div>
 
 
-                            //mset..
-                            let mSet = (mE = document.body) => {
-                                mE.innerHTML = `
-                                <div class="s7 scr-transition s7-bg-img">
-                                    <div class="img-container">
-                                        <img class="s7-img1" src="../assets/rotate_90.svg" alt="rotate">
-                                    </div>
+                    //                     <!-- Question--!>
 
-                                    <div class="s7-data">
-                                        <div>
-                                            <div class="s7-ques">
-                                                <span class="s7-quesText">Defines if the animation should automatically starts or not.</span>
+                    //                     <div class="stats">
+                    //                         <p>Level: 5</p>
+                    //                         <p>Round: 1</p>
+                    //                     </div>   
 
-                                                <div class="s7-con-div"></div>
+                    //             </div>
 
-                                                <div class="s7-child-line-cont"></div>
-                                            </div>
+                    //             `;
 
-                                            <div class="s7-options">
-                                                <div class="s7-option1">Option 1</div>
-                                                <div class="s7-option2">Option 2</div>
-                                            </div>
-                                            <div class="stats">
-                                                <p>Level: 5</p>
-                                                <p>Round: 1</p>
-                                            </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                `;
-
-                                setTimeout(() => {
-                                    const screenElement = mE.querySelector('.s7');
-                                    if (screenElement) {
-                                        screenElement.style.opacity = 1;
+                    //             setTimeout(() => {
+                    //                 const screenElement = mE.querySelector('.scr6');
+                    //                 if (screenElement) {
+                    //                     screenElement.style.opacity = 1;
 
 
 
-                                    }
-                                }, 0);
+                    //                 }
+                    //             }, 0);
 
-                            };
-                            mSet(mScr);
-                        }
-                    },
+                    //         };
+                    //         mSet(mScr);
+                    //     }
+                    // },
+                    // // Screen-7
+                    // {
+                    //     "name": "Screen 7",
+                    //     "key": "scr_7",
+                    //     "set": (k, v, thisItem) => {
+                    //         console.log(thisItem);
+                    //         //--reset--// [START]
+                    //         v["el"].innerHTML = ``; //reset
+
+                    //         //set..
+                    //         let mScr = document.createElement("div");
+                    //         mScr.classList.add('mScr');
+                    //         v["el"].appendChild(mScr);
+
+
+                    //         //mset..
+                    //         let mSet = (mE = document.body) => {
+                    //             mE.innerHTML = `
+                    //             <div class="s7 scr-transition s7-bg-img">
+                    //                 <div class="img-container">
+                    //                     <img class="s7-img1" src="../assets/rotate_90.svg" alt="rotate">
+                    //                 </div>
+
+                    //                 <div class="s7-data">
+                    //                     <div>
+                    //                         <div class="s7-ques">
+                    //                             <span class="s7-quesText">Defines if the animation should automatically starts or not.</span>
+
+                    //                             <div class="s7-con-div"></div>
+
+                    //                             <div class="s7-child-line-cont"></div>
+                    //                         </div>
+
+                    //                         <div class="s7-options">
+                    //                             <div class="s7-option1">Option 1</div>
+                    //                             <div class="s7-option2">Option 2</div>
+                    //                         </div>
+                    //                         <div class="stats">
+                    //                             <p>Level: 5</p>
+                    //                             <p>Round: 1</p>
+                    //                         </div> 
+                    //                     </div>
+                    //                 </div>
+                    //             </div>
+
+                    //             `;
+
+                    //             setTimeout(() => {
+                    //                 const screenElement = mE.querySelector('.s7');
+                    //                 if (screenElement) {
+                    //                     screenElement.style.opacity = 1;
+
+
+
+                    //                 }
+                    //             }, 0);
+
+                    //         };
+                    //         mSet(mScr);
+                    //     }
+                    // },
 
                 ]
             },

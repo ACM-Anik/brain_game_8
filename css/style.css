@@ -21,6 +21,7 @@ body {
     top: 0;
     left: 0;
     z-index: 10;
+    transition: 1s all;
 }
 
 
@@ -55,28 +56,6 @@ body {
     position: relative;
 }
 
-
-/* 
-.s1-img-leaf {
-    width: 172px;
-    height: 141px;
-    flex-shrink: 0;
-    position: relative;
-}
-
-.dark-circle{
-    width: 62px;
-    height: 60px;
-    flex-shrink: 0;
-    color: #8D8282;
-    border-radius: 50%;
-    border: 4px solid #000;
-    position: absolute;
-    top: 25%;
-    left: 45%;
-    z-index: 100;
-} */
-
 .s1-heading {
     color: #000;
     font-size: 48px;
@@ -86,7 +65,7 @@ body {
 
 .s1-btn {
     color: #000;
-    font-size: 48px;
+    font-size: 40px;
     font-weight: 400;
     width: 410px;
     height: 76px;
@@ -104,11 +83,8 @@ body {
     background-color: #dededefe;
 }
 
-
-/* Screen - 2  */
-/* ------------------- */
-
 .overlay-Loading {
+    /*---> Loading */
     position: absolute;
     top: 70%;
     left: 50%;
@@ -169,3 +145,131 @@ body {
         opacity: 0;
     }
 }
+
+/* Screen - 2  */
+/* ------------------- */
+.s2{
+    position: relative;
+}
+
+@keyframes s2-zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+@keyframes s2-zoomOut {
+    0% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+/* About */
+.part2{
+    opacity: 0;
+    transition: transform 1s;
+}
+.border {
+    border: 5px solid #8d8282;
+    width: 90%;
+    height: 84vh;
+    position: absolute;
+    top: 4%;
+    left: 4%;
+    right: 4%;
+    bottom: 4%;
+}
+
+.border2 {
+    border: 5px solid #8d8282;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    bottom: 10px;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.s2-about-title {
+    color: #000;
+    font-size: 66px;
+    font-weight: 400;
+    text-align: center;
+}
+
+
+.s2-carousel-cont{
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.s2-carousel-slider {
+    display: flex;
+    overflow: hidden;
+}
+
+.s2-carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: none;
+}
+
+.s2-carousel-item.active-item {
+    display: block;
+    color: #000;
+    font-size: 40px;
+    font-weight: 400;
+    margin-top: 50px;
+}
+
+.carousel-dots {
+    text-align: center;
+}
+
+.dot1,
+.dot2,
+.dot3 {
+    height: 30px;
+    width: 30px;
+    margin: 0 5px;
+    margin-top: 20px;
+    background-color: white;
+    border: 2px solid #8D8282;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.active-dot {
+    background-color: #8D8282;
+}
+
+.s2-btn {
+    text-align: right;
+    padding-bottom: 100px;
+    margin: 1px;
+    color: #000;
+    font-size: 40px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+
+
+/* Screen 5 */
+/* ----------------- */

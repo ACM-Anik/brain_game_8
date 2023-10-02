@@ -1,59 +1,45 @@
 // import core_1mn from '../1mn/core_1mn.js';
+import { art_box } from "../libs/artbox/art_box.js";
 
+
+const mArtBox = art_box();
+const m_asset_path = '../assets/';
+
+// Renderer:--
 let mGameRenderer = (data = {}, mDOM) => {
-    //create element..    
     let mDiv = document.createElement("div");
     mDiv.style.position = 'relative';
     mDiv.style.width = '100%';
     mDiv.style.height = '100%';
     mDOM.appendChild(mDiv);
-    //your root element [----mDiv----]
+    //your root element end [----mDiv----]
+
+
+    //--mArtBox--//
+    let mArtBox_evnt = mArtBox.set({ "e": mDiv });
+    let mScene = mArtBox_evnt.get_scene();
 
 
     //-----do your code-----//
     //utils..
     let mUtils = {
-        "my_elem_1": (mE) => {
-            let mCard = document.createElement("div");
-            mE.appendChild(mCard);
-            //set..
-            mCard.style.width = "10vh";
-            mCard.style.height = "20vh";
-            mCard.style.backgroundColor = "green";
-            return mCard;
-        },
-
-        // //svg_loader..
-        // "svg_loader": (p = {}) => {
-        //     core_1mn['mSvg'].set(p);
-        // },
-
-        // //txt_loader..
-        // "txt_loader": (p = {}, cb = {}) => {
-        //     let mEvents =
-        //         core_1mn.mTxt.set(p,
-        //             cb,
-        //         );
-        //     return mEvents;
-        // },
-
-        // //btn_loader..
-        // "btn_loader": (p = {}) => {
-        //     let mBtn = core_1mn['btn']['1'].set(p);
-        //     //mBtn['btn']['hide'] ();
-        //     //mBtn['btn']['show'] ();
-        //     //mBtn['btn']['disable'] ();
-        //     //mBtn['btn']['enable'] ();
-        //     //mBtn['btn']['pbShow'] ("red");
-        //     //mBtn['btn']['pbHide'] (); 
-        //     return mBtn;
-        // }
-
+        // mArtBox_evnt.add_animation({
+        //     "e":mScene,
+        //     "type":"animate__bounce"
+        // });
 
     };
 
-    //mDta_main
+    //--my-code--//
+    let myCODE = {
+
+    };
+
+
+
+    //mDta_main:--
     let mDta_main = {
+        "utils": {},
         "gVars": {  //Global-Variables
             "my_var_1": "",
         },
@@ -61,15 +47,16 @@ let mGameRenderer = (data = {}, mDOM) => {
             "rndr": { //Renderer..
                 "l": [ //list..
 
+                    // Screen-1 -----------
                     {
                         "name": "Screen 1",
                         "key": "scr_1",
                         "set": (k, v, thisItem) => {
                             console.log(thisItem);
-                            v["el"].innerHTML = ``; //reset the screen
+                            v["e"].innerHTML = ``; //reset the screen
 
 
-                            //mSendCB..
+                            // mSendCB..
                             let mSendCB = (cb_name, p = {}) => {
                                 if (v["value"].hasOwnProperty("cb")) {
                                     if (v["value"]["cb"].hasOwnProperty(cb_name)) {
@@ -78,185 +65,230 @@ let mGameRenderer = (data = {}, mDOM) => {
                                 }
                             };
 
-
                             //set..
                             let mScr = document.createElement("div");
-                            v["el"].appendChild(mScr);
+                            v["e"].appendChild(mScr);
+                            mScr.style.height = `100%`;
+                            mScr.style.width = `100%`;
+                            mScr.style.overflow = `hidden`;
 
                             //set..
                             let mSet = (mE = document.body) => {
-                                mE.innerHTML = `
-                                    <div class="s1">
-                                        <div class="s1-frame1"></div>
-                                        <div class="s1-frame2"></div>
-                                        <div class="s1-data">
-                                            <!-- <div class="s1-img-con">
-                                                <img class="s1-img-leaf" src="../assets/leaf_ellipse.svg" alt="leaf" /> 
-                                                <div class="dark-circle"></div>
-                                                <div class="white-circle"></div>
-                                            </div> -->
-                                            <h1 class="s1-heading">Word Velocity</h1>
+                                // mE.innerHTML = `
+                                //     <div class="s1">
+                                //         <div class="s1-frame1"></div>
+                                //         <div class="s1-frame2"></div>
+                                //         <div class="s1-data">
+                                //             <h1 class="s1-heading">Word Velocity</h1>
+                                //             <button class="s1-btn">New Game</button>
 
-                                            <!-- <button onclick="console.log('Btn Clicked')" class="s1-btn">New Game</button> -->
+                                //             <div class="overlay-Loading">
+                                //                 <div class="loading-spans">
+                                //                     <span class="loading-ball"></span>
+                                //                     <span class="loading-text">Loading</span>
+                                //                 </div>
+                                //             </div>
+                                //         </div>
+                                //     </div>
+                                // `;
 
-                                            <button class="s1-btn">New Game</button>
+                                // const screenElement = mE.querySelector('.s1');
+                                // if (screenElement) {
+                                //     screenElement.style.opacity = 1;
+                                //     let s1Btn = screenElement.querySelector(".s1-btn");
+                                //     s1Btn.addEventListener('click', function () {
+                                //         s1Btn.style.opacity = 0;
 
-                                            <div class="overlay-Loading">
-                                                <div class="loading-spans">
-                                                    <span class="loading-ball"></span>
-                                                    <span class="loading-text">Loading</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                `;
+                                //         // Overlay Loading:-
+                                //         const overlayLoading = screenElement.querySelector('.overlay-Loading');
+                                //         const loadingBall = screenElement.querySelector('.loading-ball');
 
-                                const screenElement = mE.querySelector('.s1');
-                                if (screenElement) {
-                                    screenElement.style.opacity = 1;
-                                    let s1Btn = screenElement.querySelector(".s1-btn");
-                                    s1Btn.addEventListener('click', function () {
-                                        s1Btn.style.opacity = 0;
+                                //         if (overlayLoading) {
 
-                                        // Overlay Loading:-
-                                        const overlayLoading = screenElement.querySelector('.overlay-Loading');
-                                        const loadingBall = screenElement.querySelector('.loading-ball');
+                                //             overlayLoading.style.animation = 'zoomInLoading 1s 1s both';
 
-                                        if (overlayLoading) {
+                                //             setTimeout(() => {
+                                //                 loadingBall.style.width = '100%';
+                                //                 zoomOutLoading();
+                                //             }, 1000);
 
-                                            overlayLoading.style.animation = 'zoomInLoading 1s 1s both';
+                                //             // zoomOutLoading
+                                //             const zoomOutLoading = () => {
+                                //                 overlayLoading.style.animation = 'zoomOutLoading 1s 3s both';
 
-                                            setTimeout(() => {
-                                                loadingBall.style.width = '100%';
-                                                zoomOutLoading();
-                                            }, 1000);
+                                //             }
+                                //             setInterval(() => {
+                                //                 screenElement.style.opacity = 0;
 
-                                            // zoomOutLoading
-                                            const zoomOutLoading = () => {
-                                                overlayLoading.style.animation = 'zoomOutLoading 1s 3s both';
+                                //                 mSendCB("on_new_btn_clc", {});
 
+                                //             }, 5000);
+                                //         }
+                                //     });
+
+                                // }
+
+                                //set..[Svg]..  
+
+
+                                //set..[Svg]..
+
+
+                                mArtBox_evnt.add_svg({
+                                    "w": `100%`,
+                                    "h": `95vh`,
+                                    "e": mE,
+                                    "src": `../assets/bg_images/first_scr_bg.svg`
+                                });
+
+                                // text 
+                                mArtBox_evnt.add_svg({
+                                    "w": `25vw`,
+                                    "h": `8vh`,
+                                    "x": 37.5,
+                                    "y": 46,
+                                    "e": mE,
+                                    "src": `../assets/word_velocity_text.svg`
+                                });
+
+                                // btn:-
+                                mArtBox_evnt.add_svg({
+                                    "w": `41vw`,
+                                    "h": `16vh`,
+                                    "x": 30,
+                                    "y": 70,
+                                    "e": mE,
+                                    "src": `../assets/btn_starting.svg`
+                                }, {
+                                    "onLoad": (v = {}) => {
+                                        //set..
+                                        // console.log(v.e);
+                                        v.e.style.opacity = `0`;
+                                        v.e.style.cursor = `pointer`;
+
+                                        //animation [Start]
+                                        setTimeout(() => {
+                                            let timeline = anime.timeline();
+                                            timeline.add({
+                                                targets: v.e,
+                                                opacity: 1,
+                                                duration: 1000,
+                                                easing: 'easeOutExpo'
                                             }
-                                            setInterval(() => {
-                                                screenElement.style.opacity = 0;
+                                            );
+                                        }, 400);
+                                    },
 
-                                                mSendCB("on_new_btn_clc", {});
+                                    "onClick": (v = {}) => {
+                                        v.e.style.opacity = "0";
 
-                                            }, 5000);
+                                        setTimeout(() => {
+                                            v.e.remove();
+                                        }, 300);
+                                        loading();
+                                    }
+
+                                });
+
+                                // Loading:-
+                                let loading = () => {
+                                    mArtBox_evnt.add_svg({
+                                        "w": `43vw`,
+                                        "h": `16vh`,
+                                        "x": 29,
+                                        "y": 70,
+                                        "e": mE,
+                                        "src": `../assets/loading_border.svg`
+                                    }, {
+                                        "onLoad": (v = {}) => {
+                                            // console.log(v.e);
+                                            v.e.style.opacity = `0`;
+                                            v.e.style.cursor = `mouse`;
+
+                                            //animation [Start]
+                                            setTimeout(() => {
+                                                let timeline = anime.timeline();
+                                                timeline.add({
+                                                    targets: v.e,
+                                                    opacity: 1,
+                                                    duration: 100,
+                                                    easing: 'easeOutExpo',
+
+                                                    complete: function (anim) {
+                                                        let ve = v.e;
+                                                        let ball = document.createElement('div');
+                                                        ball.classList = "loading_ball";
+                                                        ball.style.opacity = "1";
+                                                        ball.style.backgroundColor = "#8D8282";
+                                                        ball.style.borderRadius = "87px";
+                                                        ball.style.width = "10vw";
+                                                        ball.style.height = "9vh";
+                                                        ball.style.marginInline = "2vw";
+                                                        ball.style.marginBottom = "10px";
+                                                        ball.style.position = "absolute";
+                                                        ball.style.top = "24%";
+                                                        ball.style.left = "0%";
+
+                                                        ve.appendChild(ball);
+
+                                                        console.log(v.e);
+                                                        let ballClass = ve.querySelector(".loading_ball");
+
+                                                        anime({
+                                                            opacity: 1,
+                                                            targets: '.loading_ball',
+                                                            width: '90%',
+                                                            easing: 'easeInOutQuad',
+                                                            direction: 'alternate',
+                                                            loop: false
+                                                        });
+
+                                                        setTimeout(() => {
+                                                            on_scr_end();
+                                                        }, 3000);
+                                                    }
+
+                                                }
+                                                );
+                                            }, 400);
                                         }
                                     });
-
                                 }
 
+                                // on_scr_end..
+                                let on_scr_end = () => {
+                                    let timeline = anime.timeline();
+                                    timeline.add({
+                                        targets: mScr,
+                                        opacity: 0,
+                                        duration: 2000,
+                                        easing: 'easeOutExpo',
+                                        update: function (anim) {
+                                            console.log(anim.progress); 
+                                            if (anim.progress > 0) {
+                                                anime.remove(mScr);
+                                                mScr.remove();
+                                                //send cb..
+                                                mSendCB(`on_scr_end`, {});
 
-
-
-
-                                // //set..[Svg]..
-                                // mUtils.svg_loader({
-                                //     "0": "../assets/bg_images/first_scr_bg.svg",  //svg file name --OR-- <svg></svg>   --OR-- "my_folder/my_file.svg"
-                                //     //"1": "YOUR_UNIQUE_ID",
-                                //     "2": "100%", //2vh
-                                //     "3": "100%", //2vh
-                                //     "4": "", //"" => no-color --OR-- undefined => "auto-color-applied" --OR-- "rgba(my color)"
-                                //     "5": mE,  //HTML-ELEMENT
-                                //     //you can set and (reload) FIELD by (assigning) this func..
-                                //     //"reload": () => {},
-                                //     "cb": {
-                                //         "onLoad": (mCurrItem) => {
-                                //             //use (svg)
-                                //             //alert("onLoad");
-                                //         },
-                                //         "onInit": (mCurrItem) => {
-                                //             //This will trigger immediately..
-                                //         },
-                                //         "onError": () => {
-                                //             //alert("onError");
-                                //         },
-                                //         "onClick": (mCurrItem) => {
-                                //             //alert("onClick");
-                                //         }
-                                //     }
-                                // });
-
-
-                                // //set..[Text]..
-                                // let mT0_evnt = mUtils.txt_loader({
-                                //     "0": mE,  //HTMLElement
-                                //     "1": 'Word Velocity',  //txt
-                                //     "2": "2.9vh",  //fontSize
-                                //     "3": "#000",  //color
-                                //     "4": 0,  //pos hori [left, center, right]
-                                //     "5": 0,   //[".innerHTML", ".innerText"]
-                                //     //"6": grey, //onHoverColor
-                                //     "7": ``, //padding
-                                // },
-                                //     {
-                                //         "onClc": () => { },
-                                //         "onmouseover": () => { },
-                                //         "onmouseout": () => { },
-                                //     });
-                                // //set-position [Temporary-Solution]  [-Start-]
-                                // mT0_evnt["e"].style.position = 'absolute';
-                                // mT0_evnt["e"].style.top = '35vh';
-                                // mT0_evnt["e"].style.left = ' 43%';
-                                // //set-position [Temporary-Solution]  [-End-]
-
-
-
-                                // //set..[Btn]..
-                                // let mBtn_hldr0 = document.createElement("div");
-                                // mE.appendChild(mBtn_hldr0);
-
-                                // let mBtn0_evnt = mUtils.btn_loader({
-                                //     "e1": mBtn_hldr0,  //HTMLElement
-                                //     "w": "8vw",
-                                //     "posH": 1,
-                                //     "h": "4.2vh",
-                                //     "txt": {
-                                //         "0": "New Game",
-                                //         "1": "1.3vh"
-                                //     },
-                                //     //"ico": {"0": "sample.svg", "1": "1.3vh", "2": "1.3vh", "3": "rgba(255,255,255, 1.0)" },
-                                //     "cb": {
-                                //         "onLoad": function (data) {
-                                //             //let mBtn = data['btn'];
-                                //             //console.log(mBtn);
-                                //         },
-                                //         "onClick": function (data) {
-                                //             //alert(JSON.stringify(data));
-                                //             //console.log(data);
-                                //             //set..
-                                //             mSendCB(on_new_btn_clc, {});
-                                //         },
-                                //         "onClickD": function (data) {
-                                //             //alert(JSON.stringify(data));
-                                //             //console.log(data);
-
-                                //         }
-                                //     },
-                                //     //typ..
-                                //     "typ": 0,
-                                //     //variant..
-                                //     "vari": 0
-                                // });
-                                // //set-position [Temporary-Solution] [-Start-]
-                                // mBtn_hldr0.style.position = 'absolute';
-                                // mBtn_hldr0.style.top = '45vh';
-                                // mBtn_hldr0.style.left = '45%';
-
+                                            }
+                                        },
+                                    });
+                                };
                             };
 
                             mSet(mScr);
                         }
                     },
 
+                    // Screen-2 ----------
                     {
                         "name": "Screen 2",
                         "key": "scr_2",
                         "set": (k, v, thisItem) => {
                             console.log(thisItem);
-                            v["el"].innerHTML = ``; //reset the screen
-
+                            v["e"].innerHTML = ``; //reset the screen
+                            console.log(v["e"]);
 
                             //mSendCB..
                             let mSendCB = (cb_name, p = {}) => {
@@ -270,164 +302,165 @@ let mGameRenderer = (data = {}, mDOM) => {
 
                             //set..
                             let mScr = document.createElement("div");
-                            mScr.classList.add('mScr');
-                            v["el"].appendChild(mScr);
+                            v["e"].appendChild(mScr);
+                            mScr.style.height = `100%`;
+                            mScr.style.width = `100%`;
+                            mScr.style.overflow = `hidden`;
 
 
                             //set..
                             let mSet = (mE = document.body) => {
-                                mE.innerHTML = `
-                                <div class="s2">
-                                    <div className="part1">
-                                        <img class="s2-img" src="../assets/word_with_leaf.svg" alt="Leaf & Text">
-                                    </div>
 
-                                    <div class="part2">
-                                        <div class="border border1">
-                                            <div class="border border2">
-                                                <p class="s2-about-title">About</p>
-                                                <div class="s2-carousel-cont">
-                                                    <div class="s2-carousel-slider">
-                                                        <div class="s2-carousel-item active-item">
-                                                            <p>Choose your speed and difficulty levels.</p>
-                                                        </div>
-                                                        <div class="s2-carousel-item">
-                                                            <p>Focus and track the word.</p>
-                                                        </div>
-                                                        <div class="s2-carousel-item">
-                                                            <p>Answer the questions.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="s2-carousel-dots">
-                                                        <span class="dot1"></span>
-                                                        <span class="dot2"></span>
-                                                        <span class="dot3"></span>
-                                                    </div>
-                                                    <p class="s2-btn">Skip</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                // mE.innerHTML = `
+                                // <div class="s2">
+                                //     <div className="part1">
+                                //         <img class="s2-img" src="../assets/word_with_leaf.svg" alt="Leaf & Text">
+                                //     </div>
+
+                                //     <div class="part2">
+                                //         <div class="border border1">
+                                //             <div class="border border2">
+                                //                 <p class="s2-about-title">About</p>
+                                //                 <div class="s2-carousel-cont">
+                                //                     <div class="s2-carousel-slider">
+                                //                         <div class="s2-carousel-item active-item">
+                                //                             <p>Choose your speed and difficulty levels.</p>
+                                //                         </div>
+                                //                         <div class="s2-carousel-item">
+                                //                             <p>Focus and track the word.</p>
+                                //                         </div>
+                                //                         <div class="s2-carousel-item">
+                                //                             <p>Answer the questions.</p>
+                                //                         </div>
+                                //                     </div>
+                                //                     <div class="s2-carousel-dots">
+                                //                         <span class="dot1"></span>
+                                //                         <span class="dot2"></span>
+                                //                         <span class="dot3"></span>
+                                //                     </div>
+                                //                     <p class="s2-btn">Skip</p>
+                                //                 </div>
+                                //             </div>
+                                //         </div>
+                                //     </div>
+                                // </div>
+                                // `;
+
+                                // const screenElement = mE.querySelector('.s2');
+                                // if (screenElement) {
+                                //     screenElement.style.opacity = 1;
+
+                                //     const s2Img = screenElement.querySelector(".s2-img");
+                                //     s2Img.style.animation = "s2-zoomIn 1s 1s both";
+
+                                //     setTimeout(() => {
+                                //         s2Img.style.animation = "s2-zoomOut 1s 1s both";
+
+                                //     }, 2000);
+
+
+                                //     setTimeout(() => {
+                                //         const Part2About = screenElement.querySelector(".part2");
+                                //         Part2About.style.opacity = 1;
+
+                                //         const dots = screenElement.querySelectorAll(".s2-carousel-dots span");
+                                //         const itemImg = screenElement.querySelectorAll(".s2-carousel-item");
+
+                                //         let dotClicked = false;
+                                //         let currentIndex = 0;
+
+                                //         dots.forEach((dot, index) => {
+                                //             dot.addEventListener("click", function () {
+                                //                 dots.forEach(dot => dot.classList.remove("active-dot"));
+                                //                 itemImg.forEach(image => image.classList.remove("active-item"));
+
+                                //                 dot.classList.add("active-dot");
+                                //                 itemImg[index].classList.add("active-item");
+
+                                //                 dotClicked = true;
+                                //                 currentIndex = index;
+                                //             });
+                                //         });
+
+                                //         const skipButton = screenElement.querySelector(".s2-btn");
+
+                                //         skipButton.addEventListener("click", function () {
+                                //             itemImg[currentIndex].classList.remove("active-item");
+                                //             currentIndex = (currentIndex + 1) % itemImg.length;
+                                //             itemImg[currentIndex].classList.add("active-item");
+                                //             dots.forEach(dot => dot.classList.remove("active-dot"));
+                                //             dots[currentIndex].classList.add("active-dot");
+
+                                //             console.log(currentIndex);
+                                //             if (currentIndex === 2) {
+                                //                 currentIndex = 3;
+                                //             }
+
+                                //             if (currentIndex === 3) {
+                                //                 setTimeout(() => {
+                                //                     screenElement.style.opacity = 0;
+                                //                     mSendCB("on_new_btn_clc", {});
+                                //                 }, 1000);
+                                //             }
+                                //         });
+
+                                //     }, 4000);
+
+                                // };
+
+
+
+
+
+
+                                // // Word & Leaf Loading:-
                                 
-                                `;
+                                mArtBox_evnt.add_svg({ //Word & Leaf Loading
+                                    "w": `40vw`,
+                                    "h": `40vh`,
+                                    "x": 30,
+                                    "y": 30,
+                                    "e": mE,
+                                    "src": `../assets/btn_starting.svg`
+                                }, {
+                                    "onLoad": (v = {}) => {
+                                        console.log(v.e);
+                                        v.e.style.opacity = `1`;
 
-                                const screenElement = mE.querySelector('.s2');
-                                if (screenElement) {
-                                    screenElement.style.opacity = 1;
+                                        // anime({
+                                        //     targets: v.e,
+                                        //     scale: 20,
+                                        //   });
+                                    },
 
-                                    const s2Img = screenElement.querySelector(".s2-img");
-                                    s2Img.style.animation = "s2-zoomIn 1s 1s both";
-
-                                    setTimeout(() => {
-                                        s2Img.style.animation = "s2-zoomOut 1s 1s both";
-    
-                                    }, 2000);
-
-
-                                    setTimeout(() => {
-                                        const Part2About = screenElement.querySelector(".part2");
-                                        Part2About.style.opacity = 1;
-
-                                        const dots = screenElement.querySelectorAll(".s2-carousel-dots span");
-                                        const itemImg = screenElement.querySelectorAll(".s2-carousel-item");
-
-                                        let dotClicked = false;
-                                        let currentIndex = 0;
-
-                                        dots.forEach((dot, index) => {
-                                            dot.addEventListener("click", function () {
-                                                dots.forEach(dot => dot.classList.remove("active-dot"));
-                                                itemImg.forEach(image => image.classList.remove("active-item"));
-
-                                                dot.classList.add("active-dot");
-                                                itemImg[index].classList.add("active-item");
-
-                                                dotClicked = true;
-                                                currentIndex = index;
-                                            });
-                                        });
-
-                                        const skipButton = screenElement.querySelector(".s2-btn");
-                                        skipButton.addEventListener("click", function () {
-                                            // if (dotClicked) {
-                                            itemImg[currentIndex].classList.remove("active-item");
-                                            currentIndex = (currentIndex + 1) % itemImg.length;
-                                            itemImg[currentIndex].classList.add("active-item");
-                                            dots.forEach(dot => dot.classList.remove("active-dot"));
-                                            dots[currentIndex].classList.add("active-dot");
-                                            // }
-                                        });
-
-                                    }, 4000);
-
-
-                                    // setInterval(() => {
-                                    //     screenElement.style.opacity = 0;
-                                    //     mSendCB("on_new_btn_clc", {});
-                                    // }, 4000);
-
-                                }
-
-
-
+                                });
 
                                 // //set..[Svg]..
-                                // mUtils.svg_loader({
-                                //     "0": "assets/svgTest/game/game 8.1.svg",  //svg file name --OR-- <svg></svg>   --OR-- "my_folder/my_file.svg"
-                                //     //"1": "YOUR_UNIQUE_ID",
-                                //     "2": "100%", //2vh
-                                //     "3": "100%", //2vh
-                                //     "4": "", //"" => no-color --OR-- undefined => "auto-color-applied" --OR-- "rgba(my color)"
-                                //     "5": mE,  //HTML-ELEMENT
-                                //     //you can set and (reload) FIELD by (assigning) this func..
-                                //     //"reload": () => {},
-                                //     "cb": {
-                                //         "onLoad": (mCurrItem) => {
-                                //             //use (svg)
-                                //             //alert("onLoad");
-                                //         },
-                                //         "onInit": (mCurrItem) => {
-                                //             //This will trigger immediately..
-                                //         },
-                                //         "onError": () => {
-                                //             //alert("onError");
-                                //         },
-                                //         "onClick": (mCurrItem) => {
-                                //             //alert("onClick");
-                                //         }
-                                //     }
-                                // });
-
-
-                                // //set..[Text]..
-                                // let mT0_evnt = mUtils.txt_loader({
-                                //     "0": mE,  //HTMLElement
-                                //     "1": 'Word Velocity',  //txt
-                                //     "2": "2.9vh",  //fontSize
-                                //     "3": "#000",  //color
-                                //     "4": 0,  //pos hori [left, center, right]
-                                //     "5": 0,   //[".innerHTML", ".innerText"]
-                                //     //"6": grey, //onHoverColor
-                                //     "7": ``, //padding
+                                // mArtBox_evnt.add_svg({
+                                //     "w": `5vw`,
+                                //     "h": `5vw`,
+                                //     "x": 10,
+                                //     "y": 10,
+                                //     "e": mE,
+                                //     "src": `../assets/word_with_leaf.svg`
                                 // },
                                 //     {
-                                //         "onClc": () => { },
-                                //         "onmouseover": () => { },
-                                //         "onmouseout": () => { },
-                                //     });
-                                // //set-position [Temporary-Solution]  [-Start-]
-                                // mT0_evnt["e"].style.position = 'absolute';
-                                // mT0_evnt["e"].style.top = '35vh';
-                                // mT0_evnt["e"].style.left = '43%';
-                                // //set-position [Temporary-Solution]  [-End-]
+                                //         "onLoad": (v = {}) => {
+                                //             console.log(v.e);
+
+
+
+                                //         }
+                                //     }
+                                // );
+
 
                             };
                             mSet(mScr);
                         }
                     },
 
-                    // Screen-3
+                    // Screen-3 ----------
                     // {
                     //     "name": "Screen 3",
                     //     "key": "scr_3",
@@ -510,7 +543,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                     //         mSet(mScr);
                     //     }
                     // },
-                    // // Screen-4
+                    // Screen-4 -----------
                     // {
                     //     "name": "Screen 4",
                     //     "key": "scr_4",
@@ -588,44 +621,95 @@ let mGameRenderer = (data = {}, mDOM) => {
                     //         mSet(mScr);
                     //     }
                     // },
-                    // Screen-5 
-                    // {
-                    //     "name": "Screen 5",
-                    //     "key": "scr_5",
-                    //     "set": (k, v, thisItem) => {
-                    //         console.log(thisItem);
-                    //         //--reset--// [START]
-                    //         v["el"].innerHTML = ``; //reset
+                    // Screen-5 -----------
+                    {
+                        "name": "Screen 5",
+                        "key": "scr_5",
+                        "set": (k, v, thisItem) => {
+                            console.log(thisItem);
+                            //--reset--// [START]
+                            v["el"].innerHTML = ``; //reset
 
-                    //         //set..
-                    //         let mScr = document.createElement("div");
-                    //         mScr.classList.add('mScr');
-                    //         v["el"].appendChild(mScr);
-
-
-                    //         //set..
-                    //         let mSet = (mE = document.body) => {
-                    //             mE.innerHTML = `
-                    //             <div class="s5">
-
-                    //             </div>
-
-                    //             `;
-                    //             //<!-- --!>
-                    //             setTimeout(() => {
-                    //                 const screenElement = mE.querySelector('.scr5');
-                    //                 if (screenElement) {
-                    //                     screenElement.style.opacity = 1;
+                            //set..
+                            let mScr = document.createElement("div");
+                            mScr.classList.add('mScr');
+                            mScr.style.height = `100%`;
+                            mScr.style.width = `100%`;
+                            v["el"].appendChild(mScr);
 
 
-                    //                 }
-                    //             }, 0);
+                            //set..
+                            let mSet = (mE = document.body) => {
+                                mE.innerHTML = `
+                                <div class="s5">
+                                    <!-- <div>
+                                        <div class=""></div>
+                                        <div class=""></div>
+                                        <div class=""></div>
+                                        <div class=""></div>
+                                    </div> -->
 
-                    //         };
-                    //         mSet(mScr);
-                    //     }
-                    // },
-                    // // Screen-6
+                                    <div class="s5-data">
+                                        <div class="s5-ques">
+                                            <span class="s5-quesText">Should automatically starts or not?</span>
+                                        </div>
+
+                                        <div class="s5-img-cont">
+                                            <img class="s5-img" src="../assets/question_mark.svg" alt="question mark">
+                                        </div>
+
+                                        <div class="s5-options">
+                                            <div class="s5-option1">
+                                                <div>
+                                                    <img src="../assets/option_bg.svg" alt="" class="option-img" />
+                                                    <span>Option 1</span>
+                                                </div>
+                                            </div>
+                                            <div class="s5-option2">
+                                                <div>
+                                                    <img src="../assets/option_bg.svg" alt="" class="option-img" />
+                                                    <span>Option 2</span>
+                                                </div>
+                                            </div>
+                                            <div class="s5-option3">
+                                                <div>
+                                                    <img src="../assets/option_bg.svg" alt="" class="option-img" />
+                                                    <span>Option 3</span>
+                                                </div>
+                                            </div>
+                                            <div class="s5-option4">
+                                                <div>
+                                                    <img src="../assets/option_bg.svg" alt="" class="option-img" />
+                                                    <span>Option 4</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="s5-position">
+                                            <span>1</span>
+                                            <span>2</span>
+                                            <span>3</span>
+                                            <span>4</span>
+                                        </div> 
+                                    </div>
+                                </div>
+
+                                `;
+                                //<!-- --!>
+                                setTimeout(() => {
+                                    const screenElement = mE.querySelector('.scr5');
+                                    if (screenElement) {
+                                        screenElement.style.opacity = 1;
+
+
+                                    }
+                                }, 0);
+
+                            };
+                            mSet(mScr);
+                        }
+                    },
+                    // // Screen-6 ----------
                     // {
                     //     "name": "Screen 6",
                     //     "key": "scr_6",
@@ -690,7 +774,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                     //         mSet(mScr);
                     //     }
                     // },
-                    // // Screen-7
+                    // // Screen-7 ----------
                     // {
                     //     "name": "Screen 7",
                     //     "key": "scr_7",
@@ -772,131 +856,118 @@ let mGameRenderer = (data = {}, mDOM) => {
     };
 
     //set..
-    mDiv.innerHTML = "Content";
-    // let my_elem_1 = mUtils.my_elem_1(mDiv);
+    // mDiv.innerHTML = "Content";
 
 
 
     // //mStart..
-    // let mStart = (mE) => {
-    //     // set..
-
-    //     // let scr_5 = () => {
-    //         // mDta_main.screens.set("scr_5", {
-    //         //     "el": mE,
-    //         //     "value": {
-    //         //         //here you can assign your variable based on your requirements..
-
-    //         //     }
-    //         // });
-    //     // };
-
-    //     let scr_2 = (num) => {
-    //         if(num === 2){
-    //             mDta_main.screens.set("scr_2", {
-    //                 "el": mE,
-    //                 "value": {
-    //                     //here you can assign your variable based on your requirements..
-    //                     //callback..
-    //                     "cb": {
-    //                         "on_new_btn_clc": (p = {}) => {
-    //                             // scr_5();
-    //                         },
-
-    //                     }
-    //                 }
-    //             });
-    //         }
-
-
-    //     }
-
-    //     mDta_main.screens.set("scr_1", {
-    //         "el": mE,
-    //         "value": {
-    //             //here you can assign your variable based on your requirements..
-    //             "cb": {
-    //                 "on_new_btn_clc": (p = {}) => {
-    //                     scr_2(2);
-    //                 },
-
-    //             }
-    //         }
-    //     });
-
-
-    //     // setTimeout(() => {
-    //     //     mDta_main.screens.set("scr_4", {
-    //     //         "el": mE,
-    //     //         "value": {
-    //     //             //here you can assign your variable based on your requirements..
-
-    //     //         }
-    //     //     });
-    //     // }, 14000);
-
-    //     // setTimeout(() => {
-    //     //     mDta_main.screens.set("scr_5", {
-    //     //         "el": mE,
-    //     //         "value": {
-    //     //             //here you can assign your variable based on your requirements..
-
-    //     //         }
-    //     //     });
-    //     // }, 24000);
-
-    //     // setTimeout(() => {
-    //     //     mDta_main.screens.set("scr_6", {
-    //     //         "el": mE,
-    //     //         "value": {
-    //     //             //here you can assign your variable based on your requirements..
-
-    //     //         }
-    //     //     });
-    //     // }, 30000);
-
-
-
-    // };
-
     let mStart = (mE) => {
-        let screens = mDta_main.screens.rndr.l; // Get the list of screens
+        // set..
 
-        // Function to render a screen
-        let renderScreen = (index) => {
-            return new Promise((resolve) => {
-                if (index < screens.length) {
-                    const screen = screens[index];
-                    mDta_main.screens.set(screen.key, {
-                        "el": mE,
-                        "value": {
-                            "cb": {
-                                "on_new_btn_clc": (p = {}) => {
-                                    // You can perform any actions related to the button click here
-                                    resolve(); // Resolve the promise to proceed to the next screen
-                                },
-                            }
-                        }
-                    });
-                } else {
-                    resolve(); // If there are no more screens, resolve the promise to end the sequence
+        let scr_5 = () => {
+            mDta_main.screens.set("scr_5", {
+                "el": mE,
+                "value": {
+                    //here you can assign your variable based on your requirements..
+
                 }
             });
         };
 
-        // Function to render screens sequentially
-        let renderScreensSequentially = (index) => {
-            renderScreen(index).then(() => {
-                renderScreensSequentially(index + 1); // Render the next screen after the current one is complete
+        let scr_2 = () => {
+            mDta_main.screens.set(`scr_2`, {
+                "e": mE,
+                "value": {
+                    //here you can assign your variable based on your requirements..
+
+                }
             });
         };
 
-        renderScreensSequentially(0); // Start rendering screens from the first one
+        mDta_main.screens.set(`scr_1`, {
+            "e": mE, //Html-Element
+            "value": {
+                //here you can assign your variable based on your requirements..
+
+                //callback..
+                "cb": {
+                    "on_scr_end": (p = {}) => {
+                        scr_2();
+                    },
+                }
+
+            }
+        });
+
+
+        // setTimeout(() => {
+        //     mDta_main.screens.set("scr_4", {
+        //         "el": mE,
+        //         "value": {
+        //             //here you can assign your variable based on your requirements..
+
+        //         }
+        //     });
+        // }, 14000);
+
+        // setTimeout(() => {
+        //     mDta_main.screens.set("scr_5", {
+        //         "el": mE,
+        //         "value": {
+        //             //here you can assign your variable based on your requirements..
+
+        //         }
+        //     });
+        // }, 24000);
+
+        // setTimeout(() => {
+        //     mDta_main.screens.set("scr_6", {
+        //         "el": mE,
+        //         "value": {
+        //             //here you can assign your variable based on your requirements..
+
+        //         }
+        //     });
+        // }, 30000);
+
     };
 
+    // let mStart = (mE) => {
+    //     let screens = mDta_main.screens.rndr.l; // Get the list of screens
+
+    //     // Function to render a screen
+    //     let renderScreen = (index) => {
+    //         return new Promise((resolve) => {
+    //             if (index < screens.length) {
+    //                 const screen = screens[index];
+    //                 mDta_main.screens.set(screen.key, {
+    //                     "el": mE,
+    //                     "value": {
+    //                         "cb": {
+    //                             "on_new_btn_clc": (p = {}) => {
+    //                                 resolve();
+    //                             },
+    //                         }
+    //                     }
+    //                 });
+    //             } else {
+    //                 resolve();
+    //             }
+    //         });
+    //     };
+
+    //     // Function to render screens sequentially
+    //     let renderScreensSequentially = (index) => {
+    //         renderScreen(index).then(() => {
+    //             renderScreensSequentially(index + 1);
+    //         });
+    //     };
+
+    //     renderScreensSequentially(0);
+    // };
 
 
-    mStart(mDiv);
+    mStart(mScene);
 
 
 };
@@ -908,6 +979,7 @@ mGameRenderer({
         "my_param_1": "",
         "my_param_2": "",
 
-
     }
 }, document.body);
+
+

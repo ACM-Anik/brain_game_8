@@ -1,5 +1,10 @@
 // import core_1mn from '../1mn/core_1mn.js';
 
+
+
+
+
+
 let mGameRenderer = (data = {}, mDOM) => {
     //create element..    
     let mDiv = document.createElement("div");
@@ -23,31 +28,6 @@ let mGameRenderer = (data = {}, mDOM) => {
             return mCard;
         },
 
-        // //svg_loader..
-        // "svg_loader": (p = {}) => {
-        //     core_1mn['mSvg'].set(p);
-        // },
-
-        // //txt_loader..
-        // "txt_loader": (p = {}, cb = {}) => {
-        //     let mEvents =
-        //         core_1mn.mTxt.set(p,
-        //             cb,
-        //         );
-        //     return mEvents;
-        // },
-
-        // //btn_loader..
-        // "btn_loader": (p = {}) => {
-        //     let mBtn = core_1mn['btn']['1'].set(p);
-        //     //mBtn['btn']['hide'] ();
-        //     //mBtn['btn']['show'] ();
-        //     //mBtn['btn']['disable'] ();
-        //     //mBtn['btn']['enable'] ();
-        //     //mBtn['btn']['pbShow'] ("red");
-        //     //mBtn['btn']['pbHide'] (); 
-        //     return mBtn;
-        // }
 
 
     };
@@ -321,7 +301,7 @@ let mGameRenderer = (data = {}, mDOM) => {
 
                                     setTimeout(() => {
                                         s2Img.style.animation = "s2-zoomOut 1s 1s both";
-    
+
                                     }, 2000);
 
 
@@ -357,21 +337,27 @@ let mGameRenderer = (data = {}, mDOM) => {
                                             dots.forEach(dot => dot.classList.remove("active-dot"));
                                             dots[currentIndex].classList.add("active-dot");
                                             // }
+
+                                            console.log(currentIndex);
+                                            if(currentIndex === 2){
+                                                currentIndex = 3;
+                                            }
+
+                                            if (currentIndex === 3) {
+                                                setTimeout(() => {
+                                                    screenElement.style.opacity = 0;
+                                                    mSendCB("on_new_btn_clc", {});
+                                                }, 1000);
+                                            }
                                         });
 
                                     }, 4000);
 
 
-                                    // setInterval(() => {
-                                    //     screenElement.style.opacity = 0;
-                                    //     mSendCB("on_new_btn_clc", {});
-                                    // }, 4000);
-
                                 }
 
 
-
-
+                                
                                 // //set..[Svg]..
                                 // mUtils.svg_loader({
                                 //     "0": "assets/svgTest/game/game 8.1.svg",  //svg file name --OR-- <svg></svg>   --OR-- "my_folder/my_file.svg"
@@ -589,42 +575,91 @@ let mGameRenderer = (data = {}, mDOM) => {
                     //     }
                     // },
                     // Screen-5 
-                    // {
-                    //     "name": "Screen 5",
-                    //     "key": "scr_5",
-                    //     "set": (k, v, thisItem) => {
-                    //         console.log(thisItem);
-                    //         //--reset--// [START]
-                    //         v["el"].innerHTML = ``; //reset
+                    {
+                        "name": "Screen 5",
+                        "key": "scr_5",
+                        "set": (k, v, thisItem) => {
+                            console.log(thisItem);
+                            //--reset--// [START]
+                            v["el"].innerHTML = ``; //reset
 
-                    //         //set..
-                    //         let mScr = document.createElement("div");
-                    //         mScr.classList.add('mScr');
-                    //         v["el"].appendChild(mScr);
-
-
-                    //         //set..
-                    //         let mSet = (mE = document.body) => {
-                    //             mE.innerHTML = `
-                    //             <div class="s5">
-
-                    //             </div>
-
-                    //             `;
-                    //             //<!-- --!>
-                    //             setTimeout(() => {
-                    //                 const screenElement = mE.querySelector('.scr5');
-                    //                 if (screenElement) {
-                    //                     screenElement.style.opacity = 1;
+                            //set..
+                            let mScr = document.createElement("div");
+                            mScr.classList.add('mScr');
+                            v["el"].appendChild(mScr);
 
 
-                    //                 }
-                    //             }, 0);
+                            //set..
+                            let mSet = (mE = document.body) => {
+                                mE.innerHTML = `
+                                <div class="s5">
+                                    <!-- <div>
+                                        <div class=""></div>
+                                        <div class=""></div>
+                                        <div class=""></div>
+                                        <div class=""></div>
+                                    </div> -->
 
-                    //         };
-                    //         mSet(mScr);
-                    //     }
-                    // },
+                                    <div class="s5-data">
+                                        <div class="s5-ques">
+                                            <span class="s5-quesText">Should automatically starts or not?</span>
+                                        </div>
+
+                                        <div class="s5-img-cont">
+                                            <img class="s5-img" src="../assets/question_mark.svg" alt="question mark">
+                                        </div>
+
+                                        <div class="s5-options">
+                                            <div class="s5-option1">
+                                                <div>
+                                                    <img src="../assets/option_bg.svg" alt="" class="option-img" />
+                                                    <span>Option 1</span>
+                                                </div>
+                                            </div>
+                                            <div class="s5-option2">
+                                                <div>
+                                                    <img src="../assets/option_bg.svg" alt="" class="option-img" />
+                                                    <span>Option 2</span>
+                                                </div>
+                                            </div>
+                                            <div class="s5-option3">
+                                                <div>
+                                                    <img src="../assets/option_bg.svg" alt="" class="option-img" />
+                                                    <span>Option 3</span>
+                                                </div>
+                                            </div>
+                                            <div class="s5-option4">
+                                                <div>
+                                                    <img src="../assets/option_bg.svg" alt="" class="option-img" />
+                                                    <span>Option 4</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="s5-position">
+                                            <span>1</span>
+                                            <span>2</span>
+                                            <span>3</span>
+                                            <span>4</span>
+                                        </div> 
+                                    </div>
+                                </div>
+
+                                `;
+                                //<!-- --!>
+                                setTimeout(() => {
+                                    const screenElement = mE.querySelector('.scr5');
+                                    if (screenElement) {
+                                        screenElement.style.opacity = 1;
+
+
+                                    }
+                                }, 0);
+
+                            };
+                            mSet(mScr);
+                        }
+                    },
                     // // Screen-6
                     // {
                     //     "name": "Screen 6",
@@ -872,26 +907,23 @@ let mGameRenderer = (data = {}, mDOM) => {
                         "value": {
                             "cb": {
                                 "on_new_btn_clc": (p = {}) => {
-                                    // You can perform any actions related to the button click here
-                                    resolve(); // Resolve the promise to proceed to the next screen
+                                    resolve(); 
                                 },
                             }
                         }
                     });
                 } else {
-                    resolve(); // If there are no more screens, resolve the promise to end the sequence
+                    resolve();
                 }
             });
         };
-
-        // Function to render screens sequentially
+        
         let renderScreensSequentially = (index) => {
             renderScreen(index).then(() => {
-                renderScreensSequentially(index + 1); // Render the next screen after the current one is complete
+                renderScreensSequentially(index + 1); 
             });
         };
-
-        renderScreensSequentially(0); // Start rendering screens from the first one
+        renderScreensSequentially(0);
     };
 
 

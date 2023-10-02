@@ -1,39 +1,45 @@
 // import core_1mn from '../1mn/core_1mn.js';
+import { art_box } from "../libs/artbox/art_box.js";
 
 
+const mArtBox = art_box();
+const m_asset_path = '../assets';
 
-
-
-
+// Renderer:--
 let mGameRenderer = (data = {}, mDOM) => {
-    //create element..    
     let mDiv = document.createElement("div");
     mDiv.style.position = 'relative';
     mDiv.style.width = '100%';
     mDiv.style.height = '100%';
     mDOM.appendChild(mDiv);
-    //your root element [----mDiv----]
+    //your root element end [----mDiv----]
+
+
+    //--mArtBox--//
+    let mArtBox_evnt = mArtBox.set({ "e": mDiv });
+    let mScene = mArtBox_evnt.get_scene();
 
 
     //-----do your code-----//
     //utils..
     let mUtils = {
-        "my_elem_1": (mE) => {
-            let mCard = document.createElement("div");
-            mE.appendChild(mCard);
-            //set..
-            mCard.style.width = "10vh";
-            mCard.style.height = "20vh";
-            mCard.style.backgroundColor = "green";
-            return mCard;
-        },
-
-
+        // mArtBox_evnt.add_animation({
+        //     "e":mScene,
+        //     "type":"animate__bounce"
+        // });
 
     };
 
-    //mDta_main
+    //--my-code--//
+    let myCODE = {
+
+    };
+
+
+
+    //mDta_main:--
     let mDta_main = {
+        "utils": {},
         "gVars": {  //Global-Variables
             "my_var_1": "",
         },
@@ -61,7 +67,9 @@ let mGameRenderer = (data = {}, mDOM) => {
 
                             //set..
                             let mScr = document.createElement("div");
-                            v["el"].appendChild(mScr);
+                            v["e"].appendChild(mScr);
+                            mScr.style.height = `100%`;
+                            mScr.style.width = `100%`;
 
                             //set..
                             let mSet = (mE = document.body) => {
@@ -129,100 +137,80 @@ let mGameRenderer = (data = {}, mDOM) => {
 
 
 
+                                // on_scr_end..
+                                let on_scr_end = () => {
+                                    //set..
+                                    let timeline = anime.timeline();
+                                    timeline.add({
+                                        targets: mScr,
+                                        opacity: 0,
+                                        duration: 2000,
+                                        easing: 'easeOutExpo',
+                                        update: function (anim) {
+                                            //console.log(anim.progress); 
+                                            if (anim.progress > 0) {
+                                                anime.remove(mScr)
+                                                mScr.remove();
+                                                //send cb..
+                                                mSendCB(`on_scr_end`, {});
+                                            }
+                                        },
+                                        complete: function (anim) {
+
+                                        }
+
+                                    }
+                                    );
+
+                                };
 
 
-                                // //set..[Svg]..
-                                // mUtils.svg_loader({
-                                //     "0": "../assets/bg_images/first_scr_bg.svg",  //svg file name --OR-- <svg></svg>   --OR-- "my_folder/my_file.svg"
-                                //     //"1": "YOUR_UNIQUE_ID",
-                                //     "2": "100%", //2vh
-                                //     "3": "100%", //2vh
-                                //     "4": "", //"" => no-color --OR-- undefined => "auto-color-applied" --OR-- "rgba(my color)"
-                                //     "5": mE,  //HTML-ELEMENT
-                                //     //you can set and (reload) FIELD by (assigning) this func..
-                                //     //"reload": () => {},
-                                //     "cb": {
-                                //         "onLoad": (mCurrItem) => {
-                                //             //use (svg)
-                                //             //alert("onLoad");
-                                //         },
-                                //         "onInit": (mCurrItem) => {
-                                //             //This will trigger immediately..
-                                //         },
-                                //         "onError": () => {
-                                //             //alert("onError");
-                                //         },
-                                //         "onClick": (mCurrItem) => {
-                                //             //alert("onClick");
-                                //         }
-                                //     }
-                                // });
+                                //set..[Svg]..  
+                                mArtBox_evnt.add_svg({
+                                    //"w": ``,
+                                    //"h": ``,
+                                    "e": mE,
+                                    "src": `${m_asset_path}svg/_0.svg`
+                                });
 
 
-                                // //set..[Text]..
-                                // let mT0_evnt = mUtils.txt_loader({
-                                //     "0": mE,  //HTMLElement
-                                //     "1": 'Word Velocity',  //txt
-                                //     "2": "2.9vh",  //fontSize
-                                //     "3": "#000",  //color
-                                //     "4": 0,  //pos hori [left, center, right]
-                                //     "5": 0,   //[".innerHTML", ".innerText"]
-                                //     //"6": grey, //onHoverColor
-                                //     "7": ``, //padding
-                                // },
-                                //     {
-                                //         "onClc": () => { },
-                                //         "onmouseover": () => { },
-                                //         "onmouseout": () => { },
-                                //     });
-                                // //set-position [Temporary-Solution]  [-Start-]
-                                // mT0_evnt["e"].style.position = 'absolute';
-                                // mT0_evnt["e"].style.top = '35vh';
-                                // mT0_evnt["e"].style.left = ' 43%';
-                                // //set-position [Temporary-Solution]  [-End-]
+                                //set..[Svg]..
+                                mArtBox_evnt.add_svg({
+                                    "w": `20vw`,
+                                    "h": `10vh`,
+                                    "x": 40,
+                                    "y": 75,
+                                    "e": mE,
+                                    "src": `${m_asset_path}svg/_1.svg`
+                                }, {
+                                    "onLoad": (v = {}) => {
+                                        //set..
+                                        //console.log(v.e);
+                                        v.e.style.opacity = `0`;
+
+                                        //animation [Start]
+                                        setTimeout(() => {
+                                            let timeline = anime.timeline();
+                                            timeline.add({
+                                                targets: v.e,
+                                                opacity: 1,
+                                                duration: 2000,
+                                                easing: 'easeOutExpo',
+
+                                                complete: function (anim) {
+                                                    anime.remove(v.e);
+                                                    //completeLogEl.value = 'completed : ' + anim.completed;
+                                                    on_scr_end();
+                                                }
+
+                                            }
+                                            );
+                                        }, 400);
+                                        //animation [End]
+                                    }
+                                });
 
 
-
-                                // //set..[Btn]..
-                                // let mBtn_hldr0 = document.createElement("div");
-                                // mE.appendChild(mBtn_hldr0);
-
-                                // let mBtn0_evnt = mUtils.btn_loader({
-                                //     "e1": mBtn_hldr0,  //HTMLElement
-                                //     "w": "8vw",
-                                //     "posH": 1,
-                                //     "h": "4.2vh",
-                                //     "txt": {
-                                //         "0": "New Game",
-                                //         "1": "1.3vh"
-                                //     },
-                                //     //"ico": {"0": "sample.svg", "1": "1.3vh", "2": "1.3vh", "3": "rgba(255,255,255, 1.0)" },
-                                //     "cb": {
-                                //         "onLoad": function (data) {
-                                //             //let mBtn = data['btn'];
-                                //             //console.log(mBtn);
-                                //         },
-                                //         "onClick": function (data) {
-                                //             //alert(JSON.stringify(data));
-                                //             //console.log(data);
-                                //             //set..
-                                //             mSendCB(on_new_btn_clc, {});
-                                //         },
-                                //         "onClickD": function (data) {
-                                //             //alert(JSON.stringify(data));
-                                //             //console.log(data);
-
-                                //         }
-                                //     },
-                                //     //typ..
-                                //     "typ": 0,
-                                //     //variant..
-                                //     "vari": 0
-                                // });
-                                // //set-position [Temporary-Solution] [-Start-]
-                                // mBtn_hldr0.style.position = 'absolute';
-                                // mBtn_hldr0.style.top = '45vh';
-                                // mBtn_hldr0.style.left = '45%';
 
                             };
 
@@ -251,6 +239,8 @@ let mGameRenderer = (data = {}, mDOM) => {
                             //set..
                             let mScr = document.createElement("div");
                             mScr.classList.add('mScr');
+                            mScr.style.height = `100%`;
+                            mScr.style.width = `100%`;
                             v["el"].appendChild(mScr);
 
 
@@ -329,17 +319,16 @@ let mGameRenderer = (data = {}, mDOM) => {
                                         });
 
                                         const skipButton = screenElement.querySelector(".s2-btn");
+
                                         skipButton.addEventListener("click", function () {
-                                            // if (dotClicked) {
                                             itemImg[currentIndex].classList.remove("active-item");
                                             currentIndex = (currentIndex + 1) % itemImg.length;
                                             itemImg[currentIndex].classList.add("active-item");
                                             dots.forEach(dot => dot.classList.remove("active-dot"));
                                             dots[currentIndex].classList.add("active-dot");
-                                            // }
 
                                             console.log(currentIndex);
-                                            if(currentIndex === 2){
+                                            if (currentIndex === 2) {
                                                 currentIndex = 3;
                                             }
 
@@ -357,7 +346,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                 }
 
 
-                                
+
                                 // //set..[Svg]..
                                 // mUtils.svg_loader({
                                 //     "0": "assets/svgTest/game/game 8.1.svg",  //svg file name --OR-- <svg></svg>   --OR-- "my_folder/my_file.svg"
@@ -586,6 +575,8 @@ let mGameRenderer = (data = {}, mDOM) => {
                             //set..
                             let mScr = document.createElement("div");
                             mScr.classList.add('mScr');
+                            mScr.style.height = `100%`;
+                            mScr.style.width = `100%`;
                             v["el"].appendChild(mScr);
 
 
@@ -808,127 +799,86 @@ let mGameRenderer = (data = {}, mDOM) => {
 
     //set..
     mDiv.innerHTML = "Content";
-    // let my_elem_1 = mUtils.my_elem_1(mDiv);
 
 
 
     // //mStart..
-    // let mStart = (mE) => {
-    //     // set..
-
-    //     // let scr_5 = () => {
-    //         // mDta_main.screens.set("scr_5", {
-    //         //     "el": mE,
-    //         //     "value": {
-    //         //         //here you can assign your variable based on your requirements..
-
-    //         //     }
-    //         // });
-    //     // };
-
-    //     let scr_2 = (num) => {
-    //         if(num === 2){
-    //             mDta_main.screens.set("scr_2", {
-    //                 "el": mE,
-    //                 "value": {
-    //                     //here you can assign your variable based on your requirements..
-    //                     //callback..
-    //                     "cb": {
-    //                         "on_new_btn_clc": (p = {}) => {
-    //                             // scr_5();
-    //                         },
-
-    //                     }
-    //                 }
-    //             });
-    //         }
-
-
-    //     }
-
-    //     mDta_main.screens.set("scr_1", {
-    //         "el": mE,
-    //         "value": {
-    //             //here you can assign your variable based on your requirements..
-    //             "cb": {
-    //                 "on_new_btn_clc": (p = {}) => {
-    //                     scr_2(2);
-    //                 },
-
-    //             }
-    //         }
-    //     });
-
-
-    //     // setTimeout(() => {
-    //     //     mDta_main.screens.set("scr_4", {
-    //     //         "el": mE,
-    //     //         "value": {
-    //     //             //here you can assign your variable based on your requirements..
-
-    //     //         }
-    //     //     });
-    //     // }, 14000);
-
-    //     // setTimeout(() => {
-    //     //     mDta_main.screens.set("scr_5", {
-    //     //         "el": mE,
-    //     //         "value": {
-    //     //             //here you can assign your variable based on your requirements..
-
-    //     //         }
-    //     //     });
-    //     // }, 24000);
-
-    //     // setTimeout(() => {
-    //     //     mDta_main.screens.set("scr_6", {
-    //     //         "el": mE,
-    //     //         "value": {
-    //     //             //here you can assign your variable based on your requirements..
-
-    //     //         }
-    //     //     });
-    //     // }, 30000);
-
-
-
-    // };
-
     let mStart = (mE) => {
-        let screens = mDta_main.screens.rndr.l; // Get the list of screens
+        console.log(mE);
+        // set..
 
-        // Function to render a screen
-        let renderScreen = (index) => {
-            return new Promise((resolve) => {
-                if (index < screens.length) {
-                    const screen = screens[index];
-                    mDta_main.screens.set(screen.key, {
-                        "el": mE,
-                        "value": {
-                            "cb": {
-                                "on_new_btn_clc": (p = {}) => {
-                                    resolve(); 
-                                },
-                            }
-                        }
-                    });
-                } else {
-                    resolve();
+        // let scr_5 = () => {
+        //     mDta_main.screens.set("scr_5", {
+        //         "el": mE,
+        //         "value": {
+        //             //here you can assign your variable based on your requirements..
+
+        //         }
+        //     });
+        // };
+
+        let scr_2 = () => {
+            mDta_main.screens.set(`scr_2`, {
+                "e": mE, //Html-Element
+                "value": {
+                    //here you can assign your variable based on your requirements..
+
                 }
             });
         };
-        
-        let renderScreensSequentially = (index) => {
-            renderScreen(index).then(() => {
-                renderScreensSequentially(index + 1); 
-            });
-        };
-        renderScreensSequentially(0);
+        //scr_2();
+
+        mDta_main.screens.set(`scr_1`, {
+            "e": mE,  //Html-Element
+            "value": {
+                //here you can assign your variable based on your requirements..
+
+                //callback..
+                "cb": {
+                    "on_scr_end": (p = {}) => {
+                        scr_2();
+                    },
+                }
+
+            }
+        });
+
+
+        // setTimeout(() => {
+        //     mDta_main.screens.set("scr_4", {
+        //         "el": mE,
+        //         "value": {
+        //             //here you can assign your variable based on your requirements..
+
+        //         }
+        //     });
+        // }, 14000);
+
+        // setTimeout(() => {
+        //     mDta_main.screens.set("scr_5", {
+        //         "el": mE,
+        //         "value": {
+        //             //here you can assign your variable based on your requirements..
+
+        //         }
+        //     });
+        // }, 24000);
+
+        // setTimeout(() => {
+        //     mDta_main.screens.set("scr_6", {
+        //         "el": mE,
+        //         "value": {
+        //             //here you can assign your variable based on your requirements..
+
+        //         }
+        //     });
+        // }, 30000);
+
     };
 
 
 
-    mStart(mDiv);
+    mStart(mScene);
 
 
 };
@@ -943,3 +893,5 @@ mGameRenderer({
 
     }
 }, document.body);
+
+

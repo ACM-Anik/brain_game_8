@@ -153,9 +153,6 @@ let mGameRendrer = (data = {}, mDOM) => {
                                 });*/
 
 
-
-
-
                             };
                             mSet(mScr);
 
@@ -276,8 +273,6 @@ let mGameRendrer = (data = {}, mDOM) => {
                                     });
 
                                 };
-
-
 
 
 
@@ -421,7 +416,7 @@ let mStart = () => {
 
 //load required libs..
 let mLoadReqLibs = (cb = { "onLoad": () => { } }) => {
-    import("../../third-party/anime-js/anime.js").then(v => {
+    import("../libs/animejs/anime.min.js").then(v => {
         //anime
         window.anime = v.anime;
         cb.onLoad();

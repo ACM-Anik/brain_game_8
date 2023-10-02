@@ -3,7 +3,7 @@ import { art_box } from "../libs/artbox/art_box.js";
 
 
 const mArtBox = art_box();
-const m_asset_path = '../assets';
+const m_asset_path = '../assets/';
 
 // Renderer:--
 let mGameRenderer = (data = {}, mDOM) => {
@@ -47,13 +47,248 @@ let mGameRenderer = (data = {}, mDOM) => {
             "rndr": { //Renderer..
                 "l": [ //list..
 
+                    // Screen-1 -----------
                     {
                         "name": "Screen 1",
                         "key": "scr_1",
                         "set": (k, v, thisItem) => {
                             console.log(thisItem);
-                            v["el"].innerHTML = ``; //reset the screen
+                            v["e"].innerHTML = ``; //reset the screen
 
+
+                            // mSendCB..
+                            let mSendCB = (cb_name, p = {}) => {
+                                if (v["value"].hasOwnProperty("cb")) {
+                                    if (v["value"]["cb"].hasOwnProperty(cb_name)) {
+                                        v["value"]["cb"][cb_name](p);
+                                    }
+                                }
+                            };
+
+                            //set..
+                            let mScr = document.createElement("div");
+                            v["e"].appendChild(mScr);
+                            mScr.style.height = `100%`;
+                            mScr.style.width = `100%`;
+                            mScr.style.overflow = `hidden`;
+
+                            //set..
+                            let mSet = (mE = document.body) => {
+                                // mE.innerHTML = `
+                                //     <div class="s1">
+                                //         <div class="s1-frame1"></div>
+                                //         <div class="s1-frame2"></div>
+                                //         <div class="s1-data">
+                                //             <h1 class="s1-heading">Word Velocity</h1>
+                                //             <button class="s1-btn">New Game</button>
+
+                                //             <div class="overlay-Loading">
+                                //                 <div class="loading-spans">
+                                //                     <span class="loading-ball"></span>
+                                //                     <span class="loading-text">Loading</span>
+                                //                 </div>
+                                //             </div>
+                                //         </div>
+                                //     </div>
+                                // `;
+
+                                // const screenElement = mE.querySelector('.s1');
+                                // if (screenElement) {
+                                //     screenElement.style.opacity = 1;
+                                //     let s1Btn = screenElement.querySelector(".s1-btn");
+                                //     s1Btn.addEventListener('click', function () {
+                                //         s1Btn.style.opacity = 0;
+
+                                //         // Overlay Loading:-
+                                //         const overlayLoading = screenElement.querySelector('.overlay-Loading');
+                                //         const loadingBall = screenElement.querySelector('.loading-ball');
+
+                                //         if (overlayLoading) {
+
+                                //             overlayLoading.style.animation = 'zoomInLoading 1s 1s both';
+
+                                //             setTimeout(() => {
+                                //                 loadingBall.style.width = '100%';
+                                //                 zoomOutLoading();
+                                //             }, 1000);
+
+                                //             // zoomOutLoading
+                                //             const zoomOutLoading = () => {
+                                //                 overlayLoading.style.animation = 'zoomOutLoading 1s 3s both';
+
+                                //             }
+                                //             setInterval(() => {
+                                //                 screenElement.style.opacity = 0;
+
+                                //                 mSendCB("on_new_btn_clc", {});
+
+                                //             }, 5000);
+                                //         }
+                                //     });
+
+                                // }
+
+                                //set..[Svg]..  
+
+
+                                //set..[Svg]..
+
+
+                                mArtBox_evnt.add_svg({
+                                    "w": `100%`,
+                                    "h": `95vh`,
+                                    "e": mE,
+                                    "src": `../assets/bg_images/first_scr_bg.svg`
+                                });
+
+                                // text 
+                                mArtBox_evnt.add_svg({
+                                    "w": `25vw`,
+                                    "h": `8vh`,
+                                    "x": 37.5,
+                                    "y": 46,
+                                    "e": mE,
+                                    "src": `../assets/word_velocity_text.svg`
+                                });
+
+                                // btn:-
+                                mArtBox_evnt.add_svg({
+                                    "w": `41vw`,
+                                    "h": `16vh`,
+                                    "x": 30,
+                                    "y": 70,
+                                    "e": mE,
+                                    "src": `../assets/btn_starting.svg`
+                                }, {
+                                    "onLoad": (v = {}) => {
+                                        //set..
+                                        // console.log(v.e);
+                                        v.e.style.opacity = `0`;
+                                        v.e.style.cursor = `pointer`;
+
+                                        //animation [Start]
+                                        setTimeout(() => {
+                                            let timeline = anime.timeline();
+                                            timeline.add({
+                                                targets: v.e,
+                                                opacity: 1,
+                                                duration: 1000,
+                                                easing: 'easeOutExpo'
+                                            }
+                                            );
+                                        }, 400);
+                                    },
+
+                                    "onClick": (v = {}) => {
+                                        v.e.style.opacity = "0";
+
+                                        setTimeout(() => {
+                                            v.e.remove();
+                                        }, 300);
+                                        loading();
+                                    }
+
+                                });
+
+                                // Loading:-
+                                let loading = () => {
+                                    mArtBox_evnt.add_svg({
+                                        "w": `43vw`,
+                                        "h": `16vh`,
+                                        "x": 29,
+                                        "y": 70,
+                                        "e": mE,
+                                        "src": `../assets/loading_border.svg`
+                                    }, {
+                                        "onLoad": (v = {}) => {
+                                            // console.log(v.e);
+                                            v.e.style.opacity = `0`;
+                                            v.e.style.cursor = `mouse`;
+
+                                            //animation [Start]
+                                            setTimeout(() => {
+                                                let timeline = anime.timeline();
+                                                timeline.add({
+                                                    targets: v.e,
+                                                    opacity: 1,
+                                                    duration: 100,
+                                                    easing: 'easeOutExpo',
+
+                                                    complete: function (anim) {
+                                                        let ve = v.e;
+                                                        let ball = document.createElement('div');
+                                                        ball.classList = "loading_ball";
+                                                        ball.style.opacity = "1";
+                                                        ball.style.backgroundColor = "#8D8282";
+                                                        ball.style.borderRadius = "87px";
+                                                        ball.style.width = "10vw";
+                                                        ball.style.height = "9vh";
+                                                        ball.style.marginInline = "2vw";
+                                                        ball.style.marginBottom = "10px";
+                                                        ball.style.position = "absolute";
+                                                        ball.style.top = "24%";
+                                                        ball.style.left = "0%";
+
+                                                        ve.appendChild(ball);
+
+                                                        console.log(v.e);
+                                                        let ballClass = ve.querySelector(".loading_ball");
+
+                                                        anime({
+                                                            opacity: 1,
+                                                            targets: '.loading_ball',
+                                                            width: '90%',
+                                                            easing: 'easeInOutQuad',
+                                                            direction: 'alternate',
+                                                            loop: false
+                                                        });
+
+                                                        setTimeout(() => {
+                                                            on_scr_end();
+                                                        }, 3000);
+                                                    }
+
+                                                }
+                                                );
+                                            }, 400);
+                                        }
+                                    });
+                                }
+
+                                // on_scr_end..
+                                let on_scr_end = () => {
+                                    let timeline = anime.timeline();
+                                    timeline.add({
+                                        targets: mScr,
+                                        opacity: 0,
+                                        duration: 2000,
+                                        easing: 'easeOutExpo',
+                                        update: function (anim) {
+                                            console.log(anim.progress); 
+                                            if (anim.progress > 0) {
+                                                anime.remove(mScr);
+                                                mScr.remove();
+                                                //send cb..
+                                                mSendCB(`on_scr_end`, {});
+
+                                            }
+                                        },
+                                    });
+                                };
+                            };
+
+                            mSet(mScr);
+                        }
+                    },
+
+                    // Screen-2 ----------
+                    {
+                        "name": "Screen 2",
+                        "key": "scr_2",
+                        "set": (k, v, thisItem) => {
+                            console.log(thisItem);
+                            v["e"].innerHTML = ``; //reset the screen
+                            console.log(v["e"]);
 
                             //mSendCB..
                             let mSendCB = (cb_name, p = {}) => {
@@ -70,339 +305,162 @@ let mGameRenderer = (data = {}, mDOM) => {
                             v["e"].appendChild(mScr);
                             mScr.style.height = `100%`;
                             mScr.style.width = `100%`;
+                            mScr.style.overflow = `hidden`;
+
 
                             //set..
                             let mSet = (mE = document.body) => {
-                                mE.innerHTML = `
-                                    <div class="s1">
-                                        <div class="s1-frame1"></div>
-                                        <div class="s1-frame2"></div>
-                                        <div class="s1-data">
-                                            <!-- <div class="s1-img-con">
-                                                <img class="s1-img-leaf" src="../assets/leaf_ellipse.svg" alt="leaf" /> 
-                                                <div class="dark-circle"></div>
-                                                <div class="white-circle"></div>
-                                            </div> -->
-                                            <h1 class="s1-heading">Word Velocity</h1>
 
-                                            <!-- <button onclick="console.log('Btn Clicked')" class="s1-btn">New Game</button> -->
+                                // mE.innerHTML = `
+                                // <div class="s2">
+                                //     <div className="part1">
+                                //         <img class="s2-img" src="../assets/word_with_leaf.svg" alt="Leaf & Text">
+                                //     </div>
 
-                                            <button class="s1-btn">New Game</button>
+                                //     <div class="part2">
+                                //         <div class="border border1">
+                                //             <div class="border border2">
+                                //                 <p class="s2-about-title">About</p>
+                                //                 <div class="s2-carousel-cont">
+                                //                     <div class="s2-carousel-slider">
+                                //                         <div class="s2-carousel-item active-item">
+                                //                             <p>Choose your speed and difficulty levels.</p>
+                                //                         </div>
+                                //                         <div class="s2-carousel-item">
+                                //                             <p>Focus and track the word.</p>
+                                //                         </div>
+                                //                         <div class="s2-carousel-item">
+                                //                             <p>Answer the questions.</p>
+                                //                         </div>
+                                //                     </div>
+                                //                     <div class="s2-carousel-dots">
+                                //                         <span class="dot1"></span>
+                                //                         <span class="dot2"></span>
+                                //                         <span class="dot3"></span>
+                                //                     </div>
+                                //                     <p class="s2-btn">Skip</p>
+                                //                 </div>
+                                //             </div>
+                                //         </div>
+                                //     </div>
+                                // </div>
+                                // `;
 
-                                            <div class="overlay-Loading">
-                                                <div class="loading-spans">
-                                                    <span class="loading-ball"></span>
-                                                    <span class="loading-text">Loading</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                `;
+                                // const screenElement = mE.querySelector('.s2');
+                                // if (screenElement) {
+                                //     screenElement.style.opacity = 1;
 
-                                const screenElement = mE.querySelector('.s1');
-                                if (screenElement) {
-                                    screenElement.style.opacity = 1;
-                                    let s1Btn = screenElement.querySelector(".s1-btn");
-                                    s1Btn.addEventListener('click', function () {
-                                        s1Btn.style.opacity = 0;
+                                //     const s2Img = screenElement.querySelector(".s2-img");
+                                //     s2Img.style.animation = "s2-zoomIn 1s 1s both";
 
-                                        // Overlay Loading:-
-                                        const overlayLoading = screenElement.querySelector('.overlay-Loading');
-                                        const loadingBall = screenElement.querySelector('.loading-ball');
+                                //     setTimeout(() => {
+                                //         s2Img.style.animation = "s2-zoomOut 1s 1s both";
 
-                                        if (overlayLoading) {
-
-                                            overlayLoading.style.animation = 'zoomInLoading 1s 1s both';
-
-                                            setTimeout(() => {
-                                                loadingBall.style.width = '100%';
-                                                zoomOutLoading();
-                                            }, 1000);
-
-                                            // zoomOutLoading
-                                            const zoomOutLoading = () => {
-                                                overlayLoading.style.animation = 'zoomOutLoading 1s 3s both';
-
-                                            }
-                                            setInterval(() => {
-                                                screenElement.style.opacity = 0;
-
-                                                mSendCB("on_new_btn_clc", {});
-
-                                            }, 5000);
-                                        }
-                                    });
-
-                                }
+                                //     }, 2000);
 
 
+                                //     setTimeout(() => {
+                                //         const Part2About = screenElement.querySelector(".part2");
+                                //         Part2About.style.opacity = 1;
 
-                                // on_scr_end..
-                                let on_scr_end = () => {
-                                    //set..
-                                    let timeline = anime.timeline();
-                                    timeline.add({
-                                        targets: mScr,
-                                        opacity: 0,
-                                        duration: 2000,
-                                        easing: 'easeOutExpo',
-                                        update: function (anim) {
-                                            //console.log(anim.progress); 
-                                            if (anim.progress > 0) {
-                                                anime.remove(mScr)
-                                                mScr.remove();
-                                                //send cb..
-                                                mSendCB(`on_scr_end`, {});
-                                            }
-                                        },
-                                        complete: function (anim) {
+                                //         const dots = screenElement.querySelectorAll(".s2-carousel-dots span");
+                                //         const itemImg = screenElement.querySelectorAll(".s2-carousel-item");
 
-                                        }
+                                //         let dotClicked = false;
+                                //         let currentIndex = 0;
 
-                                    }
-                                    );
+                                //         dots.forEach((dot, index) => {
+                                //             dot.addEventListener("click", function () {
+                                //                 dots.forEach(dot => dot.classList.remove("active-dot"));
+                                //                 itemImg.forEach(image => image.classList.remove("active-item"));
 
-                                };
+                                //                 dot.classList.add("active-dot");
+                                //                 itemImg[index].classList.add("active-item");
+
+                                //                 dotClicked = true;
+                                //                 currentIndex = index;
+                                //             });
+                                //         });
+
+                                //         const skipButton = screenElement.querySelector(".s2-btn");
+
+                                //         skipButton.addEventListener("click", function () {
+                                //             itemImg[currentIndex].classList.remove("active-item");
+                                //             currentIndex = (currentIndex + 1) % itemImg.length;
+                                //             itemImg[currentIndex].classList.add("active-item");
+                                //             dots.forEach(dot => dot.classList.remove("active-dot"));
+                                //             dots[currentIndex].classList.add("active-dot");
+
+                                //             console.log(currentIndex);
+                                //             if (currentIndex === 2) {
+                                //                 currentIndex = 3;
+                                //             }
+
+                                //             if (currentIndex === 3) {
+                                //                 setTimeout(() => {
+                                //                     screenElement.style.opacity = 0;
+                                //                     mSendCB("on_new_btn_clc", {});
+                                //                 }, 1000);
+                                //             }
+                                //         });
+
+                                //     }, 4000);
+
+                                // };
 
 
-                                //set..[Svg]..  
-                                mArtBox_evnt.add_svg({
-                                    //"w": ``,
-                                    //"h": ``,
+
+
+
+
+                                // // Word & Leaf Loading:-
+                                
+                                mArtBox_evnt.add_svg({ //Word & Leaf Loading
+                                    "w": `40vw`,
+                                    "h": `40vh`,
+                                    "x": 30,
+                                    "y": 30,
                                     "e": mE,
-                                    "src": `${m_asset_path}svg/_0.svg`
-                                });
-
-
-                                //set..[Svg]..
-                                mArtBox_evnt.add_svg({
-                                    "w": `20vw`,
-                                    "h": `10vh`,
-                                    "x": 40,
-                                    "y": 75,
-                                    "e": mE,
-                                    "src": `${m_asset_path}svg/_1.svg`
+                                    "src": `../assets/btn_starting.svg`
                                 }, {
                                     "onLoad": (v = {}) => {
-                                        //set..
-                                        //console.log(v.e);
-                                        v.e.style.opacity = `0`;
+                                        console.log(v.e);
+                                        v.e.style.opacity = `1`;
 
-                                        //animation [Start]
-                                        setTimeout(() => {
-                                            let timeline = anime.timeline();
-                                            timeline.add({
-                                                targets: v.e,
-                                                opacity: 1,
-                                                duration: 2000,
-                                                easing: 'easeOutExpo',
+                                        // anime({
+                                        //     targets: v.e,
+                                        //     scale: 20,
+                                        //   });
+                                    },
 
-                                                complete: function (anim) {
-                                                    anime.remove(v.e);
-                                                    //completeLogEl.value = 'completed : ' + anim.completed;
-                                                    on_scr_end();
-                                                }
-
-                                            }
-                                            );
-                                        }, 400);
-                                        //animation [End]
-                                    }
                                 });
 
-
-
-                            };
-
-                            mSet(mScr);
-                        }
-                    },
-
-                    {
-                        "name": "Screen 2",
-                        "key": "scr_2",
-                        "set": (k, v, thisItem) => {
-                            console.log(thisItem);
-                            v["el"].innerHTML = ``; //reset the screen
-
-
-                            //mSendCB..
-                            let mSendCB = (cb_name, p = {}) => {
-                                if (v["value"].hasOwnProperty("cb")) {
-                                    if (v["value"]["cb"].hasOwnProperty(cb_name)) {
-                                        v["value"]["cb"][cb_name](p);
-                                    }
-                                }
-                            };
-
-
-                            //set..
-                            let mScr = document.createElement("div");
-                            mScr.classList.add('mScr');
-                            mScr.style.height = `100%`;
-                            mScr.style.width = `100%`;
-                            v["el"].appendChild(mScr);
-
-
-                            //set..
-                            let mSet = (mE = document.body) => {
-                                mE.innerHTML = `
-                                <div class="s2">
-                                    <div className="part1">
-                                        <img class="s2-img" src="../assets/word_with_leaf.svg" alt="Leaf & Text">
-                                    </div>
-
-                                    <div class="part2">
-                                        <div class="border border1">
-                                            <div class="border border2">
-                                                <p class="s2-about-title">About</p>
-                                                <div class="s2-carousel-cont">
-                                                    <div class="s2-carousel-slider">
-                                                        <div class="s2-carousel-item active-item">
-                                                            <p>Choose your speed and difficulty levels.</p>
-                                                        </div>
-                                                        <div class="s2-carousel-item">
-                                                            <p>Focus and track the word.</p>
-                                                        </div>
-                                                        <div class="s2-carousel-item">
-                                                            <p>Answer the questions.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="s2-carousel-dots">
-                                                        <span class="dot1"></span>
-                                                        <span class="dot2"></span>
-                                                        <span class="dot3"></span>
-                                                    </div>
-                                                    <p class="s2-btn">Skip</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                `;
-
-                                const screenElement = mE.querySelector('.s2');
-                                if (screenElement) {
-                                    screenElement.style.opacity = 1;
-
-                                    const s2Img = screenElement.querySelector(".s2-img");
-                                    s2Img.style.animation = "s2-zoomIn 1s 1s both";
-
-                                    setTimeout(() => {
-                                        s2Img.style.animation = "s2-zoomOut 1s 1s both";
-
-                                    }, 2000);
-
-
-                                    setTimeout(() => {
-                                        const Part2About = screenElement.querySelector(".part2");
-                                        Part2About.style.opacity = 1;
-
-                                        const dots = screenElement.querySelectorAll(".s2-carousel-dots span");
-                                        const itemImg = screenElement.querySelectorAll(".s2-carousel-item");
-
-                                        let dotClicked = false;
-                                        let currentIndex = 0;
-
-                                        dots.forEach((dot, index) => {
-                                            dot.addEventListener("click", function () {
-                                                dots.forEach(dot => dot.classList.remove("active-dot"));
-                                                itemImg.forEach(image => image.classList.remove("active-item"));
-
-                                                dot.classList.add("active-dot");
-                                                itemImg[index].classList.add("active-item");
-
-                                                dotClicked = true;
-                                                currentIndex = index;
-                                            });
-                                        });
-
-                                        const skipButton = screenElement.querySelector(".s2-btn");
-
-                                        skipButton.addEventListener("click", function () {
-                                            itemImg[currentIndex].classList.remove("active-item");
-                                            currentIndex = (currentIndex + 1) % itemImg.length;
-                                            itemImg[currentIndex].classList.add("active-item");
-                                            dots.forEach(dot => dot.classList.remove("active-dot"));
-                                            dots[currentIndex].classList.add("active-dot");
-
-                                            console.log(currentIndex);
-                                            if (currentIndex === 2) {
-                                                currentIndex = 3;
-                                            }
-
-                                            if (currentIndex === 3) {
-                                                setTimeout(() => {
-                                                    screenElement.style.opacity = 0;
-                                                    mSendCB("on_new_btn_clc", {});
-                                                }, 1000);
-                                            }
-                                        });
-
-                                    }, 4000);
-
-
-                                }
-
-
-
                                 // //set..[Svg]..
-                                // mUtils.svg_loader({
-                                //     "0": "assets/svgTest/game/game 8.1.svg",  //svg file name --OR-- <svg></svg>   --OR-- "my_folder/my_file.svg"
-                                //     //"1": "YOUR_UNIQUE_ID",
-                                //     "2": "100%", //2vh
-                                //     "3": "100%", //2vh
-                                //     "4": "", //"" => no-color --OR-- undefined => "auto-color-applied" --OR-- "rgba(my color)"
-                                //     "5": mE,  //HTML-ELEMENT
-                                //     //you can set and (reload) FIELD by (assigning) this func..
-                                //     //"reload": () => {},
-                                //     "cb": {
-                                //         "onLoad": (mCurrItem) => {
-                                //             //use (svg)
-                                //             //alert("onLoad");
-                                //         },
-                                //         "onInit": (mCurrItem) => {
-                                //             //This will trigger immediately..
-                                //         },
-                                //         "onError": () => {
-                                //             //alert("onError");
-                                //         },
-                                //         "onClick": (mCurrItem) => {
-                                //             //alert("onClick");
-                                //         }
-                                //     }
-                                // });
-
-
-                                // //set..[Text]..
-                                // let mT0_evnt = mUtils.txt_loader({
-                                //     "0": mE,  //HTMLElement
-                                //     "1": 'Word Velocity',  //txt
-                                //     "2": "2.9vh",  //fontSize
-                                //     "3": "#000",  //color
-                                //     "4": 0,  //pos hori [left, center, right]
-                                //     "5": 0,   //[".innerHTML", ".innerText"]
-                                //     //"6": grey, //onHoverColor
-                                //     "7": ``, //padding
+                                // mArtBox_evnt.add_svg({
+                                //     "w": `5vw`,
+                                //     "h": `5vw`,
+                                //     "x": 10,
+                                //     "y": 10,
+                                //     "e": mE,
+                                //     "src": `../assets/word_with_leaf.svg`
                                 // },
                                 //     {
-                                //         "onClc": () => { },
-                                //         "onmouseover": () => { },
-                                //         "onmouseout": () => { },
-                                //     });
-                                // //set-position [Temporary-Solution]  [-Start-]
-                                // mT0_evnt["e"].style.position = 'absolute';
-                                // mT0_evnt["e"].style.top = '35vh';
-                                // mT0_evnt["e"].style.left = '43%';
-                                // //set-position [Temporary-Solution]  [-End-]
+                                //         "onLoad": (v = {}) => {
+                                //             console.log(v.e);
+
+
+
+                                //         }
+                                //     }
+                                // );
+
 
                             };
                             mSet(mScr);
                         }
                     },
 
-                    // Screen-3
+                    // Screen-3 ----------
                     // {
                     //     "name": "Screen 3",
                     //     "key": "scr_3",
@@ -485,7 +543,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                     //         mSet(mScr);
                     //     }
                     // },
-                    // // Screen-4
+                    // Screen-4 -----------
                     // {
                     //     "name": "Screen 4",
                     //     "key": "scr_4",
@@ -563,7 +621,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                     //         mSet(mScr);
                     //     }
                     // },
-                    // Screen-5 
+                    // Screen-5 -----------
                     {
                         "name": "Screen 5",
                         "key": "scr_5",
@@ -651,7 +709,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                             mSet(mScr);
                         }
                     },
-                    // // Screen-6
+                    // // Screen-6 ----------
                     // {
                     //     "name": "Screen 6",
                     //     "key": "scr_6",
@@ -716,7 +774,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                     //         mSet(mScr);
                     //     }
                     // },
-                    // // Screen-7
+                    // // Screen-7 ----------
                     // {
                     //     "name": "Screen 7",
                     //     "key": "scr_7",
@@ -798,13 +856,12 @@ let mGameRenderer = (data = {}, mDOM) => {
     };
 
     //set..
-    mDiv.innerHTML = "Content";
+    // mDiv.innerHTML = "Content";
 
 
 
     // //mStart..
     let mStart = (mE) => {
-        console.log(mE);
         // set..
 
         // let scr_5 = () => {
@@ -819,17 +876,16 @@ let mGameRenderer = (data = {}, mDOM) => {
 
         let scr_2 = () => {
             mDta_main.screens.set(`scr_2`, {
-                "e": mE, //Html-Element
+                "e": mE,
                 "value": {
                     //here you can assign your variable based on your requirements..
 
                 }
             });
         };
-        //scr_2();
 
         mDta_main.screens.set(`scr_1`, {
-            "e": mE,  //Html-Element
+            "e": mE, //Html-Element
             "value": {
                 //here you can assign your variable based on your requirements..
 
@@ -876,6 +932,39 @@ let mGameRenderer = (data = {}, mDOM) => {
 
     };
 
+    // let mStart = (mE) => {
+    //     let screens = mDta_main.screens.rndr.l; // Get the list of screens
+
+    //     // Function to render a screen
+    //     let renderScreen = (index) => {
+    //         return new Promise((resolve) => {
+    //             if (index < screens.length) {
+    //                 const screen = screens[index];
+    //                 mDta_main.screens.set(screen.key, {
+    //                     "el": mE,
+    //                     "value": {
+    //                         "cb": {
+    //                             "on_new_btn_clc": (p = {}) => {
+    //                                 resolve();
+    //                             },
+    //                         }
+    //                     }
+    //                 });
+    //             } else {
+    //                 resolve();
+    //             }
+    //         });
+    //     };
+
+    //     // Function to render screens sequentially
+    //     let renderScreensSequentially = (index) => {
+    //         renderScreen(index).then(() => {
+    //             renderScreensSequentially(index + 1);
+    //         });
+    //     };
+
+    //     renderScreensSequentially(0);
+    // };
 
 
     mStart(mScene);
@@ -889,7 +978,6 @@ mGameRenderer({
         //add params based on content requirement
         "my_param_1": "",
         "my_param_2": "",
-
 
     }
 }, document.body);

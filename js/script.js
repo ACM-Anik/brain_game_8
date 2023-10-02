@@ -864,15 +864,15 @@ let mGameRenderer = (data = {}, mDOM) => {
     let mStart = (mE) => {
         // set..
 
-        // let scr_5 = () => {
-        //     mDta_main.screens.set("scr_5", {
-        //         "el": mE,
-        //         "value": {
-        //             //here you can assign your variable based on your requirements..
+        let scr_5 = () => {
+            mDta_main.screens.set("scr_5", {
+                "el": mE,
+                "value": {
+                    //here you can assign your variable based on your requirements..
 
-        //         }
-        //     });
-        // };
+                }
+            });
+        };
 
         let scr_2 = () => {
             mDta_main.screens.set(`scr_2`, {

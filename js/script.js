@@ -743,7 +743,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                         ques.style.marginInline = "2vw";
                                         ques.style.marginBottom = "10px";
                                         ques.style.position = "absolute";
-                                        ques.style.top = "8vh";
+                                        ques.style.top = "9vh";
                                         ques.style.left = "7%";
                                         ques.style.textAlign = "center";
                                         ve.appendChild(ques);
@@ -773,17 +773,13 @@ let mGameRenderer = (data = {}, mDOM) => {
                                         }, {
                                             "onLoad": (v = {}) => {
                                                 v.e.style.opacity = "0";
-                                                v.e.style.height = '35vh';
                                                 v.e.style.display = 'flex';
                                                 v.e.style.justifyContent = 'center';
                                                 v.e.style.alignItems = 'end';
                                                 v.e.style.overflow = 'hidden';
                                                 v.e.style.position = 'fixed';
-                                                v.e.style.top = '60%';
+                                                v.e.style.top = '85%';
                                                 v.e.style.left = '40%';
-
-
-
 
                                                 anime({
                                                     opacity: 1,
@@ -803,10 +799,10 @@ let mGameRenderer = (data = {}, mDOM) => {
 
                                 // Question Marks & Options div:--
                                 mArtBox_evnt.add_svg({
-                                    "w": `14vw`,
-                                    "h": `18vh`,
-                                    "x": 43,  //-->
-                                    "y": 42,  //--> position absolute makes error here//
+                                    "w": `12vw`,
+                                    "h": `19vh`,
+                                    "x": 44,  //-->
+                                    "y": 50,  //--> position absolute makes error here//
                                     "e": mE,
                                     "src": `${m_asset_path}/question_mark.svg`
                                 }, {
@@ -819,121 +815,249 @@ let mGameRenderer = (data = {}, mDOM) => {
                                                 opacity: 1,
                                                 targets: v.e,
                                                 scale: [0, 1],
-                                                duration: 2000,
+                                                duration: 500,
                                                 direction: 'alternate',
                                                 easing: 'easeInQuad',
                                                 loop: false
                                             });
                                         }, 1000);
 
+                                        let ve = v.e;
+                                        let lineCont = document.createElement('div');
+                                        lineCont.classList = "line-cont";
+                                        lineCont.style.position = "absolute";
+                                        lineCont.style.top = "0";
+                                        lineCont.style.left = "0";
+                                        lineCont.style.zIndex = "100";
+                                        ve.appendChild(lineCont);
+
+                                        let innerLineCont = document.createElement('div');
+                                        innerLineCont.classList = "inner-line-cont";
+                                        // innerLineCont.style.position = "relative";
+                                        
+                                        innerLineCont.style.marginTop = "10vh";
+                                        innerLineCont.style.height = "90vh";
+                                        innerLineCont.style.width = "100vw";
+                                        lineCont.appendChild(innerLineCont);
 
                                         // Option 1:-
-                                        mArtBox_evnt.add_svg({
-                                            "w": `14vw`,
-                                            "h": `8vh`,
-                                            "x": 74,  //-->
-                                            "y": 5,  //--> position absolute makes error here//
-                                            "e": mE,
-                                            "src": `${m_asset_path}/option_bg.svg`
-                                        }, {
-                                            "onLoad": (v = {}) => {
-                                                v.e.style.cursor = "pointer";
-                                                v.e.style.position = "relative";
-                                                // Inner text - option:--
-                                                let ve = v.e;
-                                                let option1 = document.createElement('div');
-                                                option1.classList = "option1";
-                                                option1.innerHTML = ` <h1 class="option1-h1">What</h1> `
-                                                option1.style.position = "absolute";
-                                                option1.style.top = "-15%";
-                                                option1.style.left = "3%";
-                                                option1.style.textAlign = "center";
-                                                ve.appendChild(option1);
-                                            },
+                                        setTimeout(() => {
+                                            let line1 = document.createElement('div');
+                                            line1.classList = "line1";
+                                            line1.style.backgroundColor = "#8D8282";
+                                            line1.style.height = "1vh";
+                                            line1.style.width = "1vw";
+                                            line1.style.position = "absolute";
+                                            line1.style.top = "-5%";
+                                            line1.style.left = "10%";
+                                            line1.style.zIndex = "-1";
+                                            // line1.style.transform = "rotate(-30deg)";
+                                            innerLineCont.appendChild(line1);
 
-                                            "onClick": (v = {}) => { alert("Option 1") }
-                                        });
+                                            console.log(ve);
+                                            anime({
+                                                targets: line1,
+                                                width: '23%',
+                                                rotate: -25,
+                                                easing: 'easeInOutQuad',
+                                                direction: 'alternate',
+                                                duration: 500,
+                                                loop: false
+                                            });
+
+                                            mArtBox_evnt.add_svg({
+                                                "w": `14vw`,
+                                                "h": `8vh`,
+                                                "x": 74,  //-->
+                                                "y": 6,  //--> position absolute makes error here//
+                                                "e": mE,
+                                                "src": `${m_asset_path}/option_bg.svg`
+                                            }, {
+                                                "onLoad": (v = {}) => {
+                                                    v.e.style.cursor = "pointer";
+                                                    v.e.style.width = "fit-content"
+                                                    v.e.style.position = "relative";
+                                                    v.e.style.zIndex = "100";
+
+                                                    // Inner text - option:--
+                                                    let ve = v.e;
+                                                    let option1 = document.createElement('div');
+                                                    option1.classList = "option1";
+                                                    option1.innerHTML = ` <h1 class="option1-h1">What</h1> `
+                                                    option1.style.position = "absolute";
+                                                    option1.style.top = "-14%";
+                                                    option1.style.left = "20%";
+                                                    option1.style.textAlign = "center";
+                                                    ve.appendChild(option1);
+                                                },
+
+                                                "onClick": (v = {}) => { alert("Option 1") }
+                                            });
+                                        }, 3000);
 
                                         // Option 2:-
-                                        mArtBox_evnt.add_svg({
-                                            "w": `14vw`,
-                                            "h": `8vh`,
-                                            "x": 10,  //-->
-                                            "y": 30,  //--> position absolute makes error here//
-                                            "e": mE,
-                                            "src": `${m_asset_path}/option_bg.svg`
-                                        }, {
-                                            "onLoad": (v = {}) => {
-                                                v.e.style.cursor = "pointer";
-                                                v.e.style.position = "relative";
-                                                // Inner text - option:--
-                                                let ve = v.e;
-                                                let option2 = document.createElement('div');
-                                                option2.classList = "option2";
-                                                option2.innerHTML = ` <h1 class="option2-h1">What</h1> `
-                                                option2.style.position = "absolute";
-                                                option2.style.top = "-15%";
-                                                option2.style.left = "3%";
-                                                option2.style.textAlign = "center";
-                                                ve.appendChild(option2);
-                                            },
+                                        setTimeout(() => {
+                                            let line2 = document.createElement('div');
+                                            line2.classList = "line2";
+                                            line2.style.backgroundColor = "#8D8282";
+                                            line2.style.height = "1vh";
+                                            line2.style.width = "1vw";
+                                            line2.style.position = "absolute";
+                                            line2.style.top = "18%";
+                                            line2.style.right = "98%";
+                                            line2.style.zIndex = "100";
+                                            // line2.style.transform = "rotate(-30deg)";
+                                            innerLineCont.appendChild(line2);
 
-                                            "onClick": (v = {}) => { alert(" 2") }
-                                        });
+                                            console.log(ve);
+                                            anime({
+                                                targets: line2,
+                                                width: '24%',
+                                                rotate: -20,
+                                                easing: 'easeInOutQuad',
+                                                direction: 'alternate',
+                                                duration: 500,
+                                                loop: false
+                                            });
+
+                                            mArtBox_evnt.add_svg({
+                                                "w": `14vw`,
+                                                "h": `8vh`,
+                                                "x": 10,  //-->
+                                                "y": 38,  //--> position absolute makes error here//
+                                                "e": mE,
+                                                "src": `${m_asset_path}/option_bg.svg`
+                                            }, {
+                                                "onLoad": (v = {}) => {
+                                                    v.e.style.position = "relative";
+                                                    v.e.style.width = "fit-content"
+                                                    v.e.style.cursor = "pointer";
+                                                    v.e.style.zIndex = "100";
+
+                                                    // Inner text - option:--
+                                                    let ve = v.e;
+                                                    let option2 = document.createElement('div');
+                                                    option2.classList = "option2";
+                                                    option2.innerHTML = ` <h1 class="option2-h1">What</h1> `
+                                                    option2.style.position = "absolute";
+                                                    option2.style.top = "-14%";
+                                                    option2.style.left = "20%";
+                                                    option2.style.textAlign = "center";
+                                                    ve.appendChild(option2);
+                                                },
+
+                                                "onClick": (v = {}) => { alert(" 2") }
+                                            });
+                                        }, 4000);
 
                                         // Option 3:-
-                                        mArtBox_evnt.add_svg({
-                                            "w": `14vw`,
-                                            "h": `8vh`,
-                                            "x": 75,  //-->
-                                            "y": 19.5,  //--> position absolute makes error here//
-                                            "e": mE,
-                                            "src": `${m_asset_path}/option_bg.svg`
-                                        }, {
-                                            "onLoad": (v = {}) => {
-                                                v.e.style.cursor = "pointer";
-                                                v.e.style.position = "relative";
-                                                // Inner text - option:--
-                                                let ve = v.e;
-                                                let option3 = document.createElement('div');
-                                                option3.classList = "option3";
-                                                option3.innerHTML = ` <h1 class="option3-h1">What</h1> `
-                                                option3.style.position = "absolute";
-                                                option3.style.top = "-15%";
-                                                option3.style.left = "3%";
-                                                option3.style.textAlign = "center";
-                                                ve.appendChild(option3);
-                                            },
+                                        setTimeout(() => {
+                                            let line3 = document.createElement('div');
+                                            line3.classList = "line3";
+                                            line3.style.backgroundColor = "#8D8282";
+                                            line3.style.height = "1vh";
+                                            line3.style.width = "1vw";
+                                            line3.style.position = "absolute";
+                                            line3.style.top = "18%";
+                                            line3.style.left = "10%";
+                                            line3.style.zIndex = "-1";
+                                            // line3.style.transform = "rotate(-30deg)";
+                                            innerLineCont.appendChild(line3);
 
-                                            "onClick": (v = {}) => { alert(" 3") }
-                                        });
+                                            console.log(ve);
+                                            anime({
+                                                targets: line3,
+                                                width: '23%',
+                                                easing: 'easeInOutQuad',
+                                                direction: 'alternate',
+                                                rotate: 17,
+                                                duration: 500,
+                                                loop: false
+                                            });
+                                            mArtBox_evnt.add_svg({
+                                                "w": `14vw`,
+                                                "h": `8vh`,
+                                                "x": 75,  //-->
+                                                "y": 27,  //--> position absolute makes error here//
+                                                "e": mE,
+                                                "src": `${m_asset_path}/option_bg.svg`
+                                            }, {
+                                                "onLoad": (v = {}) => {
+                                                    v.e.style.cursor = "pointer";
+                                                    v.e.style.width = "fit-content"
+                                                    v.e.style.position = "relative";
+                                                    v.e.style.zIndex = "100";
+
+                                                    // Inner text - option:--
+                                                    let ve = v.e;
+                                                    let option3 = document.createElement('div');
+                                                    option3.classList = "option3";
+                                                    option3.innerHTML = ` <h1 class="option3-h1">What</h1> `
+                                                    option3.style.position = "absolute";
+                                                    option3.style.top = "-14%";
+                                                    option3.style.left = "20%";
+                                                    option3.style.textAlign = "center";
+                                                    ve.appendChild(option3);
+                                                },
+
+                                                "onClick": (v = {}) => { alert(" 3") }
+                                            });
+                                        }, 5000);
 
                                         // Option 4:-
-                                        mArtBox_evnt.add_svg({
-                                            "w": `14vw`,
-                                            "h": `8vh`,
-                                            "x": 10,  //-->
-                                            "y": -20,  //--> position absolute makes error here//
-                                            "e": mE,
-                                            "src": `${m_asset_path}/option_bg.svg`
-                                        }, {
-                                            "onLoad": (v = {}) => {
-                                                v.e.style.cursor = "pointer";
-                                                v.e.style.position = "relative";
-                                                // Inner text - option:--
-                                                let ve = v.e;
-                                                let option4 = document.createElement('div');
-                                                option4.classList = "option4";
-                                                option4.innerHTML = ` <h1 class="option4-h1">What</h1> `
-                                                option4.style.position = "absolute";
-                                                option4.style.top = "-15%";
-                                                option4.style.left = "4%";
-                                                option4.style.textAlign = "center";
-                                                ve.appendChild(option4);
-                                            },
+                                        setTimeout(() => {
+                                            let line4 = document.createElement('div');
+                                            line4.classList = "line4";
+                                            line4.style.backgroundColor = "#8D8282";
+                                            line4.style.height = "1vh";
+                                            line4.style.width = "1vw";
+                                            line4.style.position = "absolute";
+                                            line4.style.top = "-4%";
+                                            line4.style.right = "98%";
+                                            line4.style.zIndex = "100";
+                                            // line4.style.transform = "rotate(-30deg)";
+                                            innerLineCont.appendChild(line4);
 
-                                            "onClick": (v = {}) => { alert(" 4") }
-                                        });
+                                            console.log(ve);
+                                            anime({
+                                                targets: line4,
+                                                width: '24%',
+                                                easing: 'easeInOutQuad',
+                                                direction: 'alternate',
+                                                rotate: 21,
+                                                duration: 500,
+                                                loop: false
+                                            });
+
+                                            mArtBox_evnt.add_svg({
+                                                "w": `14vw`,
+                                                "h": `8vh`,
+                                                "x": 10,  //-->
+                                                "y": -18.5,  //--> position absolute makes error here//
+                                                "e": mE,
+                                                "src": `${m_asset_path}/option_bg.svg`
+                                            }, {
+                                                "onLoad": (v = {}) => {
+                                                    v.e.style.cursor = "pointer";
+                                                    v.e.style.width = "fit-content"
+                                                    v.e.style.position = "relative";
+                                                    v.e.style.zIndex = "100";
+
+                                                    // Inner text - option:--
+                                                    let ve = v.e;
+                                                    let option4 = document.createElement('div');
+                                                    option4.classList = "option4";
+                                                    option4.innerHTML = ` <h1 class="option4-h1">What</h1> `
+                                                    option4.style.position = "absolute";
+                                                    option4.style.top = "-14%";
+                                                    option4.style.left = "20%";
+                                                    option4.style.textAlign = "center";
+                                                    ve.appendChild(option4);
+                                                },
+
+                                                "onClick": (v = {}) => { alert(" 4") }
+                                            });
+                                        }, 6000);
                                     },
 
                                 });

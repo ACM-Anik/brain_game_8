@@ -487,6 +487,49 @@ let mGameRenderer = (data = {}, mDOM) => {
                     // },
 
 
+                    // {
+                    //     "name": "Screen 2",
+                    //     "key": "scr_2",
+                    //     "set": (k, v, thisItem) => {
+                    //         v["e"].innerHTML = ""; // Reset the screen
+                    
+                    //         // Function to load and show an SVG
+                    //         const loadAndShowSVG = (src) => {
+                    //             let mScr = document.createElement("div");
+                    //             v["e"].appendChild(mScr);
+                    //             mScr.style.height = `100%`;
+                    //             mScr.style.width = `100%`;
+                    //             mScr.style.overflow = `hidden`;
+                    
+                    //             let img = document.createElement("img");
+                    //             img.src = src;
+                    //             img.style.width = "100%";
+                    //             img.style.height = "95vh";
+                    //             mScr.appendChild(img);
+                    //         };
+                    
+                    //         // Load and show SVGs
+                    //         setTimeout(() => {
+                    //             loadAndShowSVG("/assets/game 8.8.svg");
+                    //         }, 0);
+                    
+                    //         setTimeout(() => {
+                    //             v["e"].innerHTML = ""; // Remove previous SVG
+                    //             loadAndShowSVG("/assets/game 8.9.svg");
+                    //         }, 2000);
+                    
+                    //         setTimeout(() => {
+                    //             v["e"].innerHTML = ""; // Remove previous SVG
+                    //             loadAndShowSVG("/assets/game 8.10.svg");
+                    //         }, 3000);
+                    
+                    //         setTimeout(() => {
+                    //             mSendCB("on_new_btn_clc", {});
+                    //         }, 6000);
+                    //     }
+                    // },
+
+
                     {
                         "name": "Screen 2",
                         "key": "scr_2",
@@ -504,7 +547,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                 let img = document.createElement("img");
                                 img.src = src;
                                 img.style.width = "100%";
-                                img.style.height = "95vh";
+                                img.style.height = "100%";
                                 mScr.appendChild(img);
                             };
                     
@@ -516,18 +559,34 @@ let mGameRenderer = (data = {}, mDOM) => {
                             setTimeout(() => {
                                 v["e"].innerHTML = ""; // Remove previous SVG
                                 loadAndShowSVG("/assets/game 8.9.svg");
-                            }, 2000);
+                            }, 5000);
                     
                             setTimeout(() => {
                                 v["e"].innerHTML = ""; // Remove previous SVG
                                 loadAndShowSVG("/assets/game 8.10.svg");
-                            }, 3000);
+                            }, 9000);
                     
                             setTimeout(() => {
                                 mSendCB("on_new_btn_clc", {});
-                            }, 6000);
+                            }, 9000);
+                    
+                            // Add Skip button
+                            let skipButton = document.createElement("button");
+                            skipButton.innerHTML = "Skip";
+                            skipButton.style.position = "fixed";
+                            skipButton.style.top = "50%";
+                            skipButton.style.right = "10px";
+                            document.body.appendChild(skipButton);
+                    
+                            // Add click event listener to Skip button
+                            skipButton.addEventListener("click", () => {
+                                // Navigate to second page
+                                // Assuming you have a function called `navigateToSecondPage`
+                                navigateToSecondPage();
+                            });
                         }
                     },
+                    
                     
                     
                     

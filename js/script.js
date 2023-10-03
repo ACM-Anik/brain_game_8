@@ -282,183 +282,256 @@ let mGameRenderer = (data = {}, mDOM) => {
                     },
 
                     // Screen-2 ----------
+                    // {
+                    //     "name": "Screen 2",
+                    //     "key": "scr_2",
+                    //     "set": (k, v, thisItem) => {
+                    //         console.log(thisItem);
+                    //         v["e"].innerHTML = ``; //reset the screen
+                    //         console.log(v["e"]);
+
+                    //         //mSendCB..
+                    //         let mSendCB = (cb_name, p = {}) => {
+                    //             if (v["value"].hasOwnProperty("cb")) {
+                    //                 if (v["value"]["cb"].hasOwnProperty(cb_name)) {
+                    //                     v["value"]["cb"][cb_name](p);
+                    //                 }
+                    //             }
+                    //         };
+
+
+                    //         //set..
+                    //         let mScr = document.createElement("div");
+                    //         v["e"].appendChild(mScr);
+                    //         mScr.style.height = `100%`;
+                    //         mScr.style.width = `100%`;
+                    //         mScr.style.overflow = `hidden`;
+
+
+                    //         //set..
+                    //         let mSet = (mE = document.body) => {
+
+                    //             // mE.innerHTML = `
+                    //             // <div class="s2">
+                    //             //     <div className="part1">
+                    //             //         <img class="s2-img" src="../assets/word_with_leaf.svg" alt="Leaf & Text">
+                    //             //     </div>
+
+                    //             //     <div class="part2">
+                    //             //         <div class="border border1">
+                    //             //             <div class="border border2">
+                    //             //                 <p class="s2-about-title">About</p>
+                    //             //                 <div class="s2-carousel-cont">
+                    //             //                     <div class="s2-carousel-slider">
+                    //             //                         <div class="s2-carousel-item active-item">
+                    //             //                             <p>Choose your speed and difficulty levels.</p>
+                    //             //                         </div>
+                    //             //                         <div class="s2-carousel-item">
+                    //             //                             <p>Focus and track the word.</p>
+                    //             //                         </div>
+                    //             //                         <div class="s2-carousel-item">
+                    //             //                             <p>Answer the questions.</p>
+                    //             //                         </div>
+                    //             //                     </div>
+                    //             //                     <div class="s2-carousel-dots">
+                    //             //                         <span class="dot1"></span>
+                    //             //                         <span class="dot2"></span>
+                    //             //                         <span class="dot3"></span>
+                    //             //                     </div>
+                    //             //                     <p class="s2-btn">Skip</p>
+                    //             //                 </div>
+                    //             //             </div>
+                    //             //         </div>
+                    //             //     </div>
+                    //             // </div>
+                    //             // `;
+
+                    //             // const screenElement = mE.querySelector('.s2');
+                    //             // if (screenElement) {
+                    //             //     screenElement.style.opacity = 1;
+
+                    //             //     const s2Img = screenElement.querySelector(".s2-img");
+                    //             //     s2Img.style.animation = "s2-zoomIn 1s 1s both";
+
+                    //             //     setTimeout(() => {
+                    //             //         s2Img.style.animation = "s2-zoomOut 1s 1s both";
+
+                    //             //     }, 2000);
+
+
+                    //             //     setTimeout(() => {
+                    //             //         const Part2About = screenElement.querySelector(".part2");
+                    //             //         Part2About.style.opacity = 1;
+
+                    //             //         const dots = screenElement.querySelectorAll(".s2-carousel-dots span");
+                    //             //         const itemImg = screenElement.querySelectorAll(".s2-carousel-item");
+
+                    //             //         let dotClicked = false;
+                    //             //         let currentIndex = 0;
+
+                    //             //         dots.forEach((dot, index) => {
+                    //             //             dot.addEventListener("click", function () {
+                    //             //                 dots.forEach(dot => dot.classList.remove("active-dot"));
+                    //             //                 itemImg.forEach(image => image.classList.remove("active-item"));
+
+                    //             //                 dot.classList.add("active-dot");
+                    //             //                 itemImg[index].classList.add("active-item");
+
+                    //             //                 dotClicked = true;
+                    //             //                 currentIndex = index;
+                    //             //             });
+                    //             //         });
+
+                    //             //         const skipButton = screenElement.querySelector(".s2-btn");
+
+                    //             //         skipButton.addEventListener("click", function () {
+                    //             //             itemImg[currentIndex].classList.remove("active-item");
+                    //             //             currentIndex = (currentIndex + 1) % itemImg.length;
+                    //             //             itemImg[currentIndex].classList.add("active-item");
+                    //             //             dots.forEach(dot => dot.classList.remove("active-dot"));
+                    //             //             dots[currentIndex].classList.add("active-dot");
+
+                    //             //             console.log(currentIndex);
+                    //             //             if (currentIndex === 2) {
+                    //             //                 currentIndex = 3;
+                    //             //             }
+
+                    //             //             if (currentIndex === 3) {
+                    //             //                 setTimeout(() => {
+                    //             //                     screenElement.style.opacity = 0;
+                    //             //                     mSendCB("on_new_btn_clc", {});
+                    //             //                 }, 1000);
+                    //             //             }
+                    //             //         });
+
+                    //             //     }, 4000);
+
+                    //             // };
+
+
+
+
+
+
+                    //             // // Word & Leaf Loading:-
+                                
+                    //             mArtBox_evnt.add_svg({ //Word & Leaf Loading
+                    //                 "w": `40vw`,
+                    //                 "h": `40vh`,
+                    //                 "x": 30,
+                    //                 "y": 30,
+                    //                 "e": mE,
+                    //                 "src": `../assets/game 8.8.svg`
+                    //             }, {
+                    //                 "onLoad": (v = {}) => {
+                    //                     console.log(v.e);
+                    //                     v.e.style.opacity = `1`;
+
+                    //                     // anime({
+                    //                     //     targets: v.e,
+                    //                     //     scale: 20,
+                    //                     //   });
+                    //                 },
+
+                    //             });
+
+                    //             mArtBox_evnt.add_svg({
+                    //                 "w": `100%`,
+                    //                 "h": `95vh`,
+                    //                 "e": mE,
+                    //                 "src": `../assets/game 8.8.svg`
+                    //             });
+
+                    //             // text 
+                    //             mArtBox_evnt.add_svg({
+                    //                 "w": `25vw`,
+                    //                 "h": `8vh`,
+                    //                 "x": 37.5,
+                    //                 "y": 46,
+                    //                 "e": mE,
+                    //                 "src": `../assets/game 8.9.svg`
+                    //             });
+                    //             // text 
+                    //             mArtBox_evnt.add_svg({
+                    //                 "w": `25vw`,
+                    //                 "h": `8vh`,
+                    //                 "x": 37.5,
+                    //                 "y": 46,
+                    //                 "e": mE,
+                    //                 "src": `../assets/game 8.10.svg`
+                    //             });
+
+                    //             // //set..[Svg]..
+                    //             // mArtBox_evnt.add_svg({
+                    //             //     "w": `5vw`,
+                    //             //     "h": `5vw`,
+                    //             //     "x": 10,
+                    //             //     "y": 10,
+                    //             //     "e": mE,
+                    //             //     "src": `../assets/word_with_leaf.svg`
+                    //             // },
+                    //             //     {
+                    //             //         "onLoad": (v = {}) => {
+                    //             //             console.log(v.e);
+
+
+
+                    //             //         }
+                    //             //     }
+                    //             // );
+
+
+                    //         };
+                    //         mSet(mScr);
+                    //     }
+                    // },
+
+
                     {
                         "name": "Screen 2",
                         "key": "scr_2",
                         "set": (k, v, thisItem) => {
-                            console.log(thisItem);
-                            v["e"].innerHTML = ``; //reset the screen
-                            console.log(v["e"]);
-
-                            //mSendCB..
-                            let mSendCB = (cb_name, p = {}) => {
-                                if (v["value"].hasOwnProperty("cb")) {
-                                    if (v["value"]["cb"].hasOwnProperty(cb_name)) {
-                                        v["value"]["cb"][cb_name](p);
-                                    }
-                                }
+                            v["e"].innerHTML = ""; // Reset the screen
+                    
+                            // Function to load and show an SVG
+                            const loadAndShowSVG = (src) => {
+                                let mScr = document.createElement("div");
+                                v["e"].appendChild(mScr);
+                                mScr.style.height = `100%`;
+                                mScr.style.width = `100%`;
+                                mScr.style.overflow = `hidden`;
+                    
+                                let img = document.createElement("img");
+                                img.src = src;
+                                img.style.width = "100%";
+                                img.style.height = "95vh";
+                                mScr.appendChild(img);
                             };
-
-
-                            //set..
-                            let mScr = document.createElement("div");
-                            v["e"].appendChild(mScr);
-                            mScr.style.height = `100%`;
-                            mScr.style.width = `100%`;
-                            mScr.style.overflow = `hidden`;
-
-
-                            //set..
-                            let mSet = (mE = document.body) => {
-
-                                // mE.innerHTML = `
-                                // <div class="s2">
-                                //     <div className="part1">
-                                //         <img class="s2-img" src="../assets/word_with_leaf.svg" alt="Leaf & Text">
-                                //     </div>
-
-                                //     <div class="part2">
-                                //         <div class="border border1">
-                                //             <div class="border border2">
-                                //                 <p class="s2-about-title">About</p>
-                                //                 <div class="s2-carousel-cont">
-                                //                     <div class="s2-carousel-slider">
-                                //                         <div class="s2-carousel-item active-item">
-                                //                             <p>Choose your speed and difficulty levels.</p>
-                                //                         </div>
-                                //                         <div class="s2-carousel-item">
-                                //                             <p>Focus and track the word.</p>
-                                //                         </div>
-                                //                         <div class="s2-carousel-item">
-                                //                             <p>Answer the questions.</p>
-                                //                         </div>
-                                //                     </div>
-                                //                     <div class="s2-carousel-dots">
-                                //                         <span class="dot1"></span>
-                                //                         <span class="dot2"></span>
-                                //                         <span class="dot3"></span>
-                                //                     </div>
-                                //                     <p class="s2-btn">Skip</p>
-                                //                 </div>
-                                //             </div>
-                                //         </div>
-                                //     </div>
-                                // </div>
-                                // `;
-
-                                // const screenElement = mE.querySelector('.s2');
-                                // if (screenElement) {
-                                //     screenElement.style.opacity = 1;
-
-                                //     const s2Img = screenElement.querySelector(".s2-img");
-                                //     s2Img.style.animation = "s2-zoomIn 1s 1s both";
-
-                                //     setTimeout(() => {
-                                //         s2Img.style.animation = "s2-zoomOut 1s 1s both";
-
-                                //     }, 2000);
-
-
-                                //     setTimeout(() => {
-                                //         const Part2About = screenElement.querySelector(".part2");
-                                //         Part2About.style.opacity = 1;
-
-                                //         const dots = screenElement.querySelectorAll(".s2-carousel-dots span");
-                                //         const itemImg = screenElement.querySelectorAll(".s2-carousel-item");
-
-                                //         let dotClicked = false;
-                                //         let currentIndex = 0;
-
-                                //         dots.forEach((dot, index) => {
-                                //             dot.addEventListener("click", function () {
-                                //                 dots.forEach(dot => dot.classList.remove("active-dot"));
-                                //                 itemImg.forEach(image => image.classList.remove("active-item"));
-
-                                //                 dot.classList.add("active-dot");
-                                //                 itemImg[index].classList.add("active-item");
-
-                                //                 dotClicked = true;
-                                //                 currentIndex = index;
-                                //             });
-                                //         });
-
-                                //         const skipButton = screenElement.querySelector(".s2-btn");
-
-                                //         skipButton.addEventListener("click", function () {
-                                //             itemImg[currentIndex].classList.remove("active-item");
-                                //             currentIndex = (currentIndex + 1) % itemImg.length;
-                                //             itemImg[currentIndex].classList.add("active-item");
-                                //             dots.forEach(dot => dot.classList.remove("active-dot"));
-                                //             dots[currentIndex].classList.add("active-dot");
-
-                                //             console.log(currentIndex);
-                                //             if (currentIndex === 2) {
-                                //                 currentIndex = 3;
-                                //             }
-
-                                //             if (currentIndex === 3) {
-                                //                 setTimeout(() => {
-                                //                     screenElement.style.opacity = 0;
-                                //                     mSendCB("on_new_btn_clc", {});
-                                //                 }, 1000);
-                                //             }
-                                //         });
-
-                                //     }, 4000);
-
-                                // };
-
-
-
-
-
-
-                                // // Word & Leaf Loading:-
-                                
-                                mArtBox_evnt.add_svg({ //Word & Leaf Loading
-                                    "w": `40vw`,
-                                    "h": `40vh`,
-                                    "x": 30,
-                                    "y": 30,
-                                    "e": mE,
-                                    "src": `../assets/btn_starting.svg`
-                                }, {
-                                    "onLoad": (v = {}) => {
-                                        console.log(v.e);
-                                        v.e.style.opacity = `1`;
-
-                                        // anime({
-                                        //     targets: v.e,
-                                        //     scale: 20,
-                                        //   });
-                                    },
-
-                                });
-
-                                // //set..[Svg]..
-                                // mArtBox_evnt.add_svg({
-                                //     "w": `5vw`,
-                                //     "h": `5vw`,
-                                //     "x": 10,
-                                //     "y": 10,
-                                //     "e": mE,
-                                //     "src": `../assets/word_with_leaf.svg`
-                                // },
-                                //     {
-                                //         "onLoad": (v = {}) => {
-                                //             console.log(v.e);
-
-
-
-                                //         }
-                                //     }
-                                // );
-
-
-                            };
-                            mSet(mScr);
+                    
+                            // Load and show SVGs
+                            setTimeout(() => {
+                                loadAndShowSVG("/assets/game 8.8.svg");
+                            }, 0);
+                    
+                            setTimeout(() => {
+                                v["e"].innerHTML = ""; // Remove previous SVG
+                                loadAndShowSVG("/assets/game 8.9.svg");
+                            }, 2000);
+                    
+                            setTimeout(() => {
+                                v["e"].innerHTML = ""; // Remove previous SVG
+                                loadAndShowSVG("/assets/game 8.10.svg");
+                            }, 3000);
+                    
+                            setTimeout(() => {
+                                mSendCB("on_new_btn_clc", {});
+                            }, 6000);
                         }
                     },
+                    
+                    
+                    
+
 
                     // Screen-3 ----------
                     // {

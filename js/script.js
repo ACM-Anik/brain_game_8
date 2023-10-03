@@ -576,14 +576,24 @@ let mGameRenderer = (data = {}, mDOM) => {
                             skipButton.style.position = "fixed";
                             skipButton.style.top = "50%";
                             skipButton.style.right = "10px";
+                            skipButton.style.backgroundColor = "#007BFF"; // Background color
+                            skipButton.style.color = "#FFFFFF"; // Text color
+                            skipButton.style.border = "none"; // Remove border
+                            skipButton.style.padding = "10px 20px"; // Adjust padding
+                            skipButton.style.fontSize = "16px"; // Adjust font size
+                            skipButton.style.cursor = "pointer"; // Show pointer on hover
+                            skipButton.style.borderRadius = "5px"; // Add rounded corners
+
                             document.body.appendChild(skipButton);
-                    
+
                             // Add click event listener to Skip button
                             skipButton.addEventListener("click", () => {
                                 // Navigate to second page
                                 // Assuming you have a function called `navigateToSecondPage`
                                 navigateToSecondPage();
                             });
+
+                   
                         }
                     },
                     

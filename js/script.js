@@ -47,7 +47,7 @@ let mGameRenderer = (data = {}, mDOM) => {
             "rndr": { //Renderer..
                 "l": [ //list..
 
-                    // Screen-1 -----------
+                    // Screen-1 -----------------------------
                     {
                         "name": "Screen 1",
                         "key": "scr_1",
@@ -68,7 +68,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                             //set..
                             let mScr = document.createElement("div");
                             v["e"].appendChild(mScr);
-                            mScr.style.height = `100%`;
+                            mScr.style.height = `100vh`;
                             mScr.style.width = `100%`;
                             mScr.style.overflow = `hidden`;
 
@@ -265,7 +265,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                         }
                     },
 
-                    // Screen-2 ----------
+                    // Screen-2 -----------------------------
                     {
                         "name": "Screen 2",
                         "key": "scr_2",
@@ -287,7 +287,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                             //set..
                             let mScr = document.createElement("div");
                             v["e"].appendChild(mScr);
-                            mScr.style.height = `100%`;
+                            mScr.style.height = `100vh`;
                             mScr.style.width = `100%`;
                             mScr.style.overflow = `hidden`;
 
@@ -538,8 +538,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                         }
                     },
 
-
-                    // Screen-3 ----------
+                    // Screen-3 -----------------------------
                     {
                         "name": "Screen 3",
                         "key": "scr_3",
@@ -561,7 +560,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                             //set..
                             let mScr = document.createElement("div");
                             v["e"].appendChild(mScr);
-                            mScr.style.height = `100%`;
+                            mScr.style.height = `100vh`;
                             mScr.style.width = `100%`;
                             mScr.style.overflow = `hidden`;
 
@@ -632,6 +631,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                 */
 
 
+                                // Ball-loading:--
                                 //set..[Svg]..  
                                 mArtBox_evnt.add_svg({
                                     "w": `100%`,
@@ -834,8 +834,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                                     });
 
 
-
-                                // screen - 16:--
+                                // Difficulty level (screen - 16):--
                                 let diffSpeedLevel = () => {
                                     //set..[Svg]..background  
                                     mArtBox_evnt.add_svg({
@@ -1077,7 +1076,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                         }
                     },
 
-                    // Screen-4 -----------
+                    // Screen-4 -----------------------------
                     {
                         "name": "Screen 4",
                         "key": "scr_4",
@@ -1106,6 +1105,8 @@ let mGameRenderer = (data = {}, mDOM) => {
 
                             //set..
                             let mSet = (mE = document.body) => {
+
+                                // Ready-set-go Loading:--
                                 //set..[Svg]..  
                                 mArtBox_evnt.add_svg({
                                     "w": `100%`,
@@ -1374,1172 +1375,12 @@ let mGameRenderer = (data = {}, mDOM) => {
                                         );
                                         setTimeout(() => {
                                             v.e.remove();
-                                            scoreRound1();
                                         }, 7500);
                                     }
                                 });
 
 
-                                // Score and Round Play:--
-                                let scoreRound1 = () => {
-                                    //set..[Svg].. 
-                                    mArtBox_evnt.add_svg({
-                                        "w": `100%`,
-                                        "h": `95vh`,
-                                        "e": mE,
-                                        "src": `${m_asset_path}/8.12.svg`
-                                    }, {
-                                        "onLoad": (v = {}) => {
-                                            // //set..[Svg].. recommended
-                                            mArtBox_evnt.add_svg({
-                                                "w": `45vh`,
-                                                "h": `50vh`,
-                                                "x": 40,
-                                                "y": 10,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Rectangle9.svg`
-                                            }
-                                            );
-
-                                            // //set..[Svg].. online
-                                            mArtBox_evnt.add_svg({
-                                                "w": `30vh`,
-                                                "h": `5vh`,
-                                                "x": 43.8,
-                                                "y": 14,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Congratulations!.svg`
-                                            }
-                                            );
-
-                                            // //set..[Svg].. grading
-                                            mArtBox_evnt.add_svg({
-                                                "w": `15vh`,
-                                                "h": `2vh`,
-                                                "x": 47.5,
-                                                "y": 20,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/RoundCleared.svg`
-                                            }
-                                            );
-
-                                            mArtBox_evnt.add_svg({
-                                                "w": `55vh`,
-                                                "h": `12vh`,
-                                                "x": 37.5,
-                                                "y": 26,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Vector74.svg`
-                                            }
-                                            );
-
-                                            mArtBox_evnt.add_svg({
-                                                "w": `8vh`,
-                                                "h": `8vh`,
-                                                "x": 45,
-                                                "y": 27.2,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Star3.svg`
-                                            }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": `8vh`,
-                                                "h": `8vh`,
-                                                "x": 49.5,
-                                                "y": 26.2,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Star1.svg`
-                                            }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": `8vh`,
-                                                "h": `8vh`,
-                                                "x": 54,
-                                                "y": 27.1,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Star2.svg`
-                                            }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": `15vh`,
-                                                "h": `5vh`,
-                                                "x": 47,
-                                                "y": 44,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Score_ 49.svg`
-                                            }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": `15vh`,
-                                                "h": `3vh`,
-                                                "x": 47,
-                                                "y": 53,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Time_ 00_30.svg`
-                                            }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": ``,
-                                                "h": ``,
-                                                "x": 25,
-                                                "y": 14,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/bolt.svg`
-                                            }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": ``,
-                                                "h": ``,
-                                                "x": 8,
-                                                "y": 37,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/bolt.svg`
-                                            }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": ``,
-                                                "h": ``,
-                                                "x": 25,
-                                                "y": 54,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/bolt.svg`
-                                            }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": ``,
-                                                "h": ``,
-                                                "x": 8,
-                                                "y": 82,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/bolt.svg`
-                                            }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": `45vh`,
-                                                "h": `10vh`,
-                                                "x": 40,
-                                                "y": 72,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Rectangle3.svg`
-                                            }
-                                            );
-
-                                            // btn:-
-                                            mArtBox_evnt.add_svg({
-                                                "w": `28vh`,
-                                                "h": `4vh`,
-                                                "x": 44,
-                                                "y": 75,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/NextRound.svg`
-                                            }, {
-                                                "onClick": (v = {}) => {
-                                                    nextRoundBtn();
-                                                }
-                                            }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": ``,
-                                                "h": ``,
-                                                "x": 87,
-                                                "y": 14,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/bolt.svg`
-                                            }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": ``,
-                                                "h": ``,
-                                                "x": 70,
-                                                "y": 37,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/bolt.svg`
-                                            }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": ``,
-                                                "h": ``,
-                                                "x": 87,
-                                                "y": 54,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/bolt.svg`
-                                            }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": ``,
-                                                "h": ``,
-                                                "x": 70,
-                                                "y": 82,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/bolt.svg`
-                                            });
-
-                                            let nextRoundBtn = () => {
-                                                v.e.remove();
-                                                nextLevel();
-                                            }
-                                        }
-                                    });
-
-
-                                    // on_scr_end();
-
-                                }
-
-                                // Score and Round Play:--
-                                let nextLevel = () => {
-                                    //set..[Svg]..  
-                                    mArtBox_evnt.add_svg({
-                                        "w": `100%`,
-                                        "h": `95vh`,
-                                        "e": mE,
-                                        "src": `${m_asset_path}/8.12.svg`
-                                    }, {
-                                        "onLoad": (v = {}) => {
-                                            // //set..[Svg].. recommended
-                                            mArtBox_evnt.add_svg({
-                                                "w": `45vh`,
-                                                "h": `50vh`,
-                                                "x": 40,
-                                                "y": 10,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Rectangle9.svg`
-                                            }
-                                                , {
-                                                    "onLoad": (v = {}) => {
-                                                        //left to right animation
-                                                        //anim
-
-                                                        // setTimeout(() => {
-
-
-                                                        //     let timeline = anime.timeline();
-                                                        //     timeline.add({
-                                                        //         targets: v.e,
-                                                        //         opacity: [1, 0],
-
-                                                        //         duration: 500,
-                                                        //         easing: 'easeOutCirc',
-
-                                                        //         // update: function(anim) { 
-                                                        //         //   //console.log(anim.progress); 
-                                                        //         // },
-                                                        //         // complete: function(anim) {
-                                                        //         //   anime.remove(v.e);
-                                                        //         // }
-                                                        //     }
-                                                        //     );
-                                                        // }, 1000);
-
-                                                    }
-                                                }
-                                            );
-
-                                            // //set..[Svg].. online
-                                            mArtBox_evnt.add_svg({
-                                                "w": `30vh`,
-                                                "h": `5vh`,
-                                                "x": 43.8,
-                                                "y": 14,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Congratulations!.svg`
-                                            }
-
-                                                , {
-                                                    //     "onLoad": (v = {}) => {
-
-                                                    //         let timeline = anime.timeline();
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],});
-
-                                                    //         setTimeout(() => {
-
-                                                    //             timeline.add({
-                                                    //               targets: v.e,
-                                                    //               opacity: [1, 0],
-
-                                                    //               duration: 500,
-                                                    //               easing: 'easeOutCirc',
-
-                                                    //               // update: function(anim) { 
-                                                    //               //   //console.log(anim.progress); 
-                                                    //               // },
-                                                    //               // complete: function(anim) {
-                                                    //               //   anime.remove(v.e);
-                                                    //               // }
-                                                    //             }
-                                                    //           );
-                                                    //       }, 1000);
-
-                                                    //               }
-                                                }
-                                            );
-
-
-                                            // //set..[Svg].. grading
-                                            mArtBox_evnt.add_svg({
-                                                "w": `15vh`,
-                                                "h": `2vh`,
-                                                "x": 47.5,
-                                                "y": 20,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/RoundCleared.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-                                                }
-                                            );
-
-                                            mArtBox_evnt.add_svg({
-                                                "w": `55vh`,
-                                                "h": `12vh`,
-                                                "x": 37.5,
-                                                "y": 26,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Vector74.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-                                                }
-                                            );
-
-                                            mArtBox_evnt.add_svg({
-                                                "w": `8vh`,
-                                                "h": `8vh`,
-                                                "x": 45,
-                                                "y": 27.2,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Star3.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-                                                }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": `8vh`,
-                                                "h": `8vh`,
-                                                "x": 49.5,
-                                                "y": 26.2,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Star1.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-                                                }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": `8vh`,
-                                                "h": `8vh`,
-                                                "x": 54,
-                                                "y": 27.1,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Star2.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-                                                }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": `15vh`,
-                                                "h": `5vh`,
-                                                "x": 47,
-                                                "y": 44,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Score_ 49.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-                                                }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": `15vh`,
-                                                "h": `3vh`,
-                                                "x": 47,
-                                                "y": 53,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Time_ 00_30.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-                                                }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": ``,
-                                                "h": ``,
-                                                "x": 25,
-                                                "y": 10,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/celebration.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-                                                }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": ``,
-                                                "h": ``,
-                                                "x": 8,
-                                                "y": 25,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/celebration.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-                                                }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": ``,
-                                                "h": ``,
-                                                "x": 25,
-                                                "y": 40,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/celebration.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-                                                }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": ``,
-                                                "h": ``,
-                                                "x": 8,
-                                                "y": 55,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/celebration.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-                                                }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": `45vh`,
-                                                "h": `10vh`,
-                                                "x": 52,
-                                                "y": 72,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Rectangle3.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-                                                }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": `45vh`,
-                                                "h": `10vh`,
-                                                "x": 27,
-                                                "y": 72,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Rectangle2.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-                                                }
-                                            );
-
-                                            // Btn:--
-                                            mArtBox_evnt.add_svg({
-                                                "w": `28vh`,
-                                                "h": `4vh`,
-                                                "x": 56,
-                                                "y": 75,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/NextLevel.svg`
-                                            }, {
-                                                "onClick": (v = {}) => {
-                                                    nextLevelBtn();
-                                                }
-                                            });
-
-                                            mArtBox_evnt.add_svg({
-                                                "w": `28vh`,
-                                                "h": `4vh`,
-                                                "x": 31,
-                                                "y": 75,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/Previouslevel.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-                                                }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": ``,
-                                                "h": ``,
-                                                "x": 87,
-                                                "y": 10,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/celebration.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-                                                }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": ``,
-                                                "h": ``,
-                                                "x": 70,
-                                                "y": 25,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/celebration.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-                                                }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": ``,
-                                                "h": ``,
-                                                "x": 87,
-                                                "y": 40,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/celebration.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-                                                }
-                                            );
-                                            mArtBox_evnt.add_svg({
-                                                "w": ``,
-                                                "h": ``,
-                                                "x": 70,
-                                                "y": 55,
-                                                "e": mE,
-                                                "src": `${m_asset_path}/celebration.svg`
-                                            }
-
-                                                , {
-                                                    // "onLoad": (v = {}) => {
-                                                    //     //left to right animation
-
-                                                    //     let timeline = anime.timeline();
-                                                    //     timeline.add({
-                                                    //         target:v.e,
-                                                    //         opacity:[0]
-                                                    //     })
-                                                    //     setTimeout(() => {
-
-                                                    //         timeline.add({
-                                                    //             targets: v.e,
-                                                    //             opacity: [1, 0],
-
-                                                    //             duration: 500,
-                                                    //             easing: 'easeOutCirc',
-
-                                                    //             // update: function(anim) { 
-                                                    //             //   //console.log(anim.progress); 
-                                                    //             // },
-                                                    //             // complete: function(anim) {
-                                                    //             //   anime.remove(v.e);
-                                                    //             // }
-                                                    //         }
-                                                    //         );
-                                                    //     }, 1000);
-
-                                                    // }
-
-                                                }
-                                            );
-                                        }
-                                    });
-
-                                    let nextLevelBtn = () => {
-                                        on_scr_end();
-                                    }
-
-                                }
-
-                            };
-                            // on_scr_end..
-                            let on_scr_end = () => {
-                                let timeline = anime.timeline();
-                                timeline.add({
-                                    targets: mScr,
-                                    opacity: 0,
-                                    duration: 3000,
-                                    easing: 'easeOutExpo',
-                                    update: function (anim) {
-                                        // mSendCB(`on_scr_end`, {});
-                                        console.log(anim.progress);
-
-                                        if (anim.progress > 0) {
-                                            anime.remove(mScr);
-                                            mScr.remove();
-                                            //send cb..
-                                            mSendCB(`on_scr_end`, {});
-
-                                        }
-                                    },
-                                });
-                            };
-
-                            mSet(mScr);
-                        }
-                    },
-
-                    // Screen-5 -----------
-                    {
-                        "name": "Screen 5",
-                        "key": "scr_5",
-                        "set": (k, v, thisItem) => {
-                            console.log(thisItem);
-                            //--reset--// [START]
-                            v["e"].innerHTML = ``; //reset
-
-                            //set..
-                            let mScr = document.createElement("div");
-                            mScr.classList.add('mScr');
-                            mScr.style.height = `100vh`;
-                            mScr.style.width = `100%`;
-                            mScr.style.overflow = `hidden`;
-                            v["e"].appendChild(mScr);
-
-
-                            //set..
-                            let mSet = (mE = document.body) => {
-
-                                /* mE.innerHTML = `
-                                <div class="s5">
-                                    <!-- <div>
-                                        <div class="text_loading1"></div>
-                                        <div class="text_loading2"></div>
-                                        <div class="text_loading3"></div>
-                                        <div class="text_loading4"></div>
-                                    </div> -->
-
-                                    <div class="s5-data">
-                                        <div class="s5-ques">
-                                            <span class="s5-quesText">Should automatically starts or not?</span>
-                                        </div>
-
-                                        <div class="s5-img-cont">
-                                            <img class="s5-img" src="../assets/question_mark.svg" alt="question mark">
-                                        </div>
-
-                                        <div class="s5-options">
-                                            <div class="s5-option1">
-                                                <div>
-                                                    <img src="../assets/option_bg.svg" alt="" class="option-img" />
-                                                    <span>Option 1</span>
-                                                </div>
-                                            </div>
-                                            <div class="s5-option2">
-                                                <div>
-                                                    <img src="../assets/option_bg.svg" alt="" class="option-img" />
-                                                    <span>Option 2</span>
-                                                </div>
-                                            </div>
-                                            <div class="s5-option3">
-                                                <div>
-                                                    <img src="../assets/option_bg.svg" alt="" class="option-img" />
-                                                    <span>Option 3</span>
-                                                </div>
-                                            </div>
-                                            <div class="s5-option4">
-                                                <div>
-                                                    <img src="../assets/option_bg.svg" alt="" class="option-img" />
-                                                    <span>Option 4</span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="s5-position">
-                                            <span>1</span>
-                                            <span>2</span>
-                                            <span>3</span>
-                                            <span>4</span>
-                                        </div> 
-                                    </div>
-                                </div>
-
-                                `;
-                                //<!-- --!>
-                                setTimeout(() => {
-                                    const screenElement = mE.querySelector('.scr5');
-                                    if (screenElement) {
-                                        screenElement.style.opacity = 1;
-
-                                    }
-                                }, 0);*/
-
-                                // Ball-Loading:--
-
+                                // Text-Loading:--
                                 setTimeout(() => {
                                     //set..[Svg]..  
                                     mArtBox_evnt.add_svg({
@@ -2676,363 +1517,2507 @@ let mGameRenderer = (data = {}, mDOM) => {
 
                                             setTimeout(() => {
                                                 v.e.remove()
-                                                quizTree();
+                                                on_scr_end();
                                             }, 10000);
                                         }
                                     });
 
-                                }, 1000);
+                                }, 8000);
+                            };
+                            // on_scr_end..
+                            let on_scr_end = () => {
+                                let timeline = anime.timeline();
+                                timeline.add({
+                                    targets: mScr,
+                                    opacity: 0,
+                                    duration: 3000,
+                                    easing: 'easeOutExpo',
+                                    update: function (anim) {
+                                        // mSendCB(`on_scr_end`, {});
+                                        console.log(anim.progress);
+
+                                        if (anim.progress > 0) {
+                                            anime.remove(mScr);
+                                            mScr.remove();
+                                            //send cb..
+                                            mSendCB(`on_scr_end`, {});
+                                        }
+                                    },
+                                });
+                            };
+
+                            mSet(mScr);
+                        }
+                    },
+
+                    // Screen-5 -----------------------------
+                    {
+                        "name": "Screen 5",
+                        "key": "scr_5",
+                        "set": (k, v, thisItem) => {
+                            console.log(thisItem);
+                            //--reset--// [START]
+                            v["e"].innerHTML = ``; //reset
+
+                            // mSendCB..
+                            let mSendCB = (cb_name, p = {}) => {
+                                if (v["value"].hasOwnProperty("cb")) {
+                                    if (v["value"]["cb"].hasOwnProperty(cb_name)) {
+                                        v["value"]["cb"][cb_name](p);
+                                    }
+                                }
+                            };
 
 
-                                let quizTree = () => {
-                                    // Question div:--
-                                    mArtBox_evnt.add_svg({
-                                        "w": `80vw`,
-                                        "h": `18vh`,
-                                        // "x": 30,  //-->
-                                        // "y": 30,  //--> position absolute makes error here//
-                                        "e": mE,
-                                        "src": `${m_asset_path}/question_bg.svg`
-                                    }, {
-                                        "onLoad": (v = {}) => {
-                                            v.e.style.opacity = "0";
-                                            v.e.style.height = `cal(100vh - 8vh)`;
-                                            v.e.style.display = `flex`;
-                                            v.e.style.justifyContent = `center`;
-                                            v.e.style.marginTop = `8vh`;
-                                            v.e.style.overflow = `hidden`;
+                            //set..
+                            let mScr = document.createElement("div");
+                            v["e"].appendChild(mScr);
+                            mScr.style.height = `100vh`;
+                            mScr.style.width = `100%`;
+                            mScr.style.overflow = `hidden`;
 
-                                            // Inner text - ques:--
-                                            let ve = v.e;
-                                            let ques = document.createElement('div');
-                                            ques.classList = "question";
-                                            ques.innerHTML = ` <h1 class="ques-h1">Should automatically starts or not?</h1> `
 
-                                            ques.style.width = "80vw";
-                                            ques.style.height = "15vh";
-                                            ques.style.marginInline = "2vw";
-                                            ques.style.marginBottom = "10px";
-                                            ques.style.position = "absolute";
-                                            ques.style.top = "9vh";
-                                            ques.style.left = "7%";
-                                            ques.style.textAlign = "center";
-                                            ve.appendChild(ques);
+                            //set..
+                            let mSet = (mE = document.body) => {
 
-                                            setTimeout(() => {
-                                                ques.style.top = "0%";
+                                /* mE.innerHTML = `
+                                <div class="s5">
+                                    <!-- <div>
+                                        <div class="text_loading1"></div>
+                                        <div class="text_loading2"></div>
+                                        <div class="text_loading3"></div>
+                                        <div class="text_loading4"></div>
+                                    </div> -->
+
+                                    <div class="s5-data">
+                                        <div class="s5-ques">
+                                            <span class="s5-quesText">Should automatically starts or not?</span>
+                                        </div>
+
+                                        <div class="s5-img-cont">
+                                            <img class="s5-img" src="../assets/question_mark.svg" alt="question mark">
+                                        </div>
+
+                                        <div class="s5-options">
+                                            <div class="s5-option1">
+                                                <div>
+                                                    <img src="../assets/option_bg.svg" alt="" class="option-img" />
+                                                    <span>Option 1</span>
+                                                </div>
+                                            </div>
+                                            <div class="s5-option2">
+                                                <div>
+                                                    <img src="../assets/option_bg.svg" alt="" class="option-img" />
+                                                    <span>Option 2</span>
+                                                </div>
+                                            </div>
+                                            <div class="s5-option3">
+                                                <div>
+                                                    <img src="../assets/option_bg.svg" alt="" class="option-img" />
+                                                    <span>Option 3</span>
+                                                </div>
+                                            </div>
+                                            <div class="s5-option4">
+                                                <div>
+                                                    <img src="../assets/option_bg.svg" alt="" class="option-img" />
+                                                    <span>Option 4</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="s5-position">
+                                            <span>1</span>
+                                            <span>2</span>
+                                            <span>3</span>
+                                            <span>4</span>
+                                        </div> 
+                                    </div>
+                                </div>
+
+                                `;
+                                //<!-- --!>
+                                setTimeout(() => {
+                                    const screenElement = mE.querySelector('.scr5');
+                                    if (screenElement) {
+                                        screenElement.style.opacity = 1;
+
+                                    }
+                                }, 0);*/
+
+                                // Quiz Tree 1:--
+                                // Question div:-
+                                mArtBox_evnt.add_svg({
+                                    "w": `80vw`,
+                                    "h": `18vh`,
+                                    // "x": 30,  //-->
+                                    // "y": 30,  //--> position absolute makes error here//
+                                    "e": mE,
+                                    "src": `${m_asset_path}/question_bg.svg`
+                                }, {
+                                    "onLoad": (v = {}) => {
+                                        v.e.style.opacity = "0";
+                                        v.e.style.height = `cal(100vh - 8vh)`;
+                                        v.e.style.display = `flex`;
+                                        v.e.style.justifyContent = `center`;
+                                        v.e.style.marginTop = `8vh`;
+                                        v.e.style.overflow = `hidden`;
+
+                                        // Inner text - ques:--
+                                        let ve = v.e;
+                                        let ques = document.createElement('div');
+                                        ques.classList = "question";
+                                        ques.innerHTML = ` <h1 class="ques-h1">Should automatically starts or not?</h1> `
+
+                                        ques.style.width = "80vw";
+                                        ques.style.height = "15vh";
+                                        ques.style.marginInline = "2vw";
+                                        ques.style.marginBottom = "10px";
+                                        ques.style.position = "absolute";
+                                        ques.style.top = "9vh";
+                                        ques.style.left = "7%";
+                                        ques.style.textAlign = "center";
+                                        ve.appendChild(ques);
+
+                                        setTimeout(() => {
+                                            ques.style.top = "0%";
+                                            anime({
+                                                opacity: 1,
+                                                targets: v.e,
+                                                translateY: [-300, 0],
+                                                duration: 1000,
+                                                direction: 'alternate',
+                                                easing: 'easeInQuad',
+                                                loop: false
+                                            });
+                                        }, 0);
+
+
+                                        // Number circles -bottom:--
+                                        mArtBox_evnt.add_svg({
+                                            "w": `20vw`,
+                                            "h": `9vh`,
+                                            // "x": 40,  //-->
+                                            // "y": 60,  //--> position absolute makes error here//
+                                            "e": mE,
+                                            "src": `${m_asset_path}/number_circles.svg`
+                                        }, {
+                                            "onLoad": (v = {}) => {
+                                                v.e.style.opacity = "0";
+                                                v.e.style.display = 'flex';
+                                                v.e.style.justifyContent = 'center';
+                                                v.e.style.alignItems = 'end';
+                                                v.e.style.overflow = 'hidden';
+                                                v.e.style.position = 'fixed';
+                                                v.e.style.top = '85%';
+                                                v.e.style.left = '40%';
+
                                                 anime({
                                                     opacity: 1,
                                                     targets: v.e,
-                                                    translateY: [-300, 0],
+                                                    translateY: [300, 0],
                                                     duration: 1000,
                                                     direction: 'alternate',
                                                     easing: 'easeInQuad',
                                                     loop: false
                                                 });
-                                            }, 0);
+                                            }
+                                        });
+                                    },
 
+                                });
 
-                                            // Number circles -bottom:--
+                                // Question Marks & Options div:-
+                                mArtBox_evnt.add_svg({
+                                    "w": `12vw`,
+                                    "h": `19vh`,
+                                    "x": 44,  //-->
+                                    "y": 50,  //--> position absolute makes error here//
+                                    "e": mE,
+                                    "src": `${m_asset_path}/question_mark.svg`
+                                }, {
+                                    "onLoad": (v = {}) => {
+                                        // console.log(v.e);
+                                        v.e.style.height = `100vh`;
+                                        v.e.style.opacity = `0`;
+                                        setTimeout(() => {
+                                            anime({
+                                                opacity: 1,
+                                                targets: v.e,
+                                                scale: [0, 1],
+                                                duration: 500,
+                                                direction: 'alternate',
+                                                easing: 'easeInQuad',
+                                                loop: false
+                                            });
+                                        }, 1000);
+
+                                        let ve = v.e;
+                                        let lineCont = document.createElement('div');
+                                        lineCont.classList = "line-cont";
+                                        lineCont.style.position = "absolute";
+                                        lineCont.style.top = "0";
+                                        lineCont.style.left = "0";
+                                        lineCont.style.zIndex = "100";
+                                        ve.appendChild(lineCont);
+
+                                        let innerLineCont = document.createElement('div');
+                                        innerLineCont.classList = "inner-line-cont";
+                                        // innerLineCont.style.position = "relative";
+
+                                        innerLineCont.style.marginTop = "10vh";
+                                        innerLineCont.style.height = "90vh";
+                                        innerLineCont.style.width = "100vw";
+                                        lineCont.appendChild(innerLineCont);
+
+                                        // Option 1:-
+                                        setTimeout(() => {
+                                            let line1 = document.createElement('div');
+                                            line1.classList = "line1";
+                                            line1.style.backgroundColor = "#8D8282";
+                                            line1.style.height = "0.5vh";
+                                            line1.style.width = "0.5vw";
+                                            line1.style.position = "absolute";
+                                            line1.style.top = "-5%";
+                                            line1.style.left = "10%";
+                                            line1.style.zIndex = "-1";
+                                            // line1.style.transform = "rotate(-30deg)";
+                                            innerLineCont.appendChild(line1);
+
+                                            anime({
+                                                targets: line1,
+                                                width: '23%',
+                                                rotate: -25,
+                                                easing: 'easeInOutQuad',
+                                                direction: 'alternate',
+                                                duration: 500,
+                                                loop: false
+                                            });
+
                                             mArtBox_evnt.add_svg({
-                                                "w": `20vw`,
-                                                "h": `9vh`,
-                                                // "x": 40,  //-->
-                                                // "y": 60,  //--> position absolute makes error here//
+                                                "w": `14vw`,
+                                                "h": `8vh`,
+                                                "x": 74,  //-->
+                                                "y": 6,  //--> position absolute makes error here//
                                                 "e": mE,
-                                                "src": `${m_asset_path}/number_circles.svg`
+                                                "src": `${m_asset_path}/option_bg.svg`
                                             }, {
                                                 "onLoad": (v = {}) => {
-                                                    v.e.style.opacity = "0";
-                                                    v.e.style.display = 'flex';
-                                                    v.e.style.justifyContent = 'center';
-                                                    v.e.style.alignItems = 'end';
-                                                    v.e.style.overflow = 'hidden';
-                                                    v.e.style.position = 'fixed';
-                                                    v.e.style.top = '85%';
-                                                    v.e.style.left = '40%';
+                                                    v.e.style.cursor = "pointer";
+                                                    v.e.style.width = "fit-content"
+                                                    v.e.style.position = "relative";
+                                                    v.e.style.zIndex = "100";
 
-                                                    anime({
-                                                        opacity: 1,
-                                                        targets: v.e,
-                                                        translateY: [300, 0],
-                                                        duration: 1000,
-                                                        direction: 'alternate',
-                                                        easing: 'easeInQuad',
-                                                        loop: false
-                                                    });
-                                                }
+                                                    // Inner text - option:--
+                                                    let ve = v.e;
+                                                    let option1 = document.createElement('div');
+                                                    option1.classList = "option1";
+                                                    option1.innerHTML = ` <h1 class="option1-h1">What</h1> `
+                                                    option1.style.position = "absolute";
+                                                    option1.style.top = "-14%";
+                                                    option1.style.left = "20%";
+                                                    option1.style.textAlign = "center";
+                                                    ve.appendChild(option1);
+                                                },
+
+                                                "onClick": (v = {}) => { alert("Option 1") }
                                             });
+                                        }, 3000);
+
+                                        // Option 2:-
+                                        setTimeout(() => {
+                                            let line2 = document.createElement('div');
+                                            line2.classList = "line2";
+                                            line2.style.backgroundColor = "#8D8282";
+                                            line2.style.height = "0.5vh";
+                                            line2.style.width = "0.5vw";
+                                            line2.style.position = "absolute";
+                                            line2.style.top = "18%";
+                                            line2.style.right = "98%";
+                                            line2.style.zIndex = "100";
+                                            // line2.style.transform = "rotate(-30deg)";
+                                            innerLineCont.appendChild(line2);
+
+                                            anime({
+                                                targets: line2,
+                                                width: '24%',
+                                                rotate: -20,
+                                                easing: 'easeInOutQuad',
+                                                direction: 'alternate',
+                                                duration: 500,
+                                                loop: false
+                                            });
+
+                                            mArtBox_evnt.add_svg({
+                                                "w": `14vw`,
+                                                "h": `8vh`,
+                                                "x": 10,  //-->
+                                                "y": 38,  //--> position absolute makes error here//
+                                                "e": mE,
+                                                "src": `${m_asset_path}/option_bg.svg`
+                                            }, {
+                                                "onLoad": (v = {}) => {
+                                                    v.e.style.position = "relative";
+                                                    v.e.style.width = "fit-content"
+                                                    v.e.style.cursor = "pointer";
+                                                    v.e.style.zIndex = "100";
+
+                                                    // Inner text - option:--
+                                                    let ve = v.e;
+                                                    let option2 = document.createElement('div');
+                                                    option2.classList = "option2";
+                                                    option2.innerHTML = ` <h1 class="option2-h1">What</h1> `
+                                                    option2.style.position = "absolute";
+                                                    option2.style.top = "-14%";
+                                                    option2.style.left = "20%";
+                                                    option2.style.textAlign = "center";
+                                                    ve.appendChild(option2);
+                                                },
+
+                                                "onClick": (v = {}) => { alert(" 2") }
+                                            });
+                                        }, 4000);
+
+                                        // Option 3:-
+                                        setTimeout(() => {
+                                            let line3 = document.createElement('div');
+                                            line3.classList = "line3";
+                                            line3.style.backgroundColor = "#8D8282";
+                                            line3.style.height = "0.5vh";
+                                            line3.style.width = "0.5vw";
+                                            line3.style.position = "absolute";
+                                            line3.style.top = "18%";
+                                            line3.style.left = "10%";
+                                            line3.style.zIndex = "-1";
+                                            // line3.style.transform = "rotate(-30deg)";
+                                            innerLineCont.appendChild(line3);
+
+                                            anime({
+                                                targets: line3,
+                                                width: '23%',
+                                                easing: 'easeInOutQuad',
+                                                direction: 'alternate',
+                                                rotate: 17,
+                                                duration: 500,
+                                                loop: false
+                                            });
+                                            mArtBox_evnt.add_svg({
+                                                "w": `14vw`,
+                                                "h": `8vh`,
+                                                "x": 75,  //-->
+                                                "y": 27,  //--> position absolute makes error here//
+                                                "e": mE,
+                                                "src": `${m_asset_path}/option_bg.svg`
+                                            }, {
+                                                "onLoad": (v = {}) => {
+                                                    v.e.style.cursor = "pointer";
+                                                    v.e.style.width = "fit-content"
+                                                    v.e.style.position = "relative";
+                                                    v.e.style.zIndex = "100";
+
+                                                    // Inner text - option:--
+                                                    let ve = v.e;
+                                                    let option3 = document.createElement('div');
+                                                    option3.classList = "option3";
+                                                    option3.innerHTML = ` <h1 class="option3-h1">What</h1> `
+                                                    option3.style.position = "absolute";
+                                                    option3.style.top = "-14%";
+                                                    option3.style.left = "20%";
+                                                    option3.style.textAlign = "center";
+                                                    ve.appendChild(option3);
+                                                },
+
+                                                "onClick": (v = {}) => { alert(" 3") }
+                                            });
+                                        }, 5000);
+
+                                        // Option 4:-
+                                        setTimeout(() => {
+                                            let line4 = document.createElement('div');
+                                            line4.classList = "line4";
+                                            line4.style.backgroundColor = "#8D8282";
+                                            line4.style.height = "0.5vh";
+                                            line4.style.width = "0.5vw";
+                                            line4.style.position = "absolute";
+                                            line4.style.top = "-4%";
+                                            line4.style.right = "98%";
+                                            line4.style.zIndex = "100";
+                                            // line4.style.transform = "rotate(-30deg)";
+                                            innerLineCont.appendChild(line4);
+
+                                            anime({
+                                                targets: line4,
+                                                width: '24%',
+                                                easing: 'easeInOutQuad',
+                                                direction: 'alternate',
+                                                rotate: 21,
+                                                duration: 500,
+                                                loop: false
+                                            });
+
+                                            mArtBox_evnt.add_svg({
+                                                "w": `14vw`,
+                                                "h": `8vh`,
+                                                "x": 10,  //-->
+                                                "y": -18.5,  //--> position absolute makes error here//
+                                                "e": mE,
+                                                "src": `${m_asset_path}/option_bg.svg`
+                                            }, {
+                                                "onLoad": (v = {}) => {
+                                                    v.e.style.cursor = "pointer";
+                                                    v.e.style.width = "fit-content"
+                                                    v.e.style.position = "relative";
+                                                    v.e.style.zIndex = "100";
+
+                                                    // Inner text - option:--
+                                                    let ve = v.e;
+                                                    let option4 = document.createElement('div');
+                                                    option4.classList = "option4";
+                                                    option4.innerHTML = ` <h1 class="option4-h1">What</h1> `
+                                                    option4.style.position = "absolute";
+                                                    option4.style.top = "-14%";
+                                                    option4.style.left = "20%";
+                                                    option4.style.textAlign = "center";
+                                                    ve.appendChild(option4);
+                                                },
+
+                                                "onClick": (v = {}) => { alert("Option 4") }
+                                            });
+                                        }, 6000);
+
+                                        setTimeout(() => {
+                                            on_scr_end();
+                                        }, 10000);
+                                    },
+
+                                });
+
+                                // on_scr_end..
+                                let on_scr_end = () => {
+                                    let timeline = anime.timeline();
+                                    timeline.add({
+                                        targets: mScr,
+                                        opacity: 0,
+                                        duration: 3000,
+                                        easing: 'easeOutExpo',
+                                        update: function (anim) {
+                                            // mSendCB(`on_scr_end`, {});
+                                            console.log(anim.progress);
+
+                                            if (anim.progress > 0) {
+                                                anime.remove(mScr);
+                                                mScr.remove();
+                                                //send cb..
+                                                mSendCB(`on_scr_end`, {});
+                                            }
                                         },
-
                                     });
+                                };
+                            };
 
-                                    // Question Marks & Options div:--
-                                    mArtBox_evnt.add_svg({
-                                        "w": `12vw`,
-                                        "h": `19vh`,
-                                        "x": 44,  //-->
-                                        "y": 50,  //--> position absolute makes error here//
-                                        "e": mE,
-                                        "src": `${m_asset_path}/question_mark.svg`
-                                    }, {
-                                        "onLoad": (v = {}) => {
-                                            // console.log(v.e);
-                                            v.e.style.height = `100vh`;
-                                            v.e.style.opacity = `0`;
-                                            setTimeout(() => {
-                                                anime({
-                                                    opacity: 1,
-                                                    targets: v.e,
-                                                    scale: [0, 1],
-                                                    duration: 500,
-                                                    direction: 'alternate',
-                                                    easing: 'easeInQuad',
-                                                    loop: false
-                                                });
-                                            }, 1000);
+                            mSet(mScr);
+                        }
+                    },
 
-                                            let ve = v.e;
-                                            let lineCont = document.createElement('div');
-                                            lineCont.classList = "line-cont";
-                                            lineCont.style.position = "absolute";
-                                            lineCont.style.top = "0";
-                                            lineCont.style.left = "0";
-                                            lineCont.style.zIndex = "100";
-                                            ve.appendChild(lineCont);
+                    // Screen-6 ------------------------------
+                    {
+                        "name": "Screen 6",
+                        "key": "scr_6",
+                        "set": (k, v, thisItem) => {
+                            console.log(thisItem);
+                            //--reset--// [START]
+                            v["e"].innerHTML = ``; //reset
 
-                                            let innerLineCont = document.createElement('div');
-                                            innerLineCont.classList = "inner-line-cont";
-                                            // innerLineCont.style.position = "relative";
-
-                                            innerLineCont.style.marginTop = "10vh";
-                                            innerLineCont.style.height = "90vh";
-                                            innerLineCont.style.width = "100vw";
-                                            lineCont.appendChild(innerLineCont);
-
-                                            // Option 1:-
-                                            setTimeout(() => {
-                                                let line1 = document.createElement('div');
-                                                line1.classList = "line1";
-                                                line1.style.backgroundColor = "#8D8282";
-                                                line1.style.height = "1vh";
-                                                line1.style.width = "1vw";
-                                                line1.style.position = "absolute";
-                                                line1.style.top = "-5%";
-                                                line1.style.left = "10%";
-                                                line1.style.zIndex = "-1";
-                                                // line1.style.transform = "rotate(-30deg)";
-                                                innerLineCont.appendChild(line1);
-
-                                                anime({
-                                                    targets: line1,
-                                                    width: '23%',
-                                                    rotate: -25,
-                                                    easing: 'easeInOutQuad',
-                                                    direction: 'alternate',
-                                                    duration: 500,
-                                                    loop: false
-                                                });
-
-                                                mArtBox_evnt.add_svg({
-                                                    "w": `14vw`,
-                                                    "h": `8vh`,
-                                                    "x": 74,  //-->
-                                                    "y": 6,  //--> position absolute makes error here//
-                                                    "e": mE,
-                                                    "src": `${m_asset_path}/option_bg.svg`
-                                                }, {
-                                                    "onLoad": (v = {}) => {
-                                                        v.e.style.cursor = "pointer";
-                                                        v.e.style.width = "fit-content"
-                                                        v.e.style.position = "relative";
-                                                        v.e.style.zIndex = "100";
-
-                                                        // Inner text - option:--
-                                                        let ve = v.e;
-                                                        let option1 = document.createElement('div');
-                                                        option1.classList = "option1";
-                                                        option1.innerHTML = ` <h1 class="option1-h1">What</h1> `
-                                                        option1.style.position = "absolute";
-                                                        option1.style.top = "-14%";
-                                                        option1.style.left = "20%";
-                                                        option1.style.textAlign = "center";
-                                                        ve.appendChild(option1);
-                                                    },
-
-                                                    "onClick": (v = {}) => { alert("Option 1") }
-                                                });
-                                            }, 3000);
-
-                                            // Option 2:-
-                                            setTimeout(() => {
-                                                let line2 = document.createElement('div');
-                                                line2.classList = "line2";
-                                                line2.style.backgroundColor = "#8D8282";
-                                                line2.style.height = "1vh";
-                                                line2.style.width = "1vw";
-                                                line2.style.position = "absolute";
-                                                line2.style.top = "18%";
-                                                line2.style.right = "98%";
-                                                line2.style.zIndex = "100";
-                                                // line2.style.transform = "rotate(-30deg)";
-                                                innerLineCont.appendChild(line2);
-
-                                                anime({
-                                                    targets: line2,
-                                                    width: '24%',
-                                                    rotate: -20,
-                                                    easing: 'easeInOutQuad',
-                                                    direction: 'alternate',
-                                                    duration: 500,
-                                                    loop: false
-                                                });
-
-                                                mArtBox_evnt.add_svg({
-                                                    "w": `14vw`,
-                                                    "h": `8vh`,
-                                                    "x": 10,  //-->
-                                                    "y": 38,  //--> position absolute makes error here//
-                                                    "e": mE,
-                                                    "src": `${m_asset_path}/option_bg.svg`
-                                                }, {
-                                                    "onLoad": (v = {}) => {
-                                                        v.e.style.position = "relative";
-                                                        v.e.style.width = "fit-content"
-                                                        v.e.style.cursor = "pointer";
-                                                        v.e.style.zIndex = "100";
-
-                                                        // Inner text - option:--
-                                                        let ve = v.e;
-                                                        let option2 = document.createElement('div');
-                                                        option2.classList = "option2";
-                                                        option2.innerHTML = ` <h1 class="option2-h1">What</h1> `
-                                                        option2.style.position = "absolute";
-                                                        option2.style.top = "-14%";
-                                                        option2.style.left = "20%";
-                                                        option2.style.textAlign = "center";
-                                                        ve.appendChild(option2);
-                                                    },
-
-                                                    "onClick": (v = {}) => { alert(" 2") }
-                                                });
-                                            }, 4000);
-
-                                            // Option 3:-
-                                            setTimeout(() => {
-                                                let line3 = document.createElement('div');
-                                                line3.classList = "line3";
-                                                line3.style.backgroundColor = "#8D8282";
-                                                line3.style.height = "1vh";
-                                                line3.style.width = "1vw";
-                                                line3.style.position = "absolute";
-                                                line3.style.top = "18%";
-                                                line3.style.left = "10%";
-                                                line3.style.zIndex = "-1";
-                                                // line3.style.transform = "rotate(-30deg)";
-                                                innerLineCont.appendChild(line3);
-
-                                                anime({
-                                                    targets: line3,
-                                                    width: '23%',
-                                                    easing: 'easeInOutQuad',
-                                                    direction: 'alternate',
-                                                    rotate: 17,
-                                                    duration: 500,
-                                                    loop: false
-                                                });
-                                                mArtBox_evnt.add_svg({
-                                                    "w": `14vw`,
-                                                    "h": `8vh`,
-                                                    "x": 75,  //-->
-                                                    "y": 27,  //--> position absolute makes error here//
-                                                    "e": mE,
-                                                    "src": `${m_asset_path}/option_bg.svg`
-                                                }, {
-                                                    "onLoad": (v = {}) => {
-                                                        v.e.style.cursor = "pointer";
-                                                        v.e.style.width = "fit-content"
-                                                        v.e.style.position = "relative";
-                                                        v.e.style.zIndex = "100";
-
-                                                        // Inner text - option:--
-                                                        let ve = v.e;
-                                                        let option3 = document.createElement('div');
-                                                        option3.classList = "option3";
-                                                        option3.innerHTML = ` <h1 class="option3-h1">What</h1> `
-                                                        option3.style.position = "absolute";
-                                                        option3.style.top = "-14%";
-                                                        option3.style.left = "20%";
-                                                        option3.style.textAlign = "center";
-                                                        ve.appendChild(option3);
-                                                    },
-
-                                                    "onClick": (v = {}) => { alert(" 3") }
-                                                });
-                                            }, 5000);
-
-                                            // Option 4:-
-                                            setTimeout(() => {
-                                                let line4 = document.createElement('div');
-                                                line4.classList = "line4";
-                                                line4.style.backgroundColor = "#8D8282";
-                                                line4.style.height = "1vh";
-                                                line4.style.width = "1vw";
-                                                line4.style.position = "absolute";
-                                                line4.style.top = "-4%";
-                                                line4.style.right = "98%";
-                                                line4.style.zIndex = "100";
-                                                // line4.style.transform = "rotate(-30deg)";
-                                                innerLineCont.appendChild(line4);
-
-                                                anime({
-                                                    targets: line4,
-                                                    width: '24%',
-                                                    easing: 'easeInOutQuad',
-                                                    direction: 'alternate',
-                                                    rotate: 21,
-                                                    duration: 500,
-                                                    loop: false
-                                                });
-
-                                                mArtBox_evnt.add_svg({
-                                                    "w": `14vw`,
-                                                    "h": `8vh`,
-                                                    "x": 10,  //-->
-                                                    "y": -18.5,  //--> position absolute makes error here//
-                                                    "e": mE,
-                                                    "src": `${m_asset_path}/option_bg.svg`
-                                                }, {
-                                                    "onLoad": (v = {}) => {
-                                                        v.e.style.cursor = "pointer";
-                                                        v.e.style.width = "fit-content"
-                                                        v.e.style.position = "relative";
-                                                        v.e.style.zIndex = "100";
-
-                                                        // Inner text - option:--
-                                                        let ve = v.e;
-                                                        let option4 = document.createElement('div');
-                                                        option4.classList = "option4";
-                                                        option4.innerHTML = ` <h1 class="option4-h1">What</h1> `
-                                                        option4.style.position = "absolute";
-                                                        option4.style.top = "-14%";
-                                                        option4.style.left = "20%";
-                                                        option4.style.textAlign = "center";
-                                                        ve.appendChild(option4);
-                                                    },
-
-                                                    "onClick": (v = {}) => { alert(" 4") }
-                                                });
-                                            }, 6000);
-                                        },
-
-                                    });
-
+                            //mSendCB..
+                            let mSendCB = (cb_name, p = {}) => {
+                                if (v["value"].hasOwnProperty("cb")) {
+                                    if (v["value"]["cb"].hasOwnProperty(cb_name)) {
+                                        v["value"]["cb"][cb_name](p);
+                                    }
                                 }
+                            };
+
+
+                            //set..
+                            let mScr = document.createElement("div");
+                            v["e"].appendChild(mScr);
+                            mScr.style.height = `100vh`;
+                            mScr.style.width = `100%`;
+                            mScr.style.overflow = `hidden`;
+
+                            //set..
+                            let mSet = (mE = document.body) => {
+                                // Score and Round Play:--
+                                //set..[Svg].. 
+                                mArtBox_evnt.add_svg({
+                                    "w": `100%`,
+                                    "h": `96vh`,
+                                    "e": mE,
+                                    "src": `${m_asset_path}/8.12.svg`
+                                }, {
+                                    "onLoad": (v = {}) => {
+                                        // //set..[Svg].. recommended
+                                        mArtBox_evnt.add_svg({
+                                            "w": `45vh`,
+                                            "h": `50vh`,
+                                            "x": 40,
+                                            "y": 10,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Rectangle9.svg`
+                                        }
+                                        );
+
+                                        // //set..[Svg].. online
+                                        mArtBox_evnt.add_svg({
+                                            "w": `30vh`,
+                                            "h": `5vh`,
+                                            "x": 43.8,
+                                            "y": 14,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Congratulations!.svg`
+                                        }
+                                        );
+
+                                        // //set..[Svg].. grading
+                                        mArtBox_evnt.add_svg({
+                                            "w": `15vh`,
+                                            "h": `2vh`,
+                                            "x": 47.5,
+                                            "y": 20,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/RoundCleared.svg`
+                                        }
+                                        );
+
+                                        mArtBox_evnt.add_svg({
+                                            "w": `55vh`,
+                                            "h": `12vh`,
+                                            "x": 37.5,
+                                            "y": 26,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Vector74.svg`
+                                        }
+                                        );
+
+                                        mArtBox_evnt.add_svg({
+                                            "w": `8vh`,
+                                            "h": `8vh`,
+                                            "x": 45,
+                                            "y": 27.2,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Star3.svg`
+                                        }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": `8vh`,
+                                            "h": `8vh`,
+                                            "x": 49.5,
+                                            "y": 26.2,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Star1.svg`
+                                        }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": `8vh`,
+                                            "h": `8vh`,
+                                            "x": 54,
+                                            "y": 27.1,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Star2.svg`
+                                        }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": `15vh`,
+                                            "h": `5vh`,
+                                            "x": 47,
+                                            "y": 44,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Score_ 49.svg`
+                                        }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": `15vh`,
+                                            "h": `3vh`,
+                                            "x": 47,
+                                            "y": 53,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Time_ 00_30.svg`
+                                        }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": ``,
+                                            "h": ``,
+                                            "x": 25,
+                                            "y": 14,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/bolt.svg`
+                                        }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": ``,
+                                            "h": ``,
+                                            "x": 8,
+                                            "y": 37,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/bolt.svg`
+                                        }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": ``,
+                                            "h": ``,
+                                            "x": 25,
+                                            "y": 54,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/bolt.svg`
+                                        }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": ``,
+                                            "h": ``,
+                                            "x": 8,
+                                            "y": 82,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/bolt.svg`
+                                        }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": `45vh`,
+                                            "h": `10vh`,
+                                            "x": 40,
+                                            "y": 72,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Rectangle3.svg`
+                                        }
+                                        );
+
+                                        // btn:-
+                                        mArtBox_evnt.add_svg({
+                                            "w": `28vh`,
+                                            "h": `4vh`,
+                                            "x": 44,
+                                            "y": 75,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/NextRound.svg`
+                                        }, {
+                                            "onClick": (v = {}) => {
+                                                nextRoundBtn();
+                                            }
+                                        }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": ``,
+                                            "h": ``,
+                                            "x": 87,
+                                            "y": 14,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/bolt.svg`
+                                        }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": ``,
+                                            "h": ``,
+                                            "x": 70,
+                                            "y": 37,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/bolt.svg`
+                                        }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": ``,
+                                            "h": ``,
+                                            "x": 87,
+                                            "y": 54,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/bolt.svg`
+                                        }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": ``,
+                                            "h": ``,
+                                            "x": 70,
+                                            "y": 82,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/bolt.svg`
+                                        });
+
+                                        let nextRoundBtn = () => {
+                                            v.e.style.opacity = "0";
+                                            v.e.remove();
+                                            on_scr_end();
+                                        }
+                                    }
+                                });
+
+                                // on_scr_end..
+                                let on_scr_end = () => {
+                                    let timeline = anime.timeline();
+                                    timeline.add({
+                                        targets: mScr,
+                                        opacity: 0,
+                                        duration: 3000,
+                                        easing: 'easeOutExpo',
+                                        update: function (anim) {
+                                            // mSendCB(`on_scr_end`, {});
+                                            console.log(anim.progress);
+
+                                            if (anim.progress > 0) {
+                                                anime.remove(mScr);
+                                                mScr.remove();
+                                                //send cb..
+                                                mSendCB(`on_scr_end`, {});
+                                            }
+                                        },
+                                    });
+                                };
 
                             };
                             mSet(mScr);
                         }
-                    }
+                    },
+
+                    // Screen-7 ------------------------------
+                    {
+                        "name": "Screen 7",
+                        "key": "scr_7",
+                        "set": (k, v, thisItem) => {
+                            console.log(thisItem);
+                            //--reset--// [START]
+                            v["e"].innerHTML = ``; //reset
+
+                            //mSendCB..
+                            let mSendCB = (cb_name, p = {}) => {
+                                if (v["value"].hasOwnProperty("cb")) {
+                                    if (v["value"]["cb"].hasOwnProperty(cb_name)) {
+                                        v["value"]["cb"][cb_name](p);
+                                    }
+                                }
+                            };
+
+
+                            //set..
+                            let mScr = document.createElement("div");
+                            v["e"].appendChild(mScr);
+                            mScr.style.height = `100vh`;
+                            mScr.style.width = `100%`;
+                            mScr.style.overflow = `hidden`;
+
+
+                            //set..
+                            let mSet = (mE = document.body) => {
+                                    // Ready-set-go Loading:--
+
+                                    //set..[Svg]..  
+                                    mArtBox_evnt.add_svg({
+                                        "w": `100%`,
+                                        "h": `95vh`,
+                                        "e": mE,
+                                        "src": `${m_asset_path}/8.12.svg`
+                                    }, {
+                                        "onLoad": (v = {}) => {
+                                            mArtBox_evnt.add_svg({
+                                                "w": `45vh`,
+                                                "h": `45vh`,
+                                                "x": 39,
+                                                "y": 25,
+                                                "e": mE,
+                                                "src": `${m_asset_path}/circle.svg`
+                                            },
+                                                {
+                                                    "onLoad": (v = {}) => {
+                                                        let timeline = anime.timeline();
+                                                        // timeline.add({
+                                                        //     targets: v.e,
+                                                        //     opacity: [1, 0],});
+                                                        setTimeout(() => {
+                                                            mArtBox_evnt.add_animation({
+                                                                "e": v.e,
+                                                                "type": "animate__zoomOut",
+    
+                                                            }),
+                                                                timeline.add({
+                                                                    targets: v.e,
+                                                                    opacity: [1, 0],
+                                                                });
+                                                        }, 1000)
+                                                    }
+                                                }
+                                            );
+                                            mArtBox_evnt.add_svg({
+                                                "w": `15vh`,
+                                                "h": `8vh`,
+                                                "x": 46.5,
+                                                "y": 42.2,
+                                                "e": mE,
+                                                "src": `${m_asset_path}/GET.svg`
+                                            },
+                                                {
+                                                    "onLoad": (v = {}) => {
+                                                        let timeline = anime.timeline();
+                                                        // timeline.add({
+                                                        //     targets: v.e,
+                                                        //     opacity: [1, 0],});
+                                                        setTimeout(() => {
+                                                            mArtBox_evnt.add_animation({
+                                                                "e": v.e,
+                                                                "type": "animate__zoomOut",
+    
+                                                            }),
+                                                                timeline.add({
+                                                                    targets: v.e,
+                                                                    opacity: [1, 0],
+                                                                });
+                                                        }, 1000)
+                                                    }
+                                                }
+                                            );
+                                            mArtBox_evnt.add_svg({
+                                                "w": `20vh`,
+                                                "h": `20vh`,
+                                                "x": 45.5, //45.5
+                                                "y": 37.5, //37.5
+                                                "e": mE,
+                                                "src": `${m_asset_path}/smallBall.svg`
+                                            },
+                                                {
+                                                    "onLoad": (v = {}) => {
+                                                        let timeline = anime.timeline();
+                                                        timeline.add({
+                                                            targets: v.e,
+                                                            opacity: [1, 0],
+                                                        });
+                                                        setTimeout(() => {
+                                                            v.e.classList.add("animate__animated", "animate__bounceIn"),
+                                                                v.e.style.setProperty('--animate-duration', '2s');
+                                                            v.e.addEventListener('animationend', () => {
+                                                                v.e.style.visibility = "hidden";
+                                                            });
+                                                        }, 1000)
+                                                    }
+                                                }
+                                            );
+                                            mArtBox_evnt.add_svg({
+                                                "w": `2vh`,
+                                                "h": `2vh`,
+                                                "x": 52.5, //45.5
+                                                "y": 40.5, //37.5
+                                                "e": mE,
+                                                "src": `${m_asset_path}/Ellipse3.svg`
+                                            },
+                                                {
+                                                    "onLoad": (v = {}) => {
+                                                        let timeline = anime.timeline();
+                                                        timeline.add({
+                                                            targets: v.e,
+                                                            opacity: [1, 0],
+                                                        });
+                                                        setTimeout(() => {
+                                                            v.e.classList.add("animate__animated", "animate__bounceIn"),
+                                                                v.e.style.setProperty('--animate-duration', '2s');
+                                                            v.e.addEventListener('animationend', () => {
+                                                                v.e.style.visibility = "hidden";
+                                                            });
+                                                        }, 1000)
+                                                    }
+                                                }
+                                            );
+                                            mArtBox_evnt.add_svg({
+                                                "w": `45vh`,
+                                                "h": `45vh`,
+                                                "x": 39,
+                                                "y": 25,
+                                                "e": mE,
+                                                "src": `${m_asset_path}/circle.svg`
+                                            },
+                                                {
+                                                    "onLoad": (v = {}) => {
+                                                        let timeline = anime.timeline();
+                                                        timeline.add({
+                                                            targets: v.e,
+                                                            opacity: [1, 0],
+                                                        });
+                                                        setTimeout(() => {
+                                                            v.e.classList.add("animate__animated", "animate__bounceIn"),
+                                                                v.e.style.setProperty('--animate-duration', '2s');
+                                                            v.e.addEventListener('animationend', () => {
+                                                                v.e.classList.add("animate__animated", "animate__zoomOut")
+                                                            });
+                                                        }, 2500)
+                                                    }
+                                                }
+                                            );
+                                            mArtBox_evnt.add_svg({
+                                                "w": `15vh`,
+                                                "h": `8vh`,
+                                                "x": 46.5,
+                                                "y": 42.2,
+                                                "e": mE,
+                                                "src": `${m_asset_path}/SET.svg`
+                                            },
+                                                {
+                                                    "onLoad": (v = {}) => {
+                                                        let timeline = anime.timeline();
+                                                        timeline.add({
+                                                            targets: v.e,
+                                                            opacity: [0],
+                                                        });
+                                                        setTimeout(() => {
+                                                            v.e.classList.add("animate__animated", "animate__bounceIn"),
+                                                                v.e.style.setProperty('--animate-duration', '2s');
+                                                            v.e.addEventListener('animationend', () => {
+                                                                v.e.classList.add("animate__animated", "animate__zoomOut")
+                                                            });
+                                                        }, 2500)
+                                                    }
+                                                }
+                                            );
+                                            mArtBox_evnt.add_svg({
+                                                "w": `20vh`,
+                                                "h": `20vh`,
+                                                "x": 45.5, //45.5
+                                                "y": 37.5, //37.5
+                                                "e": mE,
+                                                "src": `${m_asset_path}/smallBall.svg`
+                                            },
+                                                {
+                                                    "onLoad": (v = {}) => {
+                                                        let timeline = anime.timeline();
+                                                        timeline.add({
+                                                            targets: v.e,
+                                                            opacity: [1, 0],
+                                                        });
+                                                        setTimeout(() => {
+                                                            v.e.classList.add("animate__animated", "animate__bounceIn"),
+                                                                v.e.style.setProperty('--animate-duration', '2s');
+                                                            v.e.addEventListener('animationend', () => {
+                                                                v.e.style.visibility = "hidden";
+                                                            });
+                                                        }, 4000)
+                                                    }
+                                                }
+                                            );
+                                            mArtBox_evnt.add_svg({
+                                                "w": `2vh`,
+                                                "h": `2vh`,
+                                                "x": 52.5, //45.5
+                                                "y": 40.5, //37.5
+                                                "e": mE,
+                                                "src": `${m_asset_path}/Ellipse3.svg`
+                                            },
+                                                {
+                                                    "onLoad": (v = {}) => {
+                                                        let timeline = anime.timeline();
+                                                        timeline.add({
+                                                            targets: v.e,
+                                                            opacity: [1, 0],
+                                                        });
+                                                        setTimeout(() => {
+                                                            v.e.classList.add("animate__animated", "animate__bounceIn"),
+                                                                v.e.style.setProperty('--animate-duration', '2s');
+                                                            v.e.addEventListener('animationend', () => {
+                                                                v.e.style.visibility = "hidden";
+                                                            });
+                                                        }, 4000)
+                                                    }
+                                                }
+                                            );
+                                            mArtBox_evnt.add_svg({
+                                                "w": `45vh`,
+                                                "h": `45vh`,
+                                                "x": 39,
+                                                "y": 25,
+                                                "e": mE,
+                                                "src": `${m_asset_path}/circle.svg`
+                                            },
+                                                {
+                                                    "onLoad": (v = {}) => {
+                                                        let timeline = anime.timeline();
+                                                        timeline.add({
+                                                            targets: v.e,
+                                                            opacity: [1, 0],
+                                                        });
+                                                        setTimeout(() => {
+                                                            v.e.classList.add("animate__animated", "animate__bounceIn"),
+                                                                v.e.style.setProperty('--animate-duration', '2s');
+                                                            v.e.addEventListener('animationend', () => {
+                                                                v.e.classList.add("animate__animated", "animate__zoomOut")
+                                                            });
+                                                        }, 5500)
+                                                    }
+                                                }
+                                            );
+                                            mArtBox_evnt.add_svg({
+                                                "w": `15vh`,
+                                                "h": `8vh`,
+                                                "x": 46.5,
+                                                "y": 42.2,
+                                                "e": mE,
+                                                "src": `${m_asset_path}/GO.svg`
+                                            },
+                                                {
+                                                    "onLoad": (v = {}) => {
+                                                        let timeline = anime.timeline();
+                                                        timeline.add({
+                                                            targets: v.e,
+                                                            opacity: [0],
+                                                        });
+                                                        setTimeout(() => {
+                                                            v.e.classList.add("animate__animated", "animate__bounceIn"),
+                                                                v.e.style.setProperty('--animate-duration', '2s');
+                                                            v.e.addEventListener('animationend', () => {
+                                                                v.e.classList.add("animate__animated", "animate__zoomOut")
+                                                            });
+                                                        }, 5500)
+    
+                                                    },
+    
+                                                }
+                                            );
+                                            setTimeout(() => {
+                                                v.e.remove();
+                                            }, 7500);
+                                        }
+                                    });
+    
+                                    // Text-Loading:--
+                                    setTimeout(() => {
+                                        //set..[Svg]..  
+                                        mArtBox_evnt.add_svg({
+                                            "w": `100%`,
+                                            "h": `95vh`,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/8.12.svg`
+                                        }, {
+                                            "onLoad": (v = {}) => {
+    
+                                                //set..[Svg].. recommended
+                                                mArtBox_evnt.add_svg({
+                                                    "w": `18vw`,
+                                                    "h": `8vh`,
+                                                    "x": 10,
+                                                    "y": 10,
+                                                    "e": mE,
+                                                    "src": `${m_asset_path}/recommend.svg`
+                                                }
+                                                    , {
+                                                        "onLoad": (v = {}) => {
+    
+                                                            setTimeout(() => {
+                                                                v.e.classList.add('animate__animated', 'animate__zoomOut');
+                                                                v.e.style.setProperty('--animate-duration', '2s');
+                                                            }, 1000);
+                                                        }
+                                                    }
+                                                );
+    
+                                                //set..[Svg].. online
+                                                mArtBox_evnt.add_svg({
+                                                    "w": `14vw`,
+                                                    "h": `8vh`,
+                                                    "x": 75,
+                                                    "y": 10,
+                                                    "e": mE,
+                                                    "src": `${m_asset_path}/online.svg`
+                                                }
+    
+                                                    , {
+                                                        "onLoad": (v = {}) => {
+    
+                                                            v.e.style.visibility = "hidden";
+                                                            setTimeout(() => {
+                                                                v.e.style.visibility = "visible";
+                                                                v.e.classList.add('animate__animated', 'animate__zoomIn');
+                                                                v.e.style.setProperty('--animate-duration', '2s');
+                                                                v.e.addEventListener('animationend', () => {
+                                                                    v.e.classList.add('animate__animated', 'animate__zoomOut');
+                                                                });
+                                                            }, 2000);
+                                                        }
+                                                    }
+                                                );
+    
+                                                //set..[Svg].. grading
+                                                mArtBox_evnt.add_svg({
+                                                    "w": `14vw`,
+                                                    "h": `8vh`,
+                                                    "x": 40,
+                                                    "y": 40,
+                                                    "e": mE,
+                                                    "src": `${m_asset_path}/grading.svg`
+                                                }
+    
+                                                    , {
+                                                        "onLoad": (v = {}) => {
+                                                            v.e.style.visibility = "hidden";
+                                                            setTimeout(() => {
+                                                                v.e.style.visibility = "visible";
+                                                                v.e.classList.add('animate__animated', 'animate__zoomIn');
+                                                                v.e.style.setProperty('--animate-duration', '2s');
+                                                                v.e.addEventListener('animationend', () => {
+                                                                    v.e.classList.add('animate__animated', 'animate__zoomOut');
+                                                                });
+                                                            }, 4000);
+                                                        }
+                                                    }
+                                                );
+    
+                                                //set..[Svg].. multiple
+                                                mArtBox_evnt.add_svg({
+                                                    "w": `14vw`,
+                                                    "h": `8vh`,
+                                                    "x": 10,
+                                                    "y": 80,
+                                                    "e": mE,
+                                                    "src": `${m_asset_path}/multiple.svg`
+                                                }
+    
+                                                    , {
+                                                        "onLoad": (v = {}) => {
+                                                            v.e.style.visibility = "hidden";
+                                                            setTimeout(() => {
+                                                                v.e.style.visibility = "visible";
+                                                                v.e.classList.add('animate__animated', 'animate__zoomIn');
+                                                                v.e.style.setProperty('--animate-duration', '2s');
+                                                                v.e.addEventListener('animationend', () => {
+                                                                    v.e.classList.add('animate__animated', 'animate__zoomOut');
+                                                                });
+                                                            }, 6000);
+                                                        }
+                                                    }
+    
+                                                );
+    
+    
+                                                //set..[Svg].. save
+                                                mArtBox_evnt.add_svg({
+                                                    "w": `8vw`,
+                                                    "h": `4vh`,
+                                                    "x": 80,
+                                                    "y": 80,
+                                                    "e": mE,
+                                                    "src": `${m_asset_path}/save.svg`
+                                                }
+    
+                                                    , {
+                                                        "onLoad": (v = {}) => {
+                                                            v.e.style.visibility = "hidden";
+                                                            setTimeout(() => {
+                                                                v.e.style.visibility = "visible";
+                                                                v.e.classList.add('animate__animated', 'animate__zoomIn');
+                                                                v.e.style.setProperty('--animate-duration', '2s');
+                                                                v.e.addEventListener('animationend', () => {
+                                                                    v.e.classList.add('animate__animated', 'animate__zoomOut');
+                                                                });
+                                                            }, 8000);
+                                                        }
+                                                    }
+    
+                                                );
+    
+                                                setTimeout(() => {
+                                                    v.e.remove()
+                                                    on_scr_end();
+                                                }, 10000);
+                                            }
+                                        });
+    
+                                    }, 8000);
+    
+                                    // on_scr_end..
+                                    let on_scr_end = () => {
+                                        let timeline = anime.timeline();
+                                        timeline.add({
+                                            targets: mScr,
+                                            opacity: 0,
+                                            duration: 3000,
+                                            easing: 'easeOutExpo',
+                                            update: function (anim) {
+                                                // mSendCB(`on_scr_end`, {});
+                                                console.log(anim.progress);
+    
+                                                if (anim.progress > 0) {
+                                                    anime.remove(mScr);
+                                                    mScr.remove();
+                                                    //send cb..
+                                                    mSendCB(`on_scr_end`, {});
+                                                }
+                                            },
+                                        });
+                                    };
+
+                            };
+                            mSet(mScr);
+                        }
+                    },
+
+                    // Screen-7 ------------------------------
+                    {
+                        "name": "Screen 8",
+                        "key": "scr_8",
+                        "set": (k, v, thisItem) => {
+                            console.log(thisItem);
+                            //--reset--// [START]
+                            v["e"].innerHTML = ``; //reset
+
+                            //mSendCB..
+                            let mSendCB = (cb_name, p = {}) => {
+                                if (v["value"].hasOwnProperty("cb")) {
+                                    if (v["value"]["cb"].hasOwnProperty(cb_name)) {
+                                        v["value"]["cb"][cb_name](p);
+                                    }
+                                }
+                            };
+
+
+                            //set..
+                            let mScr = document.createElement("div");
+                            v["e"].appendChild(mScr);
+                            mScr.style.height = `100vh`;
+                            mScr.style.width = `100%`;
+                            mScr.style.overflow = `hidden`;
+
+
+                            //set..
+                            let mSet = (mE = document.body) => {
+                                // Quiz Tree:--
+                                // Question div:-
+                                mArtBox_evnt.add_svg({
+                                    "w": `80vw`,
+                                    "h": `18vh`,
+                                    // "x": 30,  //-->
+                                    // "y": 30,  //--> position absolute makes error here//
+                                    "e": mE,
+                                    "src": `${m_asset_path}/question_bg.svg`
+                                }, {
+                                    "onLoad": (v = {}) => {
+                                        v.e.style.opacity = "0";
+                                        v.e.style.height = `cal(100vh - 8vh)`;
+                                        v.e.style.display = `flex`;
+                                        v.e.style.justifyContent = `center`;
+                                        v.e.style.marginTop = `8vh`;
+                                        v.e.style.overflow = `hidden`;
+
+                                        // Inner text - ques:--
+                                        let ve = v.e;
+                                        let ques = document.createElement('div');
+                                        ques.classList = "question";
+                                        ques.innerHTML = ` <h1 class="ques-h1">Should automatically starts or not?</h1> `
+
+                                        ques.style.width = "80vw";
+                                        ques.style.height = "15vh";
+                                        ques.style.marginInline = "2vw";
+                                        ques.style.marginBottom = "10px";
+                                        ques.style.position = "absolute";
+                                        ques.style.top = "9vh";
+                                        ques.style.left = "7%";
+                                        ques.style.textAlign = "center";
+                                        ve.appendChild(ques);
+
+                                        setTimeout(() => {
+                                            ques.style.top = "0%";
+                                            anime({
+                                                opacity: 1,
+                                                targets: v.e,
+                                                translateY: [-300, 0],
+                                                duration: 1000,
+                                                direction: 'alternate',
+                                                easing: 'easeInQuad',
+                                                loop: false
+                                            });
+                                        }, 0);
+
+
+                                        // Number circles -bottom:--
+                                        mArtBox_evnt.add_svg({
+                                            "w": `20vw`,
+                                            "h": `9vh`,
+                                            // "x": 40,  //-->
+                                            // "y": 60,  //--> position absolute makes error here//
+                                            "e": mE,
+                                            "src": `${m_asset_path}/number_circles.svg`
+                                        }, {
+                                            "onLoad": (v = {}) => {
+                                                v.e.style.opacity = "0";
+                                                v.e.style.display = 'flex';
+                                                v.e.style.justifyContent = 'center';
+                                                v.e.style.alignItems = 'end';
+                                                v.e.style.overflow = 'hidden';
+                                                v.e.style.position = 'fixed';
+                                                v.e.style.top = '85%';
+                                                v.e.style.left = '40%';
+
+                                                anime({
+                                                    opacity: 1,
+                                                    targets: v.e,
+                                                    translateY: [300, 0],
+                                                    duration: 1000,
+                                                    direction: 'alternate',
+                                                    easing: 'easeInQuad',
+                                                    loop: false
+                                                });
+                                            }
+                                        });
+                                    },
+
+                                });
+
+                                // Question Marks & Options div:-
+                                mArtBox_evnt.add_svg({
+                                    "w": `12vw`,
+                                    "h": `19vh`,
+                                    "x": 44,  //-->
+                                    "y": 50,  //--> position absolute makes error here//
+                                    "e": mE,
+                                    "src": `${m_asset_path}/question_mark.svg`
+                                }, {
+                                    "onLoad": (v = {}) => {
+                                        // console.log(v.e);
+                                        v.e.style.height = `100vh`;
+                                        v.e.style.opacity = `0`;
+                                        setTimeout(() => {
+                                            anime({
+                                                opacity: 1,
+                                                targets: v.e,
+                                                scale: [0, 1],
+                                                duration: 500,
+                                                direction: 'alternate',
+                                                easing: 'easeInQuad',
+                                                loop: false
+                                            });
+                                        }, 1000);
+
+                                        let ve = v.e;
+                                        let lineCont = document.createElement('div');
+                                        lineCont.classList = "line-cont";
+                                        lineCont.style.position = "absolute";
+                                        lineCont.style.top = "0";
+                                        lineCont.style.left = "0";
+                                        lineCont.style.zIndex = "100";
+                                        ve.appendChild(lineCont);
+
+                                        let innerLineCont = document.createElement('div');
+                                        innerLineCont.classList = "inner-line-cont";
+                                        // innerLineCont.style.position = "relative";
+
+                                        innerLineCont.style.marginTop = "10vh";
+                                        innerLineCont.style.height = "90vh";
+                                        innerLineCont.style.width = "100vw";
+                                        lineCont.appendChild(innerLineCont);
+
+                                        // Option 1:-
+                                        setTimeout(() => {
+                                            let line1 = document.createElement('div');
+                                            line1.classList = "line1";
+                                            line1.style.backgroundColor = "#8D8282";
+                                            line1.style.height = "1vh";
+                                            line1.style.width = "1vw";
+                                            line1.style.position = "absolute";
+                                            line1.style.top = "-5%";
+                                            line1.style.left = "10%";
+                                            line1.style.zIndex = "-1";
+                                            // line1.style.transform = "rotate(-30deg)";
+                                            innerLineCont.appendChild(line1);
+
+                                            anime({
+                                                targets: line1,
+                                                width: '23%',
+                                                rotate: -25,
+                                                easing: 'easeInOutQuad',
+                                                direction: 'alternate',
+                                                duration: 500,
+                                                loop: false
+                                            });
+
+                                            mArtBox_evnt.add_svg({
+                                                "w": `14vw`,
+                                                "h": `8vh`,
+                                                "x": 74,  //-->
+                                                "y": 6,  //--> position absolute makes error here//
+                                                "e": mE,
+                                                "src": `${m_asset_path}/option_bg.svg`
+                                            }, {
+                                                "onLoad": (v = {}) => {
+                                                    v.e.style.cursor = "pointer";
+                                                    v.e.style.width = "fit-content"
+                                                    v.e.style.position = "relative";
+                                                    v.e.style.zIndex = "100";
+
+                                                    // Inner text - option:--
+                                                    let ve = v.e;
+                                                    let option1 = document.createElement('div');
+                                                    option1.classList = "option1";
+                                                    option1.innerHTML = ` <h1 class="option1-h1">What</h1> `
+                                                    option1.style.position = "absolute";
+                                                    option1.style.top = "-14%";
+                                                    option1.style.left = "20%";
+                                                    option1.style.textAlign = "center";
+                                                    ve.appendChild(option1);
+                                                },
+
+                                                "onClick": (v = {}) => { alert("Option 1") }
+                                            });
+                                        }, 3000);
+
+                                        // Option 2:-
+                                        setTimeout(() => {
+                                            let line2 = document.createElement('div');
+                                            line2.classList = "line2";
+                                            line2.style.backgroundColor = "#8D8282";
+                                            line2.style.height = "1vh";
+                                            line2.style.width = "1vw";
+                                            line2.style.position = "absolute";
+                                            line2.style.top = "18%";
+                                            line2.style.right = "98%";
+                                            line2.style.zIndex = "100";
+                                            // line2.style.transform = "rotate(-30deg)";
+                                            innerLineCont.appendChild(line2);
+
+                                            anime({
+                                                targets: line2,
+                                                width: '24%',
+                                                rotate: -20,
+                                                easing: 'easeInOutQuad',
+                                                direction: 'alternate',
+                                                duration: 500,
+                                                loop: false
+                                            });
+
+                                            mArtBox_evnt.add_svg({
+                                                "w": `14vw`,
+                                                "h": `8vh`,
+                                                "x": 10,  //-->
+                                                "y": 38,  //--> position absolute makes error here//
+                                                "e": mE,
+                                                "src": `${m_asset_path}/option_bg.svg`
+                                            }, {
+                                                "onLoad": (v = {}) => {
+                                                    v.e.style.position = "relative";
+                                                    v.e.style.width = "fit-content"
+                                                    v.e.style.cursor = "pointer";
+                                                    v.e.style.zIndex = "100";
+
+                                                    // Inner text - option:--
+                                                    let ve = v.e;
+                                                    let option2 = document.createElement('div');
+                                                    option2.classList = "option2";
+                                                    option2.innerHTML = ` <h1 class="option2-h1">What</h1> `
+                                                    option2.style.position = "absolute";
+                                                    option2.style.top = "-14%";
+                                                    option2.style.left = "20%";
+                                                    option2.style.textAlign = "center";
+                                                    ve.appendChild(option2);
+                                                },
+
+                                                "onClick": (v = {}) => { alert(" 2") }
+                                            });
+                                        }, 4000);
+
+                                        // Option 3:-
+                                        setTimeout(() => {
+                                            let line3 = document.createElement('div');
+                                            line3.classList = "line3";
+                                            line3.style.backgroundColor = "#8D8282";
+                                            line3.style.height = "1vh";
+                                            line3.style.width = "1vw";
+                                            line3.style.position = "absolute";
+                                            line3.style.top = "18%";
+                                            line3.style.left = "10%";
+                                            line3.style.zIndex = "-1";
+                                            // line3.style.transform = "rotate(-30deg)";
+                                            innerLineCont.appendChild(line3);
+
+                                            anime({
+                                                targets: line3,
+                                                width: '23%',
+                                                easing: 'easeInOutQuad',
+                                                direction: 'alternate',
+                                                rotate: 17,
+                                                duration: 500,
+                                                loop: false
+                                            });
+                                            mArtBox_evnt.add_svg({
+                                                "w": `14vw`,
+                                                "h": `8vh`,
+                                                "x": 75,  //-->
+                                                "y": 27,  //--> position absolute makes error here//
+                                                "e": mE,
+                                                "src": `${m_asset_path}/option_bg.svg`
+                                            }, {
+                                                "onLoad": (v = {}) => {
+                                                    v.e.style.cursor = "pointer";
+                                                    v.e.style.width = "fit-content"
+                                                    v.e.style.position = "relative";
+                                                    v.e.style.zIndex = "100";
+
+                                                    // Inner text - option:--
+                                                    let ve = v.e;
+                                                    let option3 = document.createElement('div');
+                                                    option3.classList = "option3";
+                                                    option3.innerHTML = ` <h1 class="option3-h1">What</h1> `
+                                                    option3.style.position = "absolute";
+                                                    option3.style.top = "-14%";
+                                                    option3.style.left = "20%";
+                                                    option3.style.textAlign = "center";
+                                                    ve.appendChild(option3);
+                                                },
+
+                                                "onClick": (v = {}) => { alert(" 3") }
+                                            });
+                                        }, 5000);
+
+                                        // Option 4:-
+                                        setTimeout(() => {
+                                            let line4 = document.createElement('div');
+                                            line4.classList = "line4";
+                                            line4.style.backgroundColor = "#8D8282";
+                                            line4.style.height = "1vh";
+                                            line4.style.width = "1vw";
+                                            line4.style.position = "absolute";
+                                            line4.style.top = "-4%";
+                                            line4.style.right = "98%";
+                                            line4.style.zIndex = "100";
+                                            // line4.style.transform = "rotate(-30deg)";
+                                            innerLineCont.appendChild(line4);
+
+                                            anime({
+                                                targets: line4,
+                                                width: '24%',
+                                                easing: 'easeInOutQuad',
+                                                direction: 'alternate',
+                                                rotate: 21,
+                                                duration: 500,
+                                                loop: false
+                                            });
+
+                                            mArtBox_evnt.add_svg({
+                                                "w": `14vw`,
+                                                "h": `8vh`,
+                                                "x": 10,  //-->
+                                                "y": -18.5,  //--> position absolute makes error here//
+                                                "e": mE,
+                                                "src": `${m_asset_path}/option_bg.svg`
+                                            }, {
+                                                "onLoad": (v = {}) => {
+                                                    v.e.style.cursor = "pointer";
+                                                    v.e.style.width = "fit-content"
+                                                    v.e.style.position = "relative";
+                                                    v.e.style.zIndex = "100";
+
+                                                    // Inner text - option:--
+                                                    let ve = v.e;
+                                                    let option4 = document.createElement('div');
+                                                    option4.classList = "option4";
+                                                    option4.innerHTML = ` <h1 class="option4-h1">What</h1> `
+                                                    option4.style.position = "absolute";
+                                                    option4.style.top = "-14%";
+                                                    option4.style.left = "20%";
+                                                    option4.style.textAlign = "center";
+                                                    ve.appendChild(option4);
+                                                },
+
+                                                "onClick": (v = {}) => { alert("Option 4") }
+                                            });
+                                        }, 6000);
+
+                                        setTimeout(() => {
+                                            on_scr_end();
+                                        }, 7000);
+                                    },
+
+                                });
+
+                                // on_scr_end..
+                                let on_scr_end = () => {
+                                    let timeline = anime.timeline();
+                                    timeline.add({
+                                        targets: mScr,
+                                        opacity: 0,
+                                        duration: 3000,
+                                        easing: 'easeOutExpo',
+                                        update: function (anim) {
+                                            // mSendCB(`on_scr_end`, {});
+                                            console.log(anim.progress);
+
+                                            if (anim.progress > 0) {
+                                                anime.remove(mScr);
+                                                mScr.remove();
+                                                //send cb..
+                                                mSendCB(`on_scr_end`, {});
+                                            }
+                                        },
+                                    });
+                                };
+                            };
+                            mSet(mScr);
+                        }
+                    },
+
+                    // Screen-9 ------------------------------
+                    {
+                        "name": "Screen 9",
+                        "key": "scr_9",
+                        "set": (k, v, thisItem) => {
+                            console.log(thisItem);
+                            //--reset--// [START]
+                            v["e"].innerHTML = ``; //reset
+
+                            //mSendCB..
+                            let mSendCB = (cb_name, p = {}) => {
+                                if (v["value"].hasOwnProperty("cb")) {
+                                    if (v["value"]["cb"].hasOwnProperty(cb_name)) {
+                                        v["value"]["cb"][cb_name](p);
+                                    }
+                                }
+                            };
+
+
+                            //set..
+                            let mScr = document.createElement("div");
+                            v["e"].appendChild(mScr);
+                            mScr.style.height = `100%`;
+                            mScr.style.width = `100%`;
+                            mScr.style.overflow = `hidden`;
+
+
+                            //set..
+                            let mSet = (mE = document.body) => {
+                                // Score and Round Play:--
+                                //set..[Svg]..  
+                                mArtBox_evnt.add_svg({
+                                    "w": `100%`,
+                                    "h": `95vh`,
+                                    "e": mE,
+                                    "src": `${m_asset_path}/8.12.svg`
+                                }, {
+                                    "onLoad": (v = {}) => {
+                                        // //set..[Svg].. recommended
+                                        mArtBox_evnt.add_svg({
+                                            "w": `45vh`,
+                                            "h": `50vh`,
+                                            "x": 40,
+                                            "y": 10,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Rectangle9.svg`
+                                        }
+                                            , {
+                                                "onLoad": (v = {}) => {
+                                                    //left to right animation
+                                                    //anim
+
+                                                    // setTimeout(() => {
+
+
+                                                    //     let timeline = anime.timeline();
+                                                    //     timeline.add({
+                                                    //         targets: v.e,
+                                                    //         opacity: [1, 0],
+
+                                                    //         duration: 500,
+                                                    //         easing: 'easeOutCirc',
+
+                                                    //         // update: function(anim) { 
+                                                    //         //   //console.log(anim.progress); 
+                                                    //         // },
+                                                    //         // complete: function(anim) {
+                                                    //         //   anime.remove(v.e);
+                                                    //         // }
+                                                    //     }
+                                                    //     );
+                                                    // }, 1000);
+
+                                                }
+                                            }
+                                        );
+
+                                        // //set..[Svg].. online
+                                        mArtBox_evnt.add_svg({
+                                            "w": `30vh`,
+                                            "h": `5vh`,
+                                            "x": 43.8,
+                                            "y": 14,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Congratulations!.svg`
+                                        }
+
+                                            , {
+                                                //     "onLoad": (v = {}) => {
+
+                                                //         let timeline = anime.timeline();
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],});
+
+                                                //         setTimeout(() => {
+
+                                                //             timeline.add({
+                                                //               targets: v.e,
+                                                //               opacity: [1, 0],
+
+                                                //               duration: 500,
+                                                //               easing: 'easeOutCirc',
+
+                                                //               // update: function(anim) { 
+                                                //               //   //console.log(anim.progress); 
+                                                //               // },
+                                                //               // complete: function(anim) {
+                                                //               //   anime.remove(v.e);
+                                                //               // }
+                                                //             }
+                                                //           );
+                                                //       }, 1000);
+
+                                                //               }
+                                            }
+                                        );
+
+
+                                        // //set..[Svg].. grading
+                                        mArtBox_evnt.add_svg({
+                                            "w": `15vh`,
+                                            "h": `2vh`,
+                                            "x": 47.5,
+                                            "y": 20,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/RoundCleared.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+                                            }
+                                        );
+
+                                        mArtBox_evnt.add_svg({
+                                            "w": `55vh`,
+                                            "h": `12vh`,
+                                            "x": 37.5,
+                                            "y": 26,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Vector74.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+                                            }
+                                        );
+
+                                        mArtBox_evnt.add_svg({
+                                            "w": `8vh`,
+                                            "h": `8vh`,
+                                            "x": 45,
+                                            "y": 27.2,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Star3.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+                                            }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": `8vh`,
+                                            "h": `8vh`,
+                                            "x": 49.5,
+                                            "y": 26.2,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Star1.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+                                            }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": `8vh`,
+                                            "h": `8vh`,
+                                            "x": 54,
+                                            "y": 27.1,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Star2.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+                                            }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": `15vh`,
+                                            "h": `5vh`,
+                                            "x": 47,
+                                            "y": 44,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Score_ 49.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+                                            }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": `15vh`,
+                                            "h": `3vh`,
+                                            "x": 47,
+                                            "y": 53,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Time_ 00_30.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+                                            }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": ``,
+                                            "h": ``,
+                                            "x": 25,
+                                            "y": 10,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/celebration.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+                                            }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": ``,
+                                            "h": ``,
+                                            "x": 8,
+                                            "y": 25,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/celebration.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+                                            }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": ``,
+                                            "h": ``,
+                                            "x": 25,
+                                            "y": 40,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/celebration.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+                                            }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": ``,
+                                            "h": ``,
+                                            "x": 8,
+                                            "y": 55,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/celebration.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+                                            }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": `45vh`,
+                                            "h": `10vh`,
+                                            "x": 52,
+                                            "y": 72,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Rectangle3.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+                                            }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": `45vh`,
+                                            "h": `10vh`,
+                                            "x": 27,
+                                            "y": 72,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Rectangle2.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+                                            }
+                                        );
+
+                                        // Btn:--
+                                        mArtBox_evnt.add_svg({
+                                            "w": `28vh`,
+                                            "h": `4vh`,
+                                            "x": 56,
+                                            "y": 75,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/NextLevel.svg`
+                                        }, {
+                                            "onClick": (v = {}) => {
+                                                nextLevelBtn();
+                                            }
+                                        });
+
+                                        mArtBox_evnt.add_svg({
+                                            "w": `28vh`,
+                                            "h": `4vh`,
+                                            "x": 31,
+                                            "y": 75,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/Previouslevel.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+                                            }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": ``,
+                                            "h": ``,
+                                            "x": 87,
+                                            "y": 10,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/celebration.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+                                            }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": ``,
+                                            "h": ``,
+                                            "x": 70,
+                                            "y": 25,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/celebration.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+                                            }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": ``,
+                                            "h": ``,
+                                            "x": 87,
+                                            "y": 40,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/celebration.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+                                            }
+                                        );
+                                        mArtBox_evnt.add_svg({
+                                            "w": ``,
+                                            "h": ``,
+                                            "x": 70,
+                                            "y": 55,
+                                            "e": mE,
+                                            "src": `${m_asset_path}/celebration.svg`
+                                        }
+
+                                            , {
+                                                // "onLoad": (v = {}) => {
+                                                //     //left to right animation
+
+                                                //     let timeline = anime.timeline();
+                                                //     timeline.add({
+                                                //         target:v.e,
+                                                //         opacity:[0]
+                                                //     })
+                                                //     setTimeout(() => {
+
+                                                //         timeline.add({
+                                                //             targets: v.e,
+                                                //             opacity: [1, 0],
+
+                                                //             duration: 500,
+                                                //             easing: 'easeOutCirc',
+
+                                                //             // update: function(anim) { 
+                                                //             //   //console.log(anim.progress); 
+                                                //             // },
+                                                //             // complete: function(anim) {
+                                                //             //   anime.remove(v.e);
+                                                //             // }
+                                                //         }
+                                                //         );
+                                                //     }, 1000);
+
+                                                // }
+
+                                            }
+                                        );
+
+                                        let nextLevelBtn = () => {
+                                            v.e.remove();
+                                        }
+                                    }
+                                });
+                            };
+                            mSet(mScr);
+                        }
+                    },
                 ]
             },
 
@@ -3060,8 +4045,8 @@ let mGameRenderer = (data = {}, mDOM) => {
     // //mStart..
     let mStart = (mE) => {
         // set..
-        let scr_5 = () => {
-            mDta_main.screens.set(`scr_5`, {
+        let scr_9 = () => {
+            mDta_main.screens.set(`scr_9`, {
                 "e": mE,
                 "value": {
                     //here you can assign your variable based on your requirements..
@@ -3073,6 +4058,67 @@ let mGameRenderer = (data = {}, mDOM) => {
                 }
             });
         };
+
+        let scr_8 = () => {
+            mDta_main.screens.set(`scr_8`, {
+                "e": mE,
+                "value": {
+                    //here you can assign your variable based on your requirements..
+                    //callback..
+                    "cb": {
+                        "on_scr_end": (p = {}) => {
+                            scr_9();
+                        },
+                    }
+                }
+            });
+        };
+
+        let scr_7 = () => {
+            mDta_main.screens.set(`scr_7`, {
+                "e": mE,
+                "value": {
+                    //here you can assign your variable based on your requirements..
+                    //callback..
+                    "cb": {
+                        "on_scr_end": (p = {}) => {
+                            scr_8();
+                        },
+                    }
+                }
+            });
+        };
+      
+        let scr_6 = () => {
+            mDta_main.screens.set(`scr_6`, {
+                "e": mE,
+                "value": {
+                    //here you can assign your variable based on your requirements..
+                    //callback..
+                    "cb": {
+                        "on_scr_end": (p = {}) => {
+                            scr_7();
+                        },
+                    }
+                }
+            });
+        };
+       
+        let scr_5 = () => {
+            mDta_main.screens.set(`scr_5`, {
+                "e": mE,
+                "value": {
+                    //here you can assign your variable based on your requirements..
+                    //callback..
+                    "cb": {
+                        "on_scr_end": (p = {}) => {
+                            scr_6();
+                        },
+                    }
+                }
+            });
+        };
+
         let scr_4 = () => {
             mDta_main.screens.set(`scr_4`, {
                 "e": mE,
@@ -3087,6 +4133,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                 }
             });
         };
+
         let scr_3 = () => {
             mDta_main.screens.set(`scr_3`, {
                 "e": mE,
@@ -3101,6 +4148,7 @@ let mGameRenderer = (data = {}, mDOM) => {
                 }
             });
         };
+
         let scr_2 = () => {
             mDta_main.screens.set(`scr_2`, {
                 "e": mE,

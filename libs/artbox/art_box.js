@@ -1,11 +1,10 @@
-// import { anime } from "../anime/anime.min.js";
+// import { anime } from "../../third-party/anime-js/anime.js";
 //import sheet from "../../third-party/animate/animate.min.css" assert { type: 'css' };
 //document.adoptedStyleSheets = [sheet];
 //shadowRoot.adoptedStyleSheets = [sheet];
 /*console.log(animate);*/
 //console.log(sheet);
 import { animate } from "../animate-css/animate.min.js";
-
 const style_animate = document.createElement("style");
 style_animate.innerHTML = animate;
 document.head.appendChild(style_animate);
@@ -240,7 +239,10 @@ let art_box = () => {
 
           /*
           --USAGE--
-
+          mArtBox_evnt.add_animation({
+                "e":mScene,
+                "type":"animate__bounce"
+          });
           */
         }
 

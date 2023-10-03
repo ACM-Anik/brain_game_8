@@ -3,7 +3,7 @@ import { art_box } from "../libs/artbox/art_box.js";
 
 
 const mArtBox = art_box();
-const m_asset_path = '../assets/';
+const m_asset_path = '../assets';
 
 // Renderer:--
 let mGameRenderer = (data = {}, mDOM) => {
@@ -74,71 +74,68 @@ let mGameRenderer = (data = {}, mDOM) => {
 
                             //set..
                             let mSet = (mE = document.body) => {
-                                // mE.innerHTML = `
-                                //     <div class="s1">
-                                //         <div class="s1-frame1"></div>
-                                //         <div class="s1-frame2"></div>
-                                //         <div class="s1-data">
-                                //             <h1 class="s1-heading">Word Velocity</h1>
-                                //             <button class="s1-btn">New Game</button>
+                                /* mE.innerHTML = `
+                                    <div class="s1">
+                                        <div class="s1-frame1"></div>
+                                        <div class="s1-frame2"></div>
+                                        <div class="s1-data">
+                                            <h1 class="s1-heading">Word Velocity</h1>
+                                            <button class="s1-btn">New Game</button>
 
-                                //             <div class="overlay-Loading">
-                                //                 <div class="loading-spans">
-                                //                     <span class="loading-ball"></span>
-                                //                     <span class="loading-text">Loading</span>
-                                //                 </div>
-                                //             </div>
-                                //         </div>
-                                //     </div>
-                                // `;
+                                            <div class="overlay-Loading">
+                                                <div class="loading-spans">
+                                                    <span class="loading-ball"></span>
+                                                    <span class="loading-text">Loading</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
 
-                                // const screenElement = mE.querySelector('.s1');
-                                // if (screenElement) {
-                                //     screenElement.style.opacity = 1;
-                                //     let s1Btn = screenElement.querySelector(".s1-btn");
-                                //     s1Btn.addEventListener('click', function () {
-                                //         s1Btn.style.opacity = 0;
+                                const screenElement = mE.querySelector('.s1');
+                                if (screenElement) {
+                                    screenElement.style.opacity = 1;
+                                    let s1Btn = screenElement.querySelector(".s1-btn");
+                                    s1Btn.addEventListener('click', function () {
+                                        s1Btn.style.opacity = 0;
 
-                                //         // Overlay Loading:-
-                                //         const overlayLoading = screenElement.querySelector('.overlay-Loading');
-                                //         const loadingBall = screenElement.querySelector('.loading-ball');
+                                        // Overlay Loading:-
+                                        const overlayLoading = screenElement.querySelector('.overlay-Loading');
+                                        const loadingBall = screenElement.querySelector('.loading-ball');
 
-                                //         if (overlayLoading) {
+                                        if (overlayLoading) {
 
-                                //             overlayLoading.style.animation = 'zoomInLoading 1s 1s both';
+                                            overlayLoading.style.animation = 'zoomInLoading 1s 1s both';
 
-                                //             setTimeout(() => {
-                                //                 loadingBall.style.width = '100%';
-                                //                 zoomOutLoading();
-                                //             }, 1000);
+                                            setTimeout(() => {
+                                                loadingBall.style.width = '100%';
+                                                zoomOutLoading();
+                                            }, 1000);
 
-                                //             // zoomOutLoading
-                                //             const zoomOutLoading = () => {
-                                //                 overlayLoading.style.animation = 'zoomOutLoading 1s 3s both';
+                                            // zoomOutLoading
+                                            const zoomOutLoading = () => {
+                                                overlayLoading.style.animation = 'zoomOutLoading 1s 3s both';
 
-                                //             }
-                                //             setInterval(() => {
-                                //                 screenElement.style.opacity = 0;
+                                            }
+                                            setInterval(() => {
+                                                screenElement.style.opacity = 0;
 
-                                //                 mSendCB("on_new_btn_clc", {});
+                                                mSendCB("on_new_btn_clc", {});
 
-                                //             }, 5000);
-                                //         }
-                                //     });
+                                            }, 5000);
+                                        }
+                                    });
 
-                                // }
-
-                                //set..[Svg]..  
+                                } 
+                                */
 
 
                                 //set..[Svg]..
-
-
                                 mArtBox_evnt.add_svg({
                                     "w": `100%`,
                                     "h": `95vh`,
                                     "e": mE,
-                                    "src": `../assets/bg_images/first_scr_bg.svg`
+                                    "src": `${m_asset_path}/bg_images/first_scr_bg.svg`
                                 });
 
                                 // text 
@@ -161,7 +158,6 @@ let mGameRenderer = (data = {}, mDOM) => {
                                     "src": `../assets/btn_starting.svg`
                                 }, {
                                     "onLoad": (v = {}) => {
-                                        //set..
                                         // console.log(v.e);
                                         v.e.style.opacity = `0`;
                                         v.e.style.cursor = `pointer`;
@@ -245,7 +241,7 @@ let mGameRenderer = (data = {}, mDOM) => {
 
                                                         setTimeout(() => {
                                                             on_scr_end();
-                                                        }, 3000);
+                                                        }, 1000);
                                                     }
 
                                                 }
@@ -257,23 +253,11 @@ let mGameRenderer = (data = {}, mDOM) => {
 
                                 // on_scr_end..
                                 let on_scr_end = () => {
-                                    let timeline = anime.timeline();
-                                    timeline.add({
-                                        targets: mScr,
-                                        opacity: 0,
-                                        duration: 2000,
-                                        easing: 'easeOutExpo',
-                                        update: function (anim) {
-                                            console.log(anim.progress); 
-                                            if (anim.progress > 0) {
-                                                anime.remove(mScr);
-                                                mScr.remove();
-                                                //send cb..
-                                                mSendCB(`on_scr_end`, {});
-
-                                            }
-                                        },
-                                    });
+                                    setTimeout(() => {
+                                        // mScr.remove();
+                                        //send cb..
+                                        mSendCB(`on_scr_end`, {});
+                                    }, 500);
                                 };
                             };
 
@@ -311,126 +295,148 @@ let mGameRenderer = (data = {}, mDOM) => {
                             //set..
                             let mSet = (mE = document.body) => {
 
-                                // mE.innerHTML = `
-                                // <div class="s2">
-                                //     <div className="part1">
-                                //         <img class="s2-img" src="../assets/word_with_leaf.svg" alt="Leaf & Text">
-                                //     </div>
-
-                                //     <div class="part2">
-                                //         <div class="border border1">
-                                //             <div class="border border2">
-                                //                 <p class="s2-about-title">About</p>
-                                //                 <div class="s2-carousel-cont">
-                                //                     <div class="s2-carousel-slider">
-                                //                         <div class="s2-carousel-item active-item">
-                                //                             <p>Choose your speed and difficulty levels.</p>
-                                //                         </div>
-                                //                         <div class="s2-carousel-item">
-                                //                             <p>Focus and track the word.</p>
-                                //                         </div>
-                                //                         <div class="s2-carousel-item">
-                                //                             <p>Answer the questions.</p>
-                                //                         </div>
-                                //                     </div>
-                                //                     <div class="s2-carousel-dots">
-                                //                         <span class="dot1"></span>
-                                //                         <span class="dot2"></span>
-                                //                         <span class="dot3"></span>
-                                //                     </div>
-                                //                     <p class="s2-btn">Skip</p>
-                                //                 </div>
-                                //             </div>
-                                //         </div>
-                                //     </div>
-                                // </div>
-                                // `;
-
-                                // const screenElement = mE.querySelector('.s2');
-                                // if (screenElement) {
-                                //     screenElement.style.opacity = 1;
-
-                                //     const s2Img = screenElement.querySelector(".s2-img");
-                                //     s2Img.style.animation = "s2-zoomIn 1s 1s both";
-
-                                //     setTimeout(() => {
-                                //         s2Img.style.animation = "s2-zoomOut 1s 1s both";
-
-                                //     }, 2000);
-
-
-                                //     setTimeout(() => {
-                                //         const Part2About = screenElement.querySelector(".part2");
-                                //         Part2About.style.opacity = 1;
-
-                                //         const dots = screenElement.querySelectorAll(".s2-carousel-dots span");
-                                //         const itemImg = screenElement.querySelectorAll(".s2-carousel-item");
-
-                                //         let dotClicked = false;
-                                //         let currentIndex = 0;
-
-                                //         dots.forEach((dot, index) => {
-                                //             dot.addEventListener("click", function () {
-                                //                 dots.forEach(dot => dot.classList.remove("active-dot"));
-                                //                 itemImg.forEach(image => image.classList.remove("active-item"));
-
-                                //                 dot.classList.add("active-dot");
-                                //                 itemImg[index].classList.add("active-item");
-
-                                //                 dotClicked = true;
-                                //                 currentIndex = index;
-                                //             });
-                                //         });
-
-                                //         const skipButton = screenElement.querySelector(".s2-btn");
-
-                                //         skipButton.addEventListener("click", function () {
-                                //             itemImg[currentIndex].classList.remove("active-item");
-                                //             currentIndex = (currentIndex + 1) % itemImg.length;
-                                //             itemImg[currentIndex].classList.add("active-item");
-                                //             dots.forEach(dot => dot.classList.remove("active-dot"));
-                                //             dots[currentIndex].classList.add("active-dot");
-
-                                //             console.log(currentIndex);
-                                //             if (currentIndex === 2) {
-                                //                 currentIndex = 3;
-                                //             }
-
-                                //             if (currentIndex === 3) {
-                                //                 setTimeout(() => {
-                                //                     screenElement.style.opacity = 0;
-                                //                     mSendCB("on_new_btn_clc", {});
-                                //                 }, 1000);
-                                //             }
-                                //         });
-
-                                //     }, 4000);
-
-                                // };
-
-
-
+                                /* mE.innerHTML = `
+                                 <div class="s2">
+                                     <div className="part1">
+                                         <img class="s2-img" src="../assets/word_with_leaf.svg" alt="Leaf & Text">
+                                     </div>
+ 
+                                     <div class="part2">
+                                         <div class="border border1">
+                                             <div class="border border2">
+                                                 <p class="s2-about-title">About</p>
+                                                 <div class="s2-carousel-cont">
+                                                     <div class="s2-carousel-slider">
+                                                         <div class="s2-carousel-item active-item">
+                                                             <p>Choose your speed and difficulty levels.</p>
+                                                         </div>
+                                                         <div class="s2-carousel-item">
+                                                             <p>Focus and track the word.</p>
+                                                         </div>
+                                                         <div class="s2-carousel-item">
+                                                             <p>Answer the questions.</p>
+                                                         </div>
+                                                     </div>
+                                                     <div class="s2-carousel-dots">
+                                                         <span class="dot1"></span>
+                                                         <span class="dot2"></span>
+                                                         <span class="dot3"></span>
+                                                     </div>
+                                                     <p class="s2-btn">Skip</p>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 `;
+ 
+                                 const screenElement = mE.querySelector('.s2');
+                                 if (screenElement) {
+                                     screenElement.style.opacity = 1;
+ 
+                                     const s2Img = screenElement.querySelector(".s2-img");
+                                     s2Img.style.animation = "s2-zoomIn 1s 1s both";
+ 
+                                     setTimeout(() => {
+                                         s2Img.style.animation = "s2-zoomOut 1s 1s both";
+ 
+                                     }, 2000);
+ 
+ 
+                                     setTimeout(() => {
+                                         const Part2About = screenElement.querySelector(".part2");
+                                         Part2About.style.opacity = 1;
+ 
+                                         const dots = screenElement.querySelectorAll(".s2-carousel-dots span");
+                                         const itemImg = screenElement.querySelectorAll(".s2-carousel-item");
+ 
+                                         let dotClicked = false;
+                                         let currentIndex = 0;
+ 
+                                         dots.forEach((dot, index) => {
+                                             dot.addEventListener("click", function () {
+                                                 dots.forEach(dot => dot.classList.remove("active-dot"));
+                                                 itemImg.forEach(image => image.classList.remove("active-item"));
+ 
+                                                 dot.classList.add("active-dot");
+                                                 itemImg[index].classList.add("active-item");
+ 
+                                                 dotClicked = true;
+                                                 currentIndex = index;
+                                             });
+                                         });
+ 
+                                         const skipButton = screenElement.querySelector(".s2-btn");
+ 
+                                         skipButton.addEventListener("click", function () {
+                                             itemImg[currentIndex].classList.remove("active-item");
+                                             currentIndex = (currentIndex + 1) % itemImg.length;
+                                             itemImg[currentIndex].classList.add("active-item");
+                                             dots.forEach(dot => dot.classList.remove("active-dot"));
+                                             dots[currentIndex].classList.add("active-dot");
+ 
+                                             console.log(currentIndex);
+                                             if (currentIndex === 2) {
+                                                 currentIndex = 3;
+                                             }
+ 
+                                             if (currentIndex === 3) {
+                                                 setTimeout(() => {
+                                                     screenElement.style.opacity = 0;
+                                                     mSendCB("on_new_btn_clc", {});
+                                                 }, 1000);
+                                             }
+                                         });
+ 
+                                     }, 4000);
+ 
+                                 }; 
+                             */
 
 
-
-                                // // Word & Leaf Loading:-
-                                
-                                mArtBox_evnt.add_svg({ //Word & Leaf Loading
-                                    "w": `40vw`,
+                                // Word & Leaf Loading:-
+                                mArtBox_evnt.add_svg({
+                                    "w": `38vw`,
                                     "h": `40vh`,
-                                    "x": 30,
-                                    "y": 30,
+                                    // "x": 30,
+                                    // "y": 30,  --> position absolute makes error here//
                                     "e": mE,
-                                    "src": `../assets/btn_starting.svg`
+                                    "src": `${m_asset_path}/word_with_leaf.svg`
                                 }, {
                                     "onLoad": (v = {}) => {
                                         console.log(v.e);
-                                        v.e.style.opacity = `1`;
+                                        v.e.style.opacity = `0`;
+                                        v.e.style.display = `flex`;
+                                        v.e.style.justifyContent = `center`;
+                                        v.e.style.alignItems = `center`;
+                                        v.e.style.marginTop = `30vh`;
 
-                                        // anime({
-                                        //     targets: v.e,
-                                        //     scale: 20,
-                                        //   });
+                                        setTimeout(() => {
+                                            anime({
+                                                opacity: 1,
+                                                targets: v.e,
+                                                scale: [0, 1],
+                                                duration: 1500,
+                                                direction: 'alternate',
+                                                easing: 'easeOutExpo',
+                                                loop: false
+                                            });
+                                        }, 1000);
+
+                                        anime({
+                                            targets: v.e,
+                                            scale: [1, 0],
+                                            duration: 1000,
+                                            direction: 'alternate',
+                                            easing: 'easeOutQuad',
+                                            loop: false
+                                        });
+
+                                        setTimeout(() => {
+                                            console.log(v.e);
+                                            v.e.style.opacity = "0";
+                                            mSendCB(`on_scr_end`, {});
+                                        }, 4000);
                                     },
 
                                 });
@@ -448,8 +454,6 @@ let mGameRenderer = (data = {}, mDOM) => {
                                 //         "onLoad": (v = {}) => {
                                 //             console.log(v.e);
 
-
-
                                 //         }
                                 //     }
                                 // );
@@ -460,171 +464,95 @@ let mGameRenderer = (data = {}, mDOM) => {
                         }
                     },
 
+
                     // Screen-3 ----------
-                    // {
-                    //     "name": "Screen 3",
-                    //     "key": "scr_3",
-                    //     "set": (k, v, thisItem) => {
-                    //         console.log(thisItem);
-                    //         //--reset--// [START]
-                    //         v["el"].innerHTML = ``; //reset
+                    /*{
+                         "name": "Screen 3",
+                         "key": "scr_3",
+                         "set": (k, v, thisItem) => {
+                             console.log(thisItem);
+                             //--reset--// [START]
+                             v["el"].innerHTML = ``; //reset
+ 
+                             //set..
+                             let mScr = document.createElement("div");
+                             mScr.classList.add('mScr');
+                             v["el"].appendChild(mScr);
+ 
+                             //set..
+                             let mSet = (mE = document.body) => {
+                                 mE.innerHTML = `
+                                 <div class="s3">
+                                     <div class="img-container">
+                                         <img class="s3-img1" src="../assets/rotate_90.svg" alt="rotate">
+                                     </div>
+ 
+                                     <!-- Difficulty Level --!>
+                                     <div class="s3-data1">
+ 
+                                         <div class="s3-div">
+                                             <h1 class="s3-h1">Difficulty Level</h1>
+                                             <div class="s3-image-cont">
+                                                 <div class="s3-circle1">5</div>
+                                                 <img class="s3-level" src="../assets/line_4.svg" alt="">
+                                             </div>
+                                         </div>
+ 
+                                         <div class="s3-div">
+                                             <h1 class="s3-h1">Speed</h1>
+                                             <div class="s3-image-cont">
+                                                 <div class="s3-circle2">10</div>
+                                                 <img class="circle" src="../assets/line_4.svg" alt="">
+                                             </div>
+                                         </div>
+ 
+                                         <button class="s3-btn">Let;s play</button>
+                                     </div>
+                                 </div>
+ 
+                                 `;
+ 
+                                 setTimeout(() => {
+                                     const screenElement = mE.querySelector('.scr3');
+                                     if (screenElement) {
+                                         screenElement.style.opacity = 1;
+ 
+                                         const scr5Data = screenElement.querySelector('.s3-data');
+                                         if (s3Data) {
+                                             // s3Data.style.animation = 's3-zoomIn2 2s 2s both';
+                                         }
+ 
+ 
+                                         const img2 = screenElement.querySelector('.overlay-data2-img');
+                                         if (img2) {
+                                             // img2.style.animation = 'zoomIn2 2s 2s both';
+                                         }
+ 
+ 
+                                         // Start
+                                         setTimeout(() => {
+                                             const s3Data1 = mE.querySelector(".s3-data1");
+ 
+                                             // s3Data1.style.animation = "s3-moveOutData 2s ease-in";
+ 
+                                             setTimeout(() => {
+                                                 s3Data1.style.opacity = 0;
+                                             }, 2000);
+                                         }, 4000);
+ 
+                                     }
+                                 }, 0);
+ 
+ 
+                             };
+                             mSet(mScr);
+                         }
+                     },*/
 
-                    //         //set..
-                    //         let mScr = document.createElement("div");
-                    //         mScr.classList.add('mScr');
-                    //         v["el"].appendChild(mScr);
-
-                    //         //set..
-                    //         let mSet = (mE = document.body) => {
-                    //             mE.innerHTML = `
-                    //             <div class="s3">
-                    //                 <div class="img-container">
-                    //                     <img class="s3-img1" src="../assets/rotate_90.svg" alt="rotate">
-                    //                 </div>
-
-                    //                 <!-- Difficulty Level --!>
-                    //                 <div class="s3-data1">
-
-                    //                     <div class="s3-div">
-                    //                         <h1 class="s3-h1">Difficulty Level</h1>
-                    //                         <div class="s3-image-cont">
-                    //                             <div class="s3-circle1">5</div>
-                    //                             <img class="s3-level" src="../assets/line_4.svg" alt="">
-                    //                         </div>
-                    //                     </div>
-
-                    //                     <div class="s3-div">
-                    //                         <h1 class="s3-h1">Speed</h1>
-                    //                         <div class="s3-image-cont">
-                    //                             <div class="s3-circle2">10</div>
-                    //                             <img class="circle" src="../assets/line_4.svg" alt="">
-                    //                         </div>
-                    //                     </div>
-
-                    //                     <button class="s3-btn">Let;s play</button>
-                    //                 </div>
-                    //             </div>
-
-                    //             `;
-
-                    //             setTimeout(() => {
-                    //                 const screenElement = mE.querySelector('.scr3');
-                    //                 if (screenElement) {
-                    //                     screenElement.style.opacity = 1;
-
-                    //                     const scr5Data = screenElement.querySelector('.s3-data');
-                    //                     if (s3Data) {
-                    //                         // s3Data.style.animation = 's3-zoomIn2 2s 2s both';
-                    //                     }
-
-
-                    //                     const img2 = screenElement.querySelector('.overlay-data2-img');
-                    //                     if (img2) {
-                    //                         // img2.style.animation = 'zoomIn2 2s 2s both';
-                    //                     }
-
-
-                    //                     // Start
-                    //                     setTimeout(() => {
-                    //                         const s3Data1 = mE.querySelector(".s3-data1");
-
-                    //                         // s3Data1.style.animation = "s3-moveOutData 2s ease-in";
-
-                    //                         setTimeout(() => {
-                    //                             s3Data1.style.opacity = 0;
-                    //                         }, 2000);
-                    //                     }, 4000);
-
-                    //                 }
-                    //             }, 0);
-
-
-                    //         };
-                    //         mSet(mScr);
-                    //     }
-                    // },
                     // Screen-4 -----------
-                    // {
-                    //     "name": "Screen 4",
-                    //     "key": "scr_4",
-                    //     "set": (k, v, thisItem) => {
-                    //         console.log(thisItem);
-                    //         //--reset--// [START]
-                    //         v["el"].innerHTML = ``; //reset
-
-                    //         //set..
-                    //         let mScr = document.createElement("div");
-                    //         mScr.classList.add('mScr');
-                    //         v["el"].appendChild(mScr);
-
-
-                    //         //set..
-                    //         let mSet = (mE = document.body) => {
-                    //             mE.innerHTML = `
-                    //             <div class="scr4 scr-transition scr4-bg-img">
-                    //                 <div class="img-container">
-                    //                     <img class="scr4-img1" src="../assets/rotate_90.svg" alt="img">
-                    //                 </div>
-
-                    //                 <div class="scr4-data scr4-data2-dis">
-                    //                     <h1 class="scr4-h1">Game Explanation</h1>
-                    //                     <div>
-                    //                         <h2 class="scr4-h2">Answer The MCQ</h2>
-                    //                         <img class="scr4-img2" src="../assets/answer_list.svg" alt="list">
-                    //                     </div>
-                    //                     <button onclick="next" class="scr4-skip-btn">Skip</button>
-
-                    //                 </div>
-                    //             </div>
-
-                    //             `;
-
-                    //             setTimeout(() => {
-                    //                 const screenElement = mE.querySelector('.scr4');
-                    //                 if (screenElement) {
-                    //                     screenElement.style.opacity = 1;
-
-                    //                     // const scr4Data = screenElement.querySelector('.scr4-data');
-                    //                     // if (scr4Data) {
-                    //                     //     scr4Data.style.animation = 'scr4-zoomIn2 2s 2s both';
-                    //                     // }
-
-
-                    //                     // Skip 
-                    //                     setTimeout(() => {
-                    //                         const scr4Data1 = mE.querySelector(".scr4-data1-dis");
-                    //                         const scr4Data2 = mE.querySelector(".scr4-data2-dis");
-
-                    //                         // let scr4Data2Dis = () => {
-                    //                         scr4Data1.style.opacity = 0;
-                    //                         scr4Data2.style.opacity = 1;
-
-                    //                         setTimeout(() => {
-                    //                             scr4Data2.style.opacity = 0;
-                    //                             rotateTheImg1();
-                    //                         }, 2000);
-                    //                         // }
-                    //                         const scr4Img1 = mE.querySelector(".scr4-img1");
-                    //                         let rotateTheImg1 = () => {
-                    //                             if (scr4Img1) {
-                    //                                 scr4Img1.style.animation = 'scr4-rotate1 2s 1s both';
-                    //                             }
-                    //                         }
-
-                    //                     }, 4000);
-
-
-                    //                 }
-                    //             }, 0);
-
-                    //         };
-                    //         mSet(mScr);
-                    //     }
-                    // },
-                    // Screen-5 -----------
-                    {
-                        "name": "Screen 5",
-                        "key": "scr_5",
+                    /*{
+                        "name": "Screen 4",
+                        "key": "scr_4",
                         "set": (k, v, thisItem) => {
                             console.log(thisItem);
                             //--reset--// [START]
@@ -633,20 +561,101 @@ let mGameRenderer = (data = {}, mDOM) => {
                             //set..
                             let mScr = document.createElement("div");
                             mScr.classList.add('mScr');
-                            mScr.style.height = `100%`;
-                            mScr.style.width = `100%`;
                             v["el"].appendChild(mScr);
 
 
                             //set..
                             let mSet = (mE = document.body) => {
                                 mE.innerHTML = `
+                                <div class="scr4 scr-transition scr4-bg-img">
+                                    <div class="img-container">
+                                        <img class="scr4-img1" src="../assets/rotate_90.svg" alt="img">
+                                    </div>
+
+                                    <div class="scr4-data scr4-data2-dis">
+                                        <h1 class="scr4-h1">Game Explanation</h1>
+                                        <div>
+                                            <h2 class="scr4-h2">Answer The MCQ</h2>
+                                            <img class="scr4-img2" src="../assets/answer_list.svg" alt="list">
+                                        </div>
+                                        <button onclick="next" class="scr4-skip-btn">Skip</button>
+
+                                    </div>
+                                </div>
+
+                                `;
+
+                                setTimeout(() => {
+                                    const screenElement = mE.querySelector('.scr4');
+                                    if (screenElement) {
+                                        screenElement.style.opacity = 1;
+
+                                        // const scr4Data = screenElement.querySelector('.scr4-data');
+                                        // if (scr4Data) {
+                                        //     scr4Data.style.animation = 'scr4-zoomIn2 2s 2s both';
+                                        // }
+
+
+                                        // Skip 
+                                        setTimeout(() => {
+                                            const scr4Data1 = mE.querySelector(".scr4-data1-dis");
+                                            const scr4Data2 = mE.querySelector(".scr4-data2-dis");
+
+                                            // let scr4Data2Dis = () => {
+                                            scr4Data1.style.opacity = 0;
+                                            scr4Data2.style.opacity = 1;
+
+                                            setTimeout(() => {
+                                                scr4Data2.style.opacity = 0;
+                                                rotateTheImg1();
+                                            }, 2000);
+                                            // }
+                                            const scr4Img1 = mE.querySelector(".scr4-img1");
+                                            let rotateTheImg1 = () => {
+                                                if (scr4Img1) {
+                                                    scr4Img1.style.animation = 'scr4-rotate1 2s 1s both';
+                                                }
+                                            }
+
+                                        }, 4000);
+
+
+                                    }
+                                }, 0);
+
+                            };
+                            mSet(mScr);
+                        }
+                    },*/
+
+                    // Screen-5 -----------
+                    {
+                        "name": "Screen 5",
+                        "key": "scr_5",
+                        "set": (k, v, thisItem) => {
+                            console.log(thisItem);
+                            //--reset--// [START]
+                            v["e"].innerHTML = ``; //reset
+
+                            //set..
+                            let mScr = document.createElement("div");
+                            mScr.classList.add('mScr');
+                            mScr.style.height = `100vh`;
+                            mScr.style.width = `100%`;
+                            mScr.style.overflow = `hidden`;
+                            v["e"].appendChild(mScr);
+
+
+                            //set..
+                            let mSet = (mE = document.body) => {
+
+                                /* mE.innerHTML = `
                                 <div class="s5">
                                     <!-- <div>
-                                        <div class=""></div>
-                                        <div class=""></div>
-                                        <div class=""></div>
-                                        <div class=""></div>
+                                        <div class="text_loading1"></div>
+                                        <div class="text_loading2"></div>
+                                        <div class="text_loading3"></div>
+                                        <div class="text_loading4"></div>
                                     </div> -->
 
                                     <div class="s5-data">
@@ -701,9 +710,235 @@ let mGameRenderer = (data = {}, mDOM) => {
                                     if (screenElement) {
                                         screenElement.style.opacity = 1;
 
-
                                     }
-                                }, 0);
+                                }, 0);*/
+
+
+                                // Question div:--
+                                mArtBox_evnt.add_svg({
+                                    "w": `80vw`,
+                                    "h": `18vh`,
+                                    // "x": 30,  //-->
+                                    // "y": 30,  //--> position absolute makes error here//
+                                    "e": mE,
+                                    "src": `${m_asset_path}/question_bg.svg`
+                                }, {
+                                    "onLoad": (v = {}) => {
+                                        console.log(v.e);
+                                        v.e.style.opacity = "0";
+                                        v.e.style.height = `cal(100vh - 8vh)`;
+                                        v.e.style.display = `flex`;
+                                        v.e.style.justifyContent = `center`;
+                                        v.e.style.marginTop = `8vh`;
+                                        v.e.style.overflow = `hidden`;
+
+                                        // Inner text - ques:--
+                                        let ve = v.e;
+                                        let ques = document.createElement('div');
+                                        ques.classList = "question";
+                                        ques.innerHTML = ` <h1 class="ques-h1">Should automatically starts or not?</h1> `
+
+                                        ques.style.width = "80vw";
+                                        ques.style.height = "15vh";
+                                        ques.style.marginInline = "2vw";
+                                        ques.style.marginBottom = "10px";
+                                        ques.style.position = "absolute";
+                                        ques.style.top = "8vh";
+                                        ques.style.left = "7%";
+                                        ques.style.textAlign = "center";
+                                        ve.appendChild(ques);
+
+                                        setTimeout(() => {
+                                            ques.style.top = "0%";
+                                            anime({
+                                                opacity: 1,
+                                                targets: v.e,
+                                                translateY: [-300, 0],
+                                                duration: 1000,
+                                                direction: 'alternate',
+                                                easing: 'easeInQuad',
+                                                loop: false
+                                            });
+                                        }, 0);
+
+
+                                        // Number circles -bottom:--
+                                        mArtBox_evnt.add_svg({
+                                            "w": `20vw`,
+                                            "h": `9vh`,
+                                            // "x": 40,  //-->
+                                            // "y": 60,  //--> position absolute makes error here//
+                                            "e": mE,
+                                            "src": `${m_asset_path}/number_circles.svg`
+                                        }, {
+                                            "onLoad": (v = {}) => {
+                                                v.e.style.opacity = "0";
+                                                v.e.style.height = '35vh';
+                                                v.e.style.display = 'flex';
+                                                v.e.style.justifyContent = 'center';
+                                                v.e.style.alignItems = 'end';
+                                                v.e.style.overflow = 'hidden';
+                                                v.e.style.position = 'fixed';
+                                                v.e.style.top = '60%';
+                                                v.e.style.left = '40%';
+
+
+
+
+                                                anime({
+                                                    opacity: 1,
+                                                    targets: v.e,
+                                                    translateY: [300, 0],
+                                                    duration: 1000,
+                                                    direction: 'alternate',
+                                                    easing: 'easeInQuad',
+                                                    loop: false
+                                                });
+                                            }
+                                        });
+                                    },
+
+                                });
+
+
+                                // Question Marks & Options div:--
+                                mArtBox_evnt.add_svg({
+                                    "w": `14vw`,
+                                    "h": `18vh`,
+                                    "x": 43,  //-->
+                                    "y": 42,  //--> position absolute makes error here//
+                                    "e": mE,
+                                    "src": `${m_asset_path}/question_mark.svg`
+                                }, {
+                                    "onLoad": (v = {}) => {
+                                        console.log(v.e);
+                                        v.e.style.height = `100vh`;
+                                        v.e.style.opacity = `0`;
+                                        setTimeout(() => {
+                                            anime({
+                                                opacity: 1,
+                                                targets: v.e,
+                                                scale: [0, 1],
+                                                duration: 2000,
+                                                direction: 'alternate',
+                                                easing: 'easeInQuad',
+                                                loop: false
+                                            });
+                                        }, 1000);
+
+
+                                        // Option 1:-
+                                        mArtBox_evnt.add_svg({
+                                            "w": `14vw`,
+                                            "h": `8vh`,
+                                            "x": 74,  //-->
+                                            "y": 5,  //--> position absolute makes error here//
+                                            "e": mE,
+                                            "src": `${m_asset_path}/option_bg.svg`
+                                        }, {
+                                            "onLoad": (v = {}) => {
+                                                v.e.style.cursor = "pointer";
+                                                v.e.style.position = "relative";
+                                                // Inner text - option:--
+                                                let ve = v.e;
+                                                let option1 = document.createElement('div');
+                                                option1.classList = "option1";
+                                                option1.innerHTML = ` <h1 class="option1-h1">What</h1> `
+                                                option1.style.position = "absolute";
+                                                option1.style.top = "-15%";
+                                                option1.style.left = "3%";
+                                                option1.style.textAlign = "center";
+                                                ve.appendChild(option1);
+                                            },
+
+                                            "onClick": (v = {}) => { alert("Option 1") }
+                                        });
+
+                                        // Option 2:-
+                                        mArtBox_evnt.add_svg({
+                                            "w": `14vw`,
+                                            "h": `8vh`,
+                                            "x": 10,  //-->
+                                            "y": 30,  //--> position absolute makes error here//
+                                            "e": mE,
+                                            "src": `${m_asset_path}/option_bg.svg`
+                                        }, {
+                                            "onLoad": (v = {}) => {
+                                                v.e.style.cursor = "pointer";
+                                                v.e.style.position = "relative";
+                                                // Inner text - option:--
+                                                let ve = v.e;
+                                                let option2 = document.createElement('div');
+                                                option2.classList = "option2";
+                                                option2.innerHTML = ` <h1 class="option2-h1">What</h1> `
+                                                option2.style.position = "absolute";
+                                                option2.style.top = "-15%";
+                                                option2.style.left = "3%";
+                                                option2.style.textAlign = "center";
+                                                ve.appendChild(option2);
+                                            },
+
+                                            "onClick": (v = {}) => { alert(" 2") }
+                                        });
+
+                                        // Option 3:-
+                                        mArtBox_evnt.add_svg({
+                                            "w": `14vw`,
+                                            "h": `8vh`,
+                                            "x": 75,  //-->
+                                            "y": 19.5,  //--> position absolute makes error here//
+                                            "e": mE,
+                                            "src": `${m_asset_path}/option_bg.svg`
+                                        }, {
+                                            "onLoad": (v = {}) => {
+                                                v.e.style.cursor = "pointer";
+                                                v.e.style.position = "relative";
+                                                // Inner text - option:--
+                                                let ve = v.e;
+                                                let option3 = document.createElement('div');
+                                                option3.classList = "option3";
+                                                option3.innerHTML = ` <h1 class="option3-h1">What</h1> `
+                                                option3.style.position = "absolute";
+                                                option3.style.top = "-15%";
+                                                option3.style.left = "3%";
+                                                option3.style.textAlign = "center";
+                                                ve.appendChild(option3);
+                                            },
+
+                                            "onClick": (v = {}) => { alert(" 3") }
+                                        });
+
+                                        // Option 4:-
+                                        mArtBox_evnt.add_svg({
+                                            "w": `14vw`,
+                                            "h": `8vh`,
+                                            "x": 10,  //-->
+                                            "y": -20,  //--> position absolute makes error here//
+                                            "e": mE,
+                                            "src": `${m_asset_path}/option_bg.svg`
+                                        }, {
+                                            "onLoad": (v = {}) => {
+                                                v.e.style.cursor = "pointer";
+                                                v.e.style.position = "relative";
+                                                // Inner text - option:--
+                                                let ve = v.e;
+                                                let option4 = document.createElement('div');
+                                                option4.classList = "option4";
+                                                option4.innerHTML = ` <h1 class="option4-h1">What</h1> `
+                                                option4.style.position = "absolute";
+                                                option4.style.top = "-15%";
+                                                option4.style.left = "4%";
+                                                option4.style.textAlign = "center";
+                                                ve.appendChild(option4);
+                                            },
+
+                                            "onClick": (v = {}) => { alert(" 4") }
+                                        });
+                                    },
+
+                                });
+
+
 
                             };
                             mSet(mScr);
@@ -879,12 +1114,17 @@ let mGameRenderer = (data = {}, mDOM) => {
                 "e": mE,
                 "value": {
                     //here you can assign your variable based on your requirements..
-
+                    //callback..
+                    "cb": {
+                        "on_scr_end": (p = {}) => {
+                            scr_5();
+                        },
+                    }
                 }
             });
         };
 
-        mDta_main.screens.set(`scr_1`, {
+        mDta_main.screens.set(`scr_5`, {
             "e": mE, //Html-Element
             "value": {
                 //here you can assign your variable based on your requirements..

@@ -6,4 +6,4 @@
 
 
 
-## Technologies:
+## Technologies: Vanilla JavaScript, Anime.js, AnimateCSS etc.
